@@ -27,30 +27,10 @@ window.onload = function() {
 		}
 	);
 
-	/*
-	var particleCount = 100000;
-	var particles = new THREE.Geometry();
+	var clouds = [];
 
-	for(var i = 0; i < particleCount; ++i) {
-
-		var x = Math.random() * window.innerWidth - (window.innerWidth / 2.0);
-		var y = Math.random() * window.innerHeight - (window.innerHeight / 2.0);
-		var z = Math.random() * 400 + 400;
-
-		var particle = new THREE.Vector3(x, y, z);
-
-		particles.vertices.push(particle);
-	}
-
-	var material = new THREE.PointsMaterial({
-		color: 'white',
-		transparent: true,
-		size: 0.1
-	});
-
-	var particleSystem = new THREE.PointCloud(particles, material);
-	scene.add(particleSystem);
-	*/
+	var cloudMovingDirectionX = (Math.random() * 2 - 1) * 0.05;
+	var cloudMovingDirectionY = (Math.random() * 2 - 1) * 0.05;
 
 	loader.load(
 		'img/cloud.png',
@@ -76,6 +56,8 @@ window.onload = function() {
 				plane.position.x = Math.random() * window.innerWidth - (window.innerWidth / 2.0);
 				plane.position.y = Math.random() * window.innerHeight - (window.innerHeight / 2.0);
 				plane.position.z = Math.random() * 300 + 500;
+
+				clouds.push(plane);
 				
 				scene.add(plane);
 			}
@@ -84,6 +66,18 @@ window.onload = function() {
 
 	var render = function () {
 		requestAnimationFrame( render );
+
+		for(var i = 0; i < clouds.length; ++i) {
+			clouds[i].position.x += cloudMovingDirectionX;
+			clouds[i].position.y += cloudMovingDirectionY;
+
+			if(clouds[i].position.x < (-window.innerWidth / 2)) clouds[i].position.x = window.innerWidth / 2;
+			if(clouds[i].position.y < (-window.innerHeight / 2)) clouds[i].position.y = window.innerHeight / 2;
+
+			if(clouds[i].position.x > (window.innerWidth / 2)) clouds[i].position.x = (-window.innerWidth / 2);
+			if(clouds[i].position.y > (window.innerHeight / 2)) clouds[i].position.y = (-window.innerHeight / 2);
+		}
+
 		renderer.render(scene, camera);
 	};
 
