@@ -64,6 +64,33 @@ window.onload = function() {
 		}
 	);
 
+	loader.load(
+		'img/marker_water.png',
+		function(image) {
+
+			var texture = new THREE.Texture();
+
+			texture.image = image;
+			texture.needsUpdate = true;
+
+			var geometry = new THREE.PlaneGeometry(10, 10, 32);
+
+			var material = new THREE.MeshBasicMaterial({
+				map: texture,
+				side: THREE.DoubleSide,
+				transparent: true
+			});
+				
+			var plane = new THREE.Mesh(geometry, material);
+			
+			plane.position.x = 0;
+			plane.position.y = 0;
+			plane.position.z = 10;
+			
+			scene.add(plane);
+		}
+	);
+
 	var render = function () {
 		requestAnimationFrame( render );
 
