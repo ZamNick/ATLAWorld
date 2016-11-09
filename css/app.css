@@ -14,3 +14,9 @@ canvas {
 	height: 100%;
 	filter: grayscale(.5);
 }
+
+.preview {
+	height: 100%;
+	width: 30%;
+	background: red;
+}

@@ -64,6 +64,8 @@ window.onload = function() {
 		}
 	);
 
+	var domEvents   = new THREEx.DomEvents(camera, renderer.domElement);
+
 	loader.load(
 		'img/marker_water.png',
 		function(image) {
@@ -83,9 +85,13 @@ window.onload = function() {
 				
 			var plane = new THREE.Mesh(geometry, material);
 			
-			plane.position.x = 0;
-			plane.position.y = 0;
+			plane.position.x = -53;
+			plane.position.y = 67 - window.innerHeight / 2;
 			plane.position.z = 10;
+
+			domEvents.addEventListener(plane, 'click', function(e) {
+				console.log(e);
+			});
 			
 			scene.add(plane);
 		}
