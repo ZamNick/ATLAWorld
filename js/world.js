@@ -93,6 +93,25 @@ World.prototype.start = function() {
 	
 	this.scene.add(plane);
 
+	var fontLoader = new THREE.FontLoader();
+	fontLoader.load('./fonts/CloisterBlack%20BT_Regular.json', function(font) {
+		 var  textGeo = new THREE.TextGeometry('South Pole', {
+            font: font,
+            size: 12,
+            height: 1,
+            curveSegments: 20
+    	});
+
+		var material = new THREE.MeshBasicMaterial({ color: 0x707070 });
+		var mesh = new THREE.Mesh(textGeo, material);
+
+		mesh.position.x = -60;
+		mesh.position.y = 30 - window.innerHeight / 2;
+		mesh.position.z = 10;
+
+		self.scene.add(mesh);
+	});
+
 	(function loop() {
 		requestAnimationFrame(loop);
 
