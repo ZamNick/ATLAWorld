@@ -1,10 +1,17 @@
-function WindowController(camera) {
+function WindowController(camera, renderer) {
 
     AbstractController.call(this, camera);
 
-    this.camera = camera;
-
     var _self = this;
+
+    function onWindowResize(e) {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    };
+
+    window.addEventListener('resize', function(e) { onWindowResize(e); }, false );
 
     var _addOnWheel = function(elem, handler) {
         if (elem.addEventListener) {
@@ -29,8 +36,8 @@ function WindowController(camera) {
         else scale -= 10;
 
         camera.position.z += scale;
-        camera.position.z = Math.min(camera.position.z, 800);
-        camera.position.z = Math.max(camera.position.z, 200);
+        camera.position.z = Math.min(camera.position.z, CONSTANTS.SCALE.MAX);
+        camera.position.z = Math.max(camera.position.z, CONSTANTS.SCALE.MIN);
 
         _self.updateCameraPosition();
     });

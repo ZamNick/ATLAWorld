@@ -28,6 +28,9 @@ Object.defineProperty(Loader, '_instance', { value:
 
 				loadImage(CONSTANTS.IMAGES.MAP)
 				.then(function() { return loadImage(CONSTANTS.IMAGES.CLOUD); })
+				.then(function() { return loadImage(CONSTANTS.IMAGES.CLOUD_2); })
+				.then(function() { return loadImage(CONSTANTS.IMAGES.CLOUD_3); })
+				.then(function() { return loadImage(CONSTANTS.IMAGES.CLOUD_4); })
 				.then(function() { return loadImage(CONSTANTS.IMAGES.MARKER_WATER); })
 				.then(function() { return loadImage(CONSTANTS.IMAGES.MARKER_AIR); })
 				.then(function() { return loadImage(CONSTANTS.IMAGES.MARKER_EARTH); })

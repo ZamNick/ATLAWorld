@@ -16,7 +16,7 @@ World.prototype.init = function() {
 
 	this.camera.position.z = CONSTANTS.CAMERA.START_Z_POSITION;
 
-	var windowController = new WindowController(this.camera);
+	var windowController = new WindowController(this.camera, this.renderer);
 	var mouseController = new MouseController(this.camera);
 
 	this.domEvents = new THREEx.DomEvents(this.camera, this.renderer.domElement);
@@ -31,11 +31,16 @@ World.prototype.start = function() {
 	texture.image = Loader._instance.getImage('map');
 	texture.needsUpdate = true;
 	
-	var geometry = new THREE.PlaneGeometry(window.innerWidth, window.innerHeight, 32);
+	var geometry = new THREE.PlaneGeometry(3600, 1844, 32);
 	var material = new THREE.MeshBasicMaterial({ map: texture, side: THREE.DoubleSide });
 	var plane = new THREE.Mesh(geometry, material);
 	
 	this.scene.add(plane);
+
+
+
+	/* CLOUDS */
+
 
 	var clouds = [];
 
@@ -44,10 +49,14 @@ World.prototype.start = function() {
 
 	texture = new THREE.Texture();
 
-	texture.image = Loader._instance.getImage('cloud');
+	texture.image = Loader._instance.getImage('cloud_4');
 	texture.needsUpdate = true;
 
-	geometry = new THREE.PlaneGeometry(64, 64, 32);
+	var imageWidth = texture.image.naturalWidth;
+	var imageHeight = texture.image.naturalHeight;
+
+	// geometry = new THREE.PlaneGeometry(64, 64, 32);	
+	geometry = new THREE.PlaneGeometry(imageWidth / 2, imageHeight / 2, 32);
 
 	material = new THREE.MeshBasicMaterial({
 		map: texture,
@@ -55,13 +64,13 @@ World.prototype.start = function() {
 		transparent: true
 	});
 
-	for(var i = 0; i < 500; ++i) {
+	for(var i = 0; i < 100; ++i) {
 		
 		plane = new THREE.Mesh(geometry, material);
 		
-		plane.position.x = Math.random() * window.innerWidth - (window.innerWidth / 2.0);
-		plane.position.y = Math.random() * window.innerHeight - (window.innerHeight / 2.0);
-		plane.position.z = Math.random() * 300 + 500;
+		plane.position.x = Math.random() * 4000 - 2000;
+		plane.position.y = Math.random() * 2000 - 1000;
+		plane.position.z = Math.random() * 200 + 1300;
 
 		clouds.push(plane);
 		
@@ -70,10 +79,99 @@ World.prototype.start = function() {
 
 	texture = new THREE.Texture();
 
+	texture.image = Loader._instance.getImage('cloud');
+	texture.needsUpdate = true;
+
+	var imageWidth = texture.image.naturalWidth;
+	var imageHeight = texture.image.naturalHeight;
+
+	geometry = new THREE.PlaneGeometry(imageWidth / 2, imageHeight / 2, 32);
+
+	material = new THREE.MeshBasicMaterial({
+		map: texture,
+		side: THREE.DoubleSide,
+		transparent: true
+	});
+
+	for(var i = 0; i < 125; ++i) {
+		
+		plane = new THREE.Mesh(geometry, material);
+		
+		plane.position.x = Math.random() * 4000 - 2000;
+		plane.position.y = Math.random() * 2000 - 1000;
+		plane.position.z = Math.random() * 200 + 1000;
+
+		clouds.push(plane);
+		
+		this.scene.add(plane);
+	}
+
+	texture = new THREE.Texture();
+
+	texture.image = Loader._instance.getImage('cloud_2');
+	texture.needsUpdate = true;
+
+	var imageWidth = texture.image.naturalWidth;
+	var imageHeight = texture.image.naturalHeight;
+
+	geometry = new THREE.PlaneGeometry(imageWidth / 2, imageHeight / 2, 32);
+
+	material = new THREE.MeshBasicMaterial({
+		map: texture,
+		side: THREE.DoubleSide,
+		transparent: true
+	});
+
+	for(var i = 0; i < 125; ++i) {
+		
+		plane = new THREE.Mesh(geometry, material);
+		
+		plane.position.x = Math.random() * 4000 - 2000;
+		plane.position.y = Math.random() * 2000 - 1000;
+		plane.position.z = Math.random() * 200 + 1500;
+
+		clouds.push(plane);
+		
+		this.scene.add(plane);
+	}
+
+	texture = new THREE.Texture();
+
+	texture.image = Loader._instance.getImage('cloud_3');
+	texture.needsUpdate = true;
+
+	var imageWidth = texture.image.naturalWidth;
+	var imageHeight = texture.image.naturalHeight;
+
+	geometry = new THREE.PlaneGeometry(imageWidth / 2, imageHeight / 2, 32);
+
+	material = new THREE.MeshBasicMaterial({
+		map: texture,
+		side: THREE.DoubleSide,
+		transparent: true
+	});
+
+	for(var i = 0; i < 50; ++i) {
+		
+		plane = new THREE.Mesh(geometry, material);
+		
+		plane.position.x = Math.random() * 4000 - 2000;
+		plane.position.y = Math.random() * 2000 - 1000;
+		plane.position.z = Math.random() * 200 + 1200;
+
+		clouds.push(plane);
+		
+		this.scene.add(plane);
+	}
+
+
+
+	texture = new THREE.Texture();
+
 	texture.image = Loader._instance.getImage('marker_water');
 	texture.needsUpdate = true;
 
-	geometry = new THREE.PlaneGeometry(10, 10, 32);
+	geometry = new THREE.PlaneGeometry(30, 30, 32);
 
 	material = new THREE.MeshBasicMaterial({
 		map: texture,
@@ -83,8 +181,8 @@ World.prototype.start = function() {
 		
 	plane = new THREE.Mesh(geometry, material);
 	
-	plane.position.x = -53;
-	plane.position.y = 67 - window.innerHeight / 2;
+	plane.position.x = -147;
+	plane.position.y = -748;
 	plane.position.z = 10;
 
 	this.domEvents.addEventListener(plane, 'click', function(e) {
@@ -119,11 +217,11 @@ World.prototype.start = function() {
 			clouds[i].position.x += cloudMovingDirectionX;
 			clouds[i].position.y += cloudMovingDirectionY;
 
-			if(clouds[i].position.x < (-window.innerWidth / 2)) clouds[i].position.x = window.innerWidth / 2;
-			if(clouds[i].position.y < (-window.innerHeight / 2)) clouds[i].position.y = window.innerHeight / 2;
+			if(clouds[i].position.x < -2000) clouds[i].position.x = 2000;
+			if(clouds[i].position.y < -1000) clouds[i].position.y = 1000;
 
-			if(clouds[i].position.x > (window.innerWidth / 2)) clouds[i].position.x = (-window.innerWidth / 2);
-			if(clouds[i].position.y > (window.innerHeight / 2)) clouds[i].position.y = (-window.innerHeight / 2);
+			if(clouds[i].position.x > 2000) clouds[i].position.x = -2000;
+			if(clouds[i].position.y > 1000) clouds[i].position.y = -1000;
 		}
 
 		self.renderer.render(self.scene, self.camera);
