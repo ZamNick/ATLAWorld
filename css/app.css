@@ -15,8 +15,19 @@ canvas {
 	filter: grayscale(.5);
 }
 
-.preview {
+#preview {
+	position: fixed;
+	left: -30%;
 	height: 100%;
 	width: 30%;
 	background: red;
+	z-index: 1;
+	transition: left 0.5s ease-out;
+	-webkit-transition: left 0.5s ease-out;
+	-moz-transition: left 0.5s ease-out;
+	-o-transition: left 0.5s ease-out;
+}
+
+.preview-show {
+	left: 0 !important;
 }

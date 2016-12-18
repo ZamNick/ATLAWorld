@@ -186,7 +186,11 @@ World.prototype.start = function() {
 	plane.position.z = 10;
 
 	this.domEvents.addEventListener(plane, 'click', function(e) {
-		console.log(e);
+		var preview = document.getElementById('preview');
+		if(!preview.classList.contains('preview-show'))
+			preview.classList.add('preview-show');
+		else
+			preview.classList.remove('preview-show');
 	});
 	
 	this.scene.add(plane);
