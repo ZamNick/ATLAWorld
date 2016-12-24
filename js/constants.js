@@ -23,5 +23,15 @@ var CONSTANTS = {
 		MARKER_AIR: 'img/marker_air.png',
 		MARKER_EARTH: 'img/marker_earth.png',
 		MARKER_FIRE: 'img/marker_fire.png'
-	}
+	},
+
+	MAP: [
+		{
+			"name": "HakodaTribe",
+			"markerType": "marker_water",
+			"x": -147,
+			"y": -748,
+			"z": 10
+		}
+	]
 };

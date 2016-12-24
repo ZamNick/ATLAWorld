@@ -31,7 +31,7 @@ World.prototype.start = function() {
 	texture.image = Loader._instance.getImage('map');
 	texture.needsUpdate = true;
 	
-	var geometry = new THREE.PlaneGeometry(3600, 1844, 32);
+	var geometry = new THREE.PlaneGeometry(texture.image.naturalWidth, texture.image.naturalHeight, 32);
 	var material = new THREE.MeshBasicMaterial({ map: texture, side: THREE.DoubleSide });
 	var plane = new THREE.Mesh(geometry, material);
 	
@@ -166,6 +166,47 @@ World.prototype.start = function() {
 
 
 
+	for(var i = 0; i < CONSTANTS.MAP.length; ++i) {
+
+		texture = new THREE.Texture();
+
+		texture.image = Loader._instance.getImage(CONSTANTS.MAP[i].markerType);
+		texture.needsUpdate = true;
+
+		geometry = new THREE.PlaneGeometry(30, 30, 32);
+
+		material = new THREE.MeshBasicMaterial({
+			map: texture,
+			side: THREE.DoubleSide,
+			transparent: true
+		});
+			
+		plane = new THREE.Mesh(geometry, material);
+		
+		plane.position.x = CONSTANTS.MAP[i].x;
+		plane.position.y = CONSTANTS.MAP[i].y;
+		plane.position.z = CONSTANTS.MAP[i].z;
+
+		plane.name = CONSTANTS.MAP[i].name;
+
+		this.domEvents.addEventListener(plane, 'click', function(e) {
+
+			Loader._instance.loadJSON('/materials/' + e.target.name + '/data.json')
+							.then(function(data) { updatePreview(data); });
+
+			var preview = document.getElementById('preview');
+			if(!preview.classList.contains('preview-show')) {
+				preview.classList.add('preview-show');
+			} else {
+				preview.classList.remove('preview-show');
+			}
+		});
+		
+		this.scene.add(plane);
+	}
+
+
+	/*
 	texture = new THREE.Texture();
 
 	texture.image = Loader._instance.getImage('marker_water');
@@ -185,7 +226,21 @@ World.prototype.start = function() {
 	plane.position.y = -748;
 	plane.position.z = 10;
 
+	plane.name = 'HakodaTribe';
+
 	this.domEvents.addEventListener(plane, 'click', function(e) {
+
+		var xhr = new XMLHttpRequest();
+
+		xhr.open('GET', '/materials/' + e.target.name + '/data.json', true);
+		xhr.send();
+		xhr.onreadystatechange = function() {
+			if(xhr.readyState == 4 && xhr.status == 200) {
+				var data = JSON.parse(xhr.responseText);
+				console.log(data);
+			}
+		}
+
 		var preview = document.getElementById('preview');
 		if(!preview.classList.contains('preview-show'))
 			preview.classList.add('preview-show');
@@ -194,6 +249,7 @@ World.prototype.start = function() {
 	});
 	
 	this.scene.add(plane);
+	*/
 
 	var fontLoader = new THREE.FontLoader();
 	fontLoader.load('./fonts/CloisterBlack%20BT_Regular.json', function(font) {
@@ -230,4 +286,14 @@ World.prototype.start = function() {
 
 		self.renderer.render(self.scene, self.camera);
 	})();
+}
+
+function updatePreview(data) {
+	var quote = data.quotes[0];
+	var html = "<img src='" + data.url + "' alt='" + data.name + "'>" +
+		"<blockquote>" +
+			"<div><span class='name'>" + quote.firstName + ": </span><span>" + quote.firstText + "</span></div>" +
+			"<div><span class='name'>" + quote.secondName + ": </span><span>" + quote.secondText + "</span></div>" +
+		"</blockquote>";
+	document.getElementById('preview').innerHTML = html;
 }

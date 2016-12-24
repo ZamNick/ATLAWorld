@@ -7,6 +7,7 @@ Object.defineProperty(Loader, '_instance', { value:
 
 		var _images = {};
 		var _loader = new THREE.ImageLoader();
+		var _xhr = new XMLHttpRequest();
 
 		return {
 
@@ -36,6 +37,18 @@ Object.defineProperty(Loader, '_instance', { value:
 				.then(function() { return loadImage(CONSTANTS.IMAGES.MARKER_EARTH); })
 				.then(function() { return loadImage(CONSTANTS.IMAGES.MARKER_FIRE); })
 				.then(function() { callback(); });
+			},
+
+			loadJSON: function(path) {
+				return new Promise(function(resolve, reject) {
+					_xhr.open('GET', path, true);
+					_xhr.send();
+					_xhr.onreadystatechange = function() {
+						if(_xhr.readyState == 4 && _xhr.status == 200) {
+							resolve(JSON.parse(_xhr.responseText));
+						}
+					}
+				});
 			}
 		};
 	})()

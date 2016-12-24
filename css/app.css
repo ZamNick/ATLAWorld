@@ -16,11 +16,15 @@ canvas {
 }
 
 #preview {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 	position: fixed;
-	left: -30%;
+	left: -40%;
 	height: 100%;
-	width: 30%;
-	background: red;
+	width: 40%;
+	background: #1C1C1C;
+	color: white;
 	z-index: 1;
 	transition: left 0.5s ease-out;
 	-webkit-transition: left 0.5s ease-out;
@@ -28,6 +32,39 @@ canvas {
 	-o-transition: left 0.5s ease-out;
 }
 
+#preview img {
+	width: 100%;
+	filter: grayscale(.5);
+}
+
+#preview span {
+	line-height: 25px;
+	font-style: italic;
+}
+
+#preview span.name {
+	font-family: Venecia;
+	font-size: 25px;
+	color: cyan;
+}
+
+#preview blockquote {
+	font-family: Arial;
+	padding: 20px;
+	margin: 20px;
+	border: 1px solid #424242;
+	border-radius: 20px;
+}
+
+#preview blockquote div:nth-child(2) {	
+	margin-top: 5px;
+}
+
 .preview-show {
 	left: 0 !important;
+}
+
+@font-face {
+	font-family: Venecia;
+	src: url(../fonts/Venecia.ttf);
 }
