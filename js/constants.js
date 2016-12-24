@@ -32,6 +32,13 @@ var CONSTANTS = {
 			"x": -147,
 			"y": -748,
 			"z": 10
+		},
+		{
+			"name": "WarshipOnSouthPole",
+			"markerType": "marker_water",
+			"x": -215,
+			"y": -742,
+			"z": 10
 		}
 	]
 };

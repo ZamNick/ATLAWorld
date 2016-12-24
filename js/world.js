@@ -195,6 +195,7 @@ World.prototype.start = function() {
 							.then(function(data) { updatePreview(data); });
 
 			var preview = document.getElementById('preview');
+
 			if(!preview.classList.contains('preview-show')) {
 				preview.classList.add('preview-show');
 			} else {
@@ -204,52 +205,6 @@ World.prototype.start = function() {
 		
 		this.scene.add(plane);
 	}
-
-
-	/*
-	texture = new THREE.Texture();
-
-	texture.image = Loader._instance.getImage('marker_water');
-	texture.needsUpdate = true;
-
-	geometry = new THREE.PlaneGeometry(30, 30, 32);
-
-	material = new THREE.MeshBasicMaterial({
-		map: texture,
-		side: THREE.DoubleSide,
-		transparent: true
-	});
-		
-	plane = new THREE.Mesh(geometry, material);
-	
-	plane.position.x = -147;
-	plane.position.y = -748;
-	plane.position.z = 10;
-
-	plane.name = 'HakodaTribe';
-
-	this.domEvents.addEventListener(plane, 'click', function(e) {
-
-		var xhr = new XMLHttpRequest();
-
-		xhr.open('GET', '/materials/' + e.target.name + '/data.json', true);
-		xhr.send();
-		xhr.onreadystatechange = function() {
-			if(xhr.readyState == 4 && xhr.status == 200) {
-				var data = JSON.parse(xhr.responseText);
-				console.log(data);
-			}
-		}
-
-		var preview = document.getElementById('preview');
-		if(!preview.classList.contains('preview-show'))
-			preview.classList.add('preview-show');
-		else
-			preview.classList.remove('preview-show');
-	});
-	
-	this.scene.add(plane);
-	*/
 
 	var fontLoader = new THREE.FontLoader();
 	fontLoader.load('./fonts/CloisterBlack%20BT_Regular.json', function(font) {
@@ -291,9 +246,10 @@ World.prototype.start = function() {
 function updatePreview(data) {
 	var quote = data.quotes[0];
 	var html = "<img src='" + data.url + "' alt='" + data.name + "'>" +
-		"<blockquote>" +
-			"<div><span class='name'>" + quote.firstName + ": </span><span>" + quote.firstText + "</span></div>" +
-			"<div><span class='name'>" + quote.secondName + ": </span><span>" + quote.secondText + "</span></div>" +
-		"</blockquote>";
+		"<blockquote>";
+	for(var i = 0; i < Object.keys(quote).length; ++i) {
+		html += "<div><span class='name'>" + Object.keys(quote)[i] + ": </span><span>" + Object.values(quote)[i] + "</span></div>";
+	}
+	html += "</blockquote>";
 	document.getElementById('preview').innerHTML = html;
 }
