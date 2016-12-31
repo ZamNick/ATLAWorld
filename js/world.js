@@ -207,6 +207,29 @@ World.prototype.start = function() {
 	}
 
 	var fontLoader = new THREE.FontLoader();
+	fontLoader.load(CONSTANTS.LABELS.SETTINGS.FONT, function(font) {
+		for(var i = 0; i < CONSTANTS.LABELS.ARRAY.length; ++i) {
+
+			var  textGeo = new THREE.TextGeometry(CONSTANTS.LABELS.ARRAY[i].TEXT, {
+	            font: font,
+	            size: CONSTANTS.LABELS.SETTINGS.SIZE,
+	            height: CONSTANTS.LABELS.SETTINGS.HEIGHT,
+	            curveSegments: CONSTANTS.LABELS.SETTINGS.CURVE_SEGMENTS
+	    	});
+
+	    	var material = new THREE.MeshBasicMaterial({ color: CONSTANTS.LABELS.SETTINGS.COLOR });
+			var mesh = new THREE.Mesh(textGeo, material);
+
+			mesh.position.x = CONSTANTS.LABELS.ARRAY[i].X;
+			mesh.position.y = CONSTANTS.LABELS.ARRAY[i].Y;
+			mesh.position.z = CONSTANTS.LABELS.ARRAY[i].Z;
+
+			self.scene.add(mesh);
+		}
+	});
+
+	/*
+	var fontLoader = new THREE.FontLoader();
 	fontLoader.load('./fonts/CloisterBlack%20BT_Regular.json', function(font) {
 		 var  textGeo = new THREE.TextGeometry('South Pole', {
             font: font,
@@ -224,6 +247,7 @@ World.prototype.start = function() {
 
 		self.scene.add(mesh);
 	});
+	*/
 
 	(function loop() {
 		requestAnimationFrame(loop);

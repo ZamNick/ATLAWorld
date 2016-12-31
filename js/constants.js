@@ -39,6 +39,44 @@ var CONSTANTS = {
 			"x": -215,
 			"y": -742,
 			"z": 10
+		},
+		{
+			"name": "AangBanishmentOnSouthPole",
+			"markerType": "marker_water",
+			"x": -190,
+			"y": -736,
+			"z": 10
+		},
+		{
+			"name": "SouthAirTample",
+			"markerType": "marker_air",
+			"x": -262,
+			"y": -442,
+			"z": 10
 		}
-	]
+	],
+
+	LABELS: {
+		SETTINGS: {
+			FONT: './fonts/CloisterBlack%20BT_Regular.json',
+			SIZE: 24,
+			HEIGHT: 1,
+			CURVE_SEGMENTS: 20,
+			COLOR: 0x707070
+		},
+		ARRAY: [
+			{
+				"TEXT": "South Pole",
+				"X": -150,
+				"Y": -850,
+				"Z": 10
+			},
+			{
+				"TEXT": "Earth Kingdom",
+				"X": 0,
+				"Y": 0,
+				"Z": 10
+			}
+		]
+	}
 };
