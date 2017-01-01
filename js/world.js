@@ -74,6 +74,8 @@ World.prototype.start = function() {
 		}
 	}
 
+	var lastTab = null;
+
 	for(var i = 0; i < CONSTANTS.MAP.length; ++i) {
 
 		texture = new THREE.Texture();
@@ -95,16 +97,22 @@ World.prototype.start = function() {
 
 		this.domEvents.addEventListener(plane, 'click', function(e) {
 
-			Loader._instance.loadJSON('/materials/' + e.target.name + '/data.json')
-							.then(function(data) { updatePreview(data); });
+			var preview = $('#preview');
 
-			var preview = document.getElementById('preview');
-
-			if(!preview.classList.contains('preview-show')) {
-				preview.classList.add('preview-show');
+			if(preview.hasClass('preview-show') && lastTab != e.target.name) {
+				preview.toggleClass('preview-show');
+				setTimeout(function() {
+					Loader._instance.loadJSON('/materials/' + e.target.name + '/data.json')
+									.then(function(data) { updatePreview(data); });
+					preview.toggleClass('preview-show');
+				}, 500);
 			} else {
-				preview.classList.remove('preview-show');
+				Loader._instance.loadJSON('/materials/' + e.target.name + '/data.json')
+								.then(function(data) { updatePreview(data); });
+				preview.toggleClass('preview-show');
 			}
+
+			lastTab = e.target.name;
 		});
 		
 		this.scene.add(plane);
