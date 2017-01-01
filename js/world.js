@@ -148,7 +148,7 @@ World.prototype.start = function() {
 }
 
 function updatePreview(data) {
-	var quote = data.quotes[0];
+	var quote = data.quotes[Math.round(Math.random() * (data.quotes.length - 1))];
 	var html = "<img src='" + data.url + "' alt='" + data.name + "'>" +
 		"<blockquote>";
 	for(var i = 0; i < Object.keys(quote).length; ++i) {
