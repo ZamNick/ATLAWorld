@@ -37,134 +37,42 @@ World.prototype.start = function() {
 	
 	this.scene.add(plane);
 
-
-
-	/* CLOUDS */
-
-
 	var clouds = [];
 
 	var cloudMovingDirectionX = (Math.random() * 2 - 1) * 0.05;
 	var cloudMovingDirectionY = (Math.random() * 2 - 1) * 0.05;
 
-	texture = new THREE.Texture();
-
-	texture.image = Loader._instance.getImage('cloud_4');
-	texture.needsUpdate = true;
-
-	var imageWidth = texture.image.naturalWidth;
-	var imageHeight = texture.image.naturalHeight;
-
-	// geometry = new THREE.PlaneGeometry(64, 64, 32);	
-	geometry = new THREE.PlaneGeometry(imageWidth / 2, imageHeight / 2, 32);
-
-	material = new THREE.MeshBasicMaterial({
-		map: texture,
-		side: THREE.DoubleSide,
-		transparent: true
-	});
-
-	for(var i = 0; i < 100; ++i) {
+	for(var i = 0; i < CONSTANTS.CLOUDS.length; ++i) {
 		
-		plane = new THREE.Mesh(geometry, material);
-		
-		plane.position.x = Math.random() * 4000 - 2000;
-		plane.position.y = Math.random() * 2000 - 1000;
-		plane.position.z = Math.random() * 200 + 1300;
+		texture = new THREE.Texture();
 
-		clouds.push(plane);
-		
-		this.scene.add(plane);
+		texture.image = Loader._instance.getImage(CONSTANTS.CLOUDS[i].NAME);
+		texture.needsUpdate = true;
+
+		var imageWidth = texture.image.naturalWidth;
+		var imageHeight = texture.image.naturalHeight;
+
+		geometry = new THREE.PlaneGeometry(imageWidth / 2, imageHeight / 2, CONSTANTS.CLOUDS[i].SEGMENTS);
+
+		material = new THREE.MeshBasicMaterial({
+			map: texture,
+			side: THREE.DoubleSide,
+			transparent: true
+		});
+
+		for(var j = 0; j < CONSTANTS.CLOUDS[i].COUNT; ++j) {
+			
+			plane = new THREE.Mesh(geometry, material);
+			
+			plane.position.x = Math.random() * 4000 - 2000;
+			plane.position.y = Math.random() * 2000 - 1000;
+			plane.position.z = Math.random() * 200 + CONSTANTS.CLOUDS[i].Z_INDEX;
+
+			clouds.push(plane);
+			
+			this.scene.add(plane);
+		}
 	}
-
-	texture = new THREE.Texture();
-
-	texture.image = Loader._instance.getImage('cloud');
-	texture.needsUpdate = true;
-
-	var imageWidth = texture.image.naturalWidth;
-	var imageHeight = texture.image.naturalHeight;
-
-	geometry = new THREE.PlaneGeometry(imageWidth / 2, imageHeight / 2, 32);
-
-	material = new THREE.MeshBasicMaterial({
-		map: texture,
-		side: THREE.DoubleSide,
-		transparent: true
-	});
-
-	for(var i = 0; i < 125; ++i) {
-		
-		plane = new THREE.Mesh(geometry, material);
-		
-		plane.position.x = Math.random() * 4000 - 2000;
-		plane.position.y = Math.random() * 2000 - 1000;
-		plane.position.z = Math.random() * 200 + 1000;
-
-		clouds.push(plane);
-		
-		this.scene.add(plane);
-	}
-
-	texture = new THREE.Texture();
-
-	texture.image = Loader._instance.getImage('cloud_2');
-	texture.needsUpdate = true;
-
-	var imageWidth = texture.image.naturalWidth;
-	var imageHeight = texture.image.naturalHeight;
-
-	geometry = new THREE.PlaneGeometry(imageWidth / 2, imageHeight / 2, 32);
-
-	material = new THREE.MeshBasicMaterial({
-		map: texture,
-		side: THREE.DoubleSide,
-		transparent: true
-	});
-
-	for(var i = 0; i < 125; ++i) {
-		
-		plane = new THREE.Mesh(geometry, material);
-		
-		plane.position.x = Math.random() * 4000 - 2000;
-		plane.position.y = Math.random() * 2000 - 1000;
-		plane.position.z = Math.random() * 200 + 1500;
-
-		clouds.push(plane);
-		
-		this.scene.add(plane);
-	}
-
-	texture = new THREE.Texture();
-
-	texture.image = Loader._instance.getImage('cloud_3');
-	texture.needsUpdate = true;
-
-	var imageWidth = texture.image.naturalWidth;
-	var imageHeight = texture.image.naturalHeight;
-
-	geometry = new THREE.PlaneGeometry(imageWidth / 2, imageHeight / 2, 32);
-
-	material = new THREE.MeshBasicMaterial({
-		map: texture,
-		side: THREE.DoubleSide,
-		transparent: true
-	});
-
-	for(var i = 0; i < 50; ++i) {
-		
-		plane = new THREE.Mesh(geometry, material);
-		
-		plane.position.x = Math.random() * 4000 - 2000;
-		plane.position.y = Math.random() * 2000 - 1000;
-		plane.position.z = Math.random() * 200 + 1200;
-
-		clouds.push(plane);
-		
-		this.scene.add(plane);
-	}
-
-
 
 	for(var i = 0; i < CONSTANTS.MAP.length; ++i) {
 
@@ -173,20 +81,16 @@ World.prototype.start = function() {
 		texture.image = Loader._instance.getImage(CONSTANTS.MAP[i].markerType);
 		texture.needsUpdate = true;
 
-		geometry = new THREE.PlaneGeometry(30, 30, 32);
+		geometry = new THREE.PlaneGeometry(CONSTANTS.MARKER.WIDTH, CONSTANTS.MARKER.HEIGHT, CONSTANTS.MARKER.SEGMENTS);
 
 		material = new THREE.MeshBasicMaterial({
 			map: texture,
 			side: THREE.DoubleSide,
 			transparent: true
 		});
-			
-		plane = new THREE.Mesh(geometry, material);
-		
-		plane.position.x = CONSTANTS.MAP[i].x;
-		plane.position.y = CONSTANTS.MAP[i].y;
-		plane.position.z = CONSTANTS.MAP[i].z;
 
+		plane = new THREE.Mesh(geometry, material);
+		plane.position.set(CONSTANTS.MAP[i].x, CONSTANTS.MAP[i].y, CONSTANTS.MAP[i].z);
 		plane.name = CONSTANTS.MAP[i].name;
 
 		this.domEvents.addEventListener(plane, 'click', function(e) {
@@ -219,35 +123,11 @@ World.prototype.start = function() {
 
 	    	var material = new THREE.MeshBasicMaterial({ color: CONSTANTS.LABELS.SETTINGS.COLOR });
 			var mesh = new THREE.Mesh(textGeo, material);
-
-			mesh.position.x = CONSTANTS.LABELS.ARRAY[i].X;
-			mesh.position.y = CONSTANTS.LABELS.ARRAY[i].Y;
-			mesh.position.z = CONSTANTS.LABELS.ARRAY[i].Z;
+			mesh.position.set(CONSTANTS.LABELS.ARRAY[i].X, CONSTANTS.LABELS.ARRAY[i].Y, CONSTANTS.LABELS.ARRAY[i].Z);
 
 			self.scene.add(mesh);
 		}
 	});
-
-	/*
-	var fontLoader = new THREE.FontLoader();
-	fontLoader.load('./fonts/CloisterBlack%20BT_Regular.json', function(font) {
-		 var  textGeo = new THREE.TextGeometry('South Pole', {
-            font: font,
-            size: 12,
-            height: 1,
-            curveSegments: 20
-    	});
-
-		var material = new THREE.MeshBasicMaterial({ color: 0x707070 });
-		var mesh = new THREE.Mesh(textGeo, material);
-
-		mesh.position.x = -60;
-		mesh.position.y = 30 - window.innerHeight / 2;
-		mesh.position.z = 10;
-
-		self.scene.add(mesh);
-	});
-	*/
 
 	(function loop() {
 		requestAnimationFrame(loop);

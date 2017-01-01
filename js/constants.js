@@ -25,6 +25,63 @@ var CONSTANTS = {
 		MARKER_FIRE: 'img/marker_fire.png'
 	},
 
+	MARKER: {
+		HEIGHT: 30,
+		WIDTH: 30,
+		SEGMENTS: 32
+	},
+
+	CLOUDS: [
+		{
+			NAME: "cloud",
+			COUNT: 125,
+			SEGMENTS: 32,
+			Z_INDEX: 1000
+		},
+		{
+			NAME: "cloud_2",
+			COUNT: 125,
+			SEGMENTS: 32,
+			Z_INDEX: 1500
+		},
+		{
+			NAME: "cloud_3",
+			COUNT: 50,
+			SEGMENTS: 32,
+			Z_INDEX: 1200
+		},
+		{
+			NAME: "cloud_4",
+			COUNT: 100,
+			SEGMENTS: 32,
+			Z_INDEX: 1300
+		}
+	],
+
+	LABELS: {
+		SETTINGS: {
+			FONT: './fonts/CloisterBlack%20BT_Regular.json',
+			SIZE: 24,
+			HEIGHT: 1,
+			CURVE_SEGMENTS: 20,
+			COLOR: 0x707070
+		},
+		ARRAY: [
+			{
+				"TEXT": "South Pole",
+				"X": -150,
+				"Y": -850,
+				"Z": 10
+			},
+			{
+				"TEXT": "Earth Kingdom",
+				"X": 0,
+				"Y": 0,
+				"Z": 10
+			}
+		]
+	},
+
 	MAP: [
 		{
 			"name": "HakodaTribe",
@@ -54,29 +111,5 @@ var CONSTANTS = {
 			"y": -442,
 			"z": 10
 		}
-	],
-
-	LABELS: {
-		SETTINGS: {
-			FONT: './fonts/CloisterBlack%20BT_Regular.json',
-			SIZE: 24,
-			HEIGHT: 1,
-			CURVE_SEGMENTS: 20,
-			COLOR: 0x707070
-		},
-		ARRAY: [
-			{
-				"TEXT": "South Pole",
-				"X": -150,
-				"Y": -850,
-				"Z": 10
-			},
-			{
-				"TEXT": "Earth Kingdom",
-				"X": 0,
-				"Y": 0,
-				"Z": 10
-			}
-		]
-	}
+	]
 };
