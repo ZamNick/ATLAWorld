@@ -48,7 +48,7 @@ var CONSTANTS = {
 			"z": 10
 		},
 		{
-			"name": "SouthAirTample",
+			"name": "SouthernAirTemple",
 			"markerType": "marker_air",
 			"x": -262,
 			"y": -442,
