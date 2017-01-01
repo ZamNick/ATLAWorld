@@ -106,9 +106,11 @@ World.prototype.start = function() {
 									.then(function(data) { updatePreview(data); });
 					preview.toggleClass('preview-show');
 				}, 500);
-			} else {
+			} else if(!preview.hasClass('preview-show')) {
 				Loader._instance.loadJSON('/materials/' + e.target.name + '/data.json')
 								.then(function(data) { updatePreview(data); });
+				preview.toggleClass('preview-show');
+			} else {
 				preview.toggleClass('preview-show');
 			}
 
