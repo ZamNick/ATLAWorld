@@ -1,0 +1,21 @@
+{
+	"name": "SouthernAirTemple",
+	"url": [ 
+		"/materials/SouthernAirTemple/picture.jpg", 
+		"/materials/SouthernAirTemple/picture2.jpg",
+		"/materials/SouthernAirTemple/picture3.jpg",
+		"/materials/SouthernAirTemple/picture4.jpg",
+		"/materials/SouthernAirTemple/picture5.jpg",
+		"/materials/SouthernAirTemple/picture6.jpg"
+	],
+	"quotes": [
+		{
+			"Аанг": "Вставай, Сокка, нас ждет храм воздуха !",
+			"Сокка": "Спать - сейчас, храм - потом..."
+		},
+		{
+			"Аанг": "Катара, ждущий меня поможет мне разгадать загадку Аватара !",
+			"Сокка": "Может быть, у него заодно найдется кусочек сочного копченого мяса !"
+		}
+	]
+}

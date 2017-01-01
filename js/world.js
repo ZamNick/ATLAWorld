@@ -34,6 +34,15 @@ World.prototype.start = function() {
 	var geometry = new THREE.PlaneGeometry(texture.image.naturalWidth, texture.image.naturalHeight, 32);
 	var material = new THREE.MeshBasicMaterial({ map: texture, side: THREE.DoubleSide });
 	var plane = new THREE.Mesh(geometry, material);
+
+	this.domEvents.addEventListener(plane, 'click', function(e) {
+		
+		var preview = $('#preview');
+
+		if(preview.hasClass('preview-show')) {
+			preview.removeClass('preview-show');
+		}
+	});
 	
 	this.scene.add(plane);
 
@@ -115,11 +124,14 @@ World.prototype.start = function() {
 			}
 
 			lastTab = e.target.name;
+
+			e.stopPropagation();
 		});
 		
 		this.scene.add(plane);
 	}
 
+	/*
 	var fontLoader = new THREE.FontLoader();
 	fontLoader.load(CONSTANTS.LABELS.SETTINGS.FONT, function(font) {
 		for(var i = 0; i < CONSTANTS.LABELS.ARRAY.length; ++i) {
@@ -138,6 +150,7 @@ World.prototype.start = function() {
 			self.scene.add(mesh);
 		}
 	});
+	*/
 
 	(function loop() {
 		requestAnimationFrame(loop);

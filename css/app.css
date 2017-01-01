@@ -68,3 +68,19 @@ canvas {
 	font-family: Venecia;
 	src: url(../fonts/Venecia.ttf);
 }
+
+.slick-dots li button {
+	border: 1px solid #fff;
+	border-radius: 50%;
+}
+
+.slick-dots li button:before {
+	font-size: 16px;
+	line-height: 22px;
+	color: white;
+}
+
+.slick-dots li.slick-active button:before {
+	color: white;
+	opacity: 1;
+}
