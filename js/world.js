@@ -89,7 +89,7 @@ World.prototype.start = function() {
 
 		texture = new THREE.Texture();
 
-		texture.image = Loader._instance.getImage(CONSTANTS.MAP[i].markerType);
+		texture.image = Loader._instance.getImage(CONSTANTS.MAP[i].MARKER);
 		texture.needsUpdate = true;
 
 		geometry = new THREE.PlaneGeometry(CONSTANTS.MARKER.WIDTH, CONSTANTS.MARKER.HEIGHT, CONSTANTS.MARKER.SEGMENTS);
@@ -101,8 +101,8 @@ World.prototype.start = function() {
 		});
 
 		plane = new THREE.Mesh(geometry, material);
-		plane.position.set(CONSTANTS.MAP[i].x, CONSTANTS.MAP[i].y, CONSTANTS.MAP[i].z);
-		plane.name = CONSTANTS.MAP[i].name;
+		plane.position.set(CONSTANTS.MAP[i].X, CONSTANTS.MAP[i].Y, CONSTANTS.MAP[i].Z);
+		plane.name = CONSTANTS.MAP[i].NAME;
 
 		this.domEvents.addEventListener(plane, 'click', function(e) {
 

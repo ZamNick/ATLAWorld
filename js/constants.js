@@ -19,10 +19,10 @@ var CONSTANTS = {
 		CLOUD_2: 'img/cloud_2.png',
 		CLOUD_3: 'img/cloud_3.png',
 		CLOUD_4: 'img/cloud_4.png',
-		MARKER_WATER: 'img/marker_water.png',
-		MARKER_AIR: 'img/marker_air.png',
-		MARKER_EARTH: 'img/marker_earth.png',
-		MARKER_FIRE: 'img/marker_fire.png'
+		MARKER_WATER: 'img/water.png',
+		MARKER_AIR: 'img/air.png',
+		MARKER_EARTH: 'img/earth.png',
+		MARKER_FIRE: 'img/fire.png'
 	},
 
 	MARKER: {
@@ -84,39 +84,39 @@ var CONSTANTS = {
 
 	MAP: [
 		{
-			"name": "HakodaTribe",
-			"markerType": "marker_water",
-			"x": -147,
-			"y": -748,
-			"z": 10
+			"NAME": "HakodaTribe",
+			"MARKER": "water",
+			"X": -147,
+			"Y": -748,
+			"Z": 10
 		},
 		{
-			"name": "WarshipOnSouthPole",
-			"markerType": "marker_water",
-			"x": -215,
-			"y": -742,
-			"z": 10
+			"NAME": "WarshipOnSouthPole",
+			"MARKER": "water",
+			"X": -215,
+			"Y": -742,
+			"Z": 10
 		},
 		{
-			"name": "AangBanishmentOnSouthPole",
-			"markerType": "marker_water",
-			"x": -190,
-			"y": -736,
-			"z": 10
+			"NAME": "AangBanishmentOnSouthPole",
+			"MARKER": "water",
+			"X": -190,
+			"Y": -736,
+			"Z": 10
 		},
 		{
-			"name": "SouthernAirTemple",
-			"markerType": "marker_air",
-			"x": -262,
-			"y": -442,
-			"z": 10
+			"NAME": "SouthernAirTemple",
+			"MARKER": "air",
+			"X": -262,
+			"Y": -442,
+			"Z": 10
 		},
 		{
-			"name": "KyoshiIsland",
-			"markerType": "marker_earth",
-			"x": 0,
-			"y": 0,
-			"z": 10
+			"NAME": "KyoshiIsland",
+			"MARKER": "earth",
+			"X": 90,
+			"Y": -300,
+			"Z": 10
 		}
 	]
 };
