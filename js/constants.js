@@ -36,25 +36,29 @@ var CONSTANTS = {
 			NAME: "cloud",
 			COUNT: 125,
 			SEGMENTS: 32,
-			Z_INDEX: 1000
+			Z_INDEX: 1000,
+			Z_COEFFICIENT: 200
 		},
 		{
 			NAME: "cloud_2",
 			COUNT: 125,
 			SEGMENTS: 32,
-			Z_INDEX: 1500
+			Z_INDEX: 1500,
+			Z_COEFFICIENT: 200
 		},
 		{
 			NAME: "cloud_3",
 			COUNT: 50,
 			SEGMENTS: 32,
-			Z_INDEX: 1200
+			Z_INDEX: 1200,
+			Z_COEFFICIENT: 200
 		},
 		{
 			NAME: "cloud_4",
 			COUNT: 100,
 			SEGMENTS: 32,
-			Z_INDEX: 1300
+			Z_INDEX: 1300,
+			Z_COEFFICIENT: 200
 		}
 	],
 
@@ -82,41 +86,51 @@ var CONSTANTS = {
 		]
 	},
 
-	MAP: [
-		{
-			"NAME": "HakodaTribe",
-			"MARKER": "water",
-			"X": -147,
-			"Y": -748,
-			"Z": 10
+	MAP: {
+		SETTINGS: {
+			NAME: 'map',
+			SEGMENTS: 32,
+			BOUNDING_BOX: {
+				X: 4000,
+				Y: 2000
+			}
 		},
-		{
-			"NAME": "WarshipOnSouthPole",
-			"MARKER": "water",
-			"X": -215,
-			"Y": -742,
-			"Z": 10
-		},
-		{
-			"NAME": "AangBanishmentOnSouthPole",
-			"MARKER": "water",
-			"X": -190,
-			"Y": -736,
-			"Z": 10
-		},
-		{
-			"NAME": "SouthernAirTemple",
-			"MARKER": "air",
-			"X": -262,
-			"Y": -442,
-			"Z": 10
-		},
-		{
-			"NAME": "KyoshiIsland",
-			"MARKER": "earth",
-			"X": 90,
-			"Y": -300,
-			"Z": 10
-		}
-	]
+		ARRAY: [
+			{
+				"NAME": "HakodaTribe",
+				"MARKER": "water",
+				"X": -147,
+				"Y": -748,
+				"Z": 10
+			},
+			{
+				"NAME": "WarshipOnSouthPole",
+				"MARKER": "water",
+				"X": -215,
+				"Y": -742,
+				"Z": 10
+			},
+			{
+				"NAME": "AangBanishmentOnSouthPole",
+				"MARKER": "water",
+				"X": -190,
+				"Y": -736,
+				"Z": 10
+			},
+			{
+				"NAME": "SouthernAirTemple",
+				"MARKER": "air",
+				"X": -262,
+				"Y": -442,
+				"Z": 10
+			},
+			{
+				"NAME": "KyoshiIsland",
+				"MARKER": "earth",
+				"X": 90,
+				"Y": -300,
+				"Z": 10
+			}
+		]
+	}
 };

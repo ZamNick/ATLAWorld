@@ -28,11 +28,20 @@ World.prototype.start = function() {
 
 	var texture = new THREE.Texture();
 
-	texture.image = Loader._instance.getImage('map');
+	texture.image = Loader._instance.getImage(CONSTANTS.MAP.SETTINGS.NAME);
 	texture.needsUpdate = true;
 	
-	var geometry = new THREE.PlaneGeometry(texture.image.naturalWidth, texture.image.naturalHeight, 32);
-	var material = new THREE.MeshBasicMaterial({ map: texture, side: THREE.DoubleSide });
+	var geometry = new THREE.PlaneGeometry(
+		texture.image.naturalWidth, 
+		texture.image.naturalHeight, 
+		CONSTANTS.MAP.SETTINGS.SEGMENTS
+	);
+
+	var material = new THREE.MeshBasicMaterial({
+		map: texture, 
+		side: THREE.DoubleSide
+	});
+
 	var plane = new THREE.Mesh(geometry, material);
 
 	this.domEvents.addEventListener(plane, 'click', function(e) {
@@ -73,9 +82,9 @@ World.prototype.start = function() {
 			
 			plane = new THREE.Mesh(geometry, material);
 			
-			plane.position.x = Math.random() * 4000 - 2000;
-			plane.position.y = Math.random() * 2000 - 1000;
-			plane.position.z = Math.random() * 200 + CONSTANTS.CLOUDS[i].Z_INDEX;
+			plane.position.x = Math.random() * CONSTANTS.MAP.SETTINGS.BOUNDING_BOX.X - (CONSTANTS.MAP.SETTINGS.BOUNDING_BOX.X / 2);
+			plane.position.y = Math.random() * CONSTANTS.MAP.SETTINGS.BOUNDING_BOX.Y - (CONSTANTS.MAP.SETTINGS.BOUNDING_BOX.Y / 2);
+			plane.position.z = Math.random() * CONSTANTS.CLOUDS[i].Z_COEFFICIENT + CONSTANTS.CLOUDS[i].Z_INDEX;
 
 			clouds.push(plane);
 			
@@ -85,14 +94,18 @@ World.prototype.start = function() {
 
 	var lastTab = null;
 
-	for(var i = 0; i < CONSTANTS.MAP.length; ++i) {
+	for(var i = 0; i < CONSTANTS.MAP.ARRAY.length; ++i) {
 
 		texture = new THREE.Texture();
 
-		texture.image = Loader._instance.getImage(CONSTANTS.MAP[i].MARKER);
+		texture.image = Loader._instance.getImage(CONSTANTS.MAP.ARRAY[i].MARKER);
 		texture.needsUpdate = true;
 
-		geometry = new THREE.PlaneGeometry(CONSTANTS.MARKER.WIDTH, CONSTANTS.MARKER.HEIGHT, CONSTANTS.MARKER.SEGMENTS);
+		geometry = new THREE.PlaneGeometry(
+			CONSTANTS.MARKER.WIDTH, 
+			CONSTANTS.MARKER.HEIGHT, 
+			CONSTANTS.MARKER.SEGMENTS
+		);
 
 		material = new THREE.MeshBasicMaterial({
 			map: texture,
@@ -101,8 +114,8 @@ World.prototype.start = function() {
 		});
 
 		plane = new THREE.Mesh(geometry, material);
-		plane.position.set(CONSTANTS.MAP[i].X, CONSTANTS.MAP[i].Y, CONSTANTS.MAP[i].Z);
-		plane.name = CONSTANTS.MAP[i].NAME;
+		plane.position.set(CONSTANTS.MAP.ARRAY[i].X, CONSTANTS.MAP.ARRAY[i].Y, CONSTANTS.MAP.ARRAY[i].Z);
+		plane.name = CONSTANTS.MAP.ARRAY[i].NAME;
 
 		this.domEvents.addEventListener(plane, 'click', function(e) {
 
