@@ -1,8 +1,9 @@
 {
 	"name": "HakodaTribe",
-	"url": [ "/materials/HakodaTribe/picture.jpg", 
-			 "/materials/HakodaTribe/picture2.jpg", 
-			 "/materials/HakodaTribe/picture3.jpg"
+	"url": [ 
+		"/materials/HakodaTribe/picture.jpg",
+		"/materials/HakodaTribe/picture2.jpg", 
+		"/materials/HakodaTribe/picture3.jpg"
 	],
 	"quotes": [
 		{

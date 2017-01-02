@@ -110,6 +110,13 @@ var CONSTANTS = {
 			"x": -262,
 			"y": -442,
 			"z": 10
+		},
+		{
+			"name": "KyoshiIsland",
+			"markerType": "marker_earth",
+			"x": 0,
+			"y": 0,
+			"z": 10
 		}
 	]
 };
