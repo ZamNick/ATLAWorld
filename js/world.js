@@ -21,13 +21,7 @@ World.prototype.init = function() {
 
 	this.domEvents = new THREEx.DomEvents(this.camera, this.renderer.domElement);
 
-	$('.container').slick({
-		dots: true,
-		arrows: false,
-		slidesToShow: 1,
-		slidesToScroll: 1,
-		speed: 300
-	});
+	$(CONSTANTS.SLICK.CONTAINER).slick(CONSTANTS.SLICK.SETTINGS);
 };
 
 World.prototype.start = function() {
@@ -195,17 +189,12 @@ function updatePreview(data) {
 	
 	var quote = data.quotes[Math.round(Math.random() * (data.quotes.length - 1))];
 
-	while($('.container').slick('getSlick').slideCount) {
-		$('.container').slick('slickRemove', 0);
+	while($(CONSTANTS.SLICK.CONTAINER).slick('getSlick').slideCount) {
+		$(CONSTANTS.SLICK.CONTAINER).slick('slickRemove', 0);
 	}
 
 	for(var i = 0; i < data.url.length; ++i) {
-		var img = document.createElement('img');
-		img.src = data.url[i];
-		img.alt = data.name;
-		img.onload = (function(img) {
-			$('.container').slick('slickAdd', img);
-		})(img);
+		$(CONSTANTS.SLICK.CONTAINER).slick('slickAdd', "<img src='" + data.url[i] + "' alt='" + data.name + "'>");
 	}
 	
 	var blockquote = $('blockquote')[0];
