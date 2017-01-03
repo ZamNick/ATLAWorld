@@ -3,12 +3,14 @@
 	"url": [
 		"/materials/KyoshiIsland/picture.jpg",
 		"/materials/KyoshiIsland/picture2.jpg",
-		"/materials/KyoshiIsland/picture3.jpg"
+		"/materials/KyoshiIsland/picture3.jpg",
+		"/materials/KyoshiIsland/picture4.jpg",
+		"/materials/KyoshiIsland/picture5.jpg"
 	],
 	"quotes": [
 		{
-			"Сокка": "asd",
-			"Аанг": "asd"
+			"Катара": "У него хорошо получается !",
+			"Сокка": "Ты шутишь ? Все делает рыба !"
 		}
 	]
 }
