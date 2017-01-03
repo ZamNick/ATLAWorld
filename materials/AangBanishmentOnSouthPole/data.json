@@ -2,9 +2,15 @@
 	"name": "AangBanishmentOnSouthPole",
 	"url": [ "/materials/AangBanishmentOnSouthPole/picture.jpg" ],
 	"quotes": [
-		{
-			"Аанг": "Аппа, жди здесь !!!",
-			"Аппа": "Аааггпфф..."
-		}
+		[
+			{
+				"author": "Аанг",
+				"quote": "Аппа, жди здесь !!!"
+			},
+			{
+				"author": "Аппа",
+				"quote": "Аааггпфф..."
+			}
+		]
 	]
 }

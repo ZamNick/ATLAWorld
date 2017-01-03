@@ -200,7 +200,7 @@ function updatePreview(data) {
 	var blockquote = $('blockquote')[0];
 	blockquote.innerHTML = '';
 
-	for(var i = 0; i < Object.keys(quote).length; ++i) {
-		blockquote.innerHTML += "<div><span class='name'>" + Object.keys(quote)[i] + ": </span><span>" + Object.values(quote)[i] + "</span></div>";
+	for(var i = 0; i < quote.length; ++i) {
+		blockquote.innerHTML += "<div><span class='name'>" + quote[i].author + ": </span><span>" + quote[i].quote + "</span></div>";
 	}
 }
