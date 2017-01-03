@@ -103,7 +103,9 @@ var CONSTANTS = {
 			SEGMENTS: 32,
 			BOUNDING_BOX: {
 				X: 4000,
-				Y: 2000
+				Y: 2000,
+				HALF_X: 2000,
+				HALF_Y: 1000
 			}
 		},
 		ARRAY: [

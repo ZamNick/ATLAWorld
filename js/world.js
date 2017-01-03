@@ -84,8 +84,8 @@ World.prototype.start = function() {
 			
 			plane = new THREE.Mesh(geometry, material);
 			
-			plane.position.x = Math.random() * CONSTANTS.MAP.SETTINGS.BOUNDING_BOX.X - (CONSTANTS.MAP.SETTINGS.BOUNDING_BOX.X / 2);
-			plane.position.y = Math.random() * CONSTANTS.MAP.SETTINGS.BOUNDING_BOX.Y - (CONSTANTS.MAP.SETTINGS.BOUNDING_BOX.Y / 2);
+			plane.position.x = Math.random() * CONSTANTS.MAP.SETTINGS.BOUNDING_BOX.X - CONSTANTS.MAP.SETTINGS.BOUNDING_BOX.HALF_X;
+			plane.position.y = Math.random() * CONSTANTS.MAP.SETTINGS.BOUNDING_BOX.Y - CONSTANTS.MAP.SETTINGS.BOUNDING_BOX.HALF_Y;
 			plane.position.z = Math.random() * CONSTANTS.CLOUDS[i].Z_COEFFICIENT + CONSTANTS.CLOUDS[i].Z_INDEX;
 
 			clouds.push(plane);
@@ -174,11 +174,11 @@ World.prototype.start = function() {
 			clouds[i].position.x += cloudMovingDirectionX;
 			clouds[i].position.y += cloudMovingDirectionY;
 
-			if(clouds[i].position.x < -2000) clouds[i].position.x = 2000;
-			if(clouds[i].position.y < -1000) clouds[i].position.y = 1000;
+			if(clouds[i].position.x < -CONSTANTS.MAP.SETTINGS.BOUNDING_BOX.HALF_X) clouds[i].position.x = CONSTANTS.MAP.SETTINGS.BOUNDING_BOX.HALF_X;
+			if(clouds[i].position.y < -CONSTANTS.MAP.SETTINGS.BOUNDING_BOX.HALF_Y) clouds[i].position.y = CONSTANTS.MAP.SETTINGS.BOUNDING_BOX.HALF_Y;
 
-			if(clouds[i].position.x > 2000) clouds[i].position.x = -2000;
-			if(clouds[i].position.y > 1000) clouds[i].position.y = -1000;
+			if(clouds[i].position.x > CONSTANTS.MAP.SETTINGS.BOUNDING_BOX.HALF_X) clouds[i].position.x = -CONSTANTS.MAP.SETTINGS.BOUNDING_BOX.HALF_X;
+			if(clouds[i].position.y > CONSTANTS.MAP.SETTINGS.BOUNDING_BOX.HALF_Y) clouds[i].position.y = -CONSTANTS.MAP.SETTINGS.BOUNDING_BOX.HALF_Y;
 		}
 
 		self.renderer.render(self.scene, self.camera);
