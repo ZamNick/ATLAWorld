@@ -20,6 +20,14 @@ World.prototype.init = function() {
 	var mouseController = new MouseController(this.camera);
 
 	this.domEvents = new THREEx.DomEvents(this.camera, this.renderer.domElement);
+
+	$('.container').slick({
+		dots: true,
+		arrows: false,
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		speed: 300
+	});
 };
 
 World.prototype.start = function() {
@@ -184,22 +192,26 @@ World.prototype.start = function() {
 }
 
 function updatePreview(data) {
+	
 	var quote = data.quotes[Math.round(Math.random() * (data.quotes.length - 1))];
-	var html = "<div class='container'>"
+
+	while($('.container').slick('getSlick').slideCount) {
+		$('.container').slick('slickRemove', 0);
+	}
+
 	for(var i = 0; i < data.url.length; ++i) {
-		html += "<img src='" + data.url[i] + "' alt='" + data.name + "'>";
+		var img = document.createElement('img');
+		img.src = data.url[i];
+		img.alt = data.name;
+		img.onload = (function(img) {
+			$('.container').slick('slickAdd', img);
+		})(img);
 	}
-	html += "</div><blockquote>";
+	
+	var blockquote = $('blockquote')[0];
+	blockquote.innerHTML = '';
+
 	for(var i = 0; i < Object.keys(quote).length; ++i) {
-		html += "<div><span class='name'>" + Object.keys(quote)[i] + ": </span><span>" + Object.values(quote)[i] + "</span></div>";
+		blockquote.innerHTML += "<div><span class='name'>" + Object.keys(quote)[i] + ": </span><span>" + Object.values(quote)[i] + "</span></div>";
 	}
-	html += "</blockquote>";
-	document.getElementById('preview').innerHTML = html;
-	$('.container').slick({
-		dots: true,
-		arrows: false,
-		slidesToShow: 1,
-		slidesToScroll: 1,
-		speed: 300
-	});
 }

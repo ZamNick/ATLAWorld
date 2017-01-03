@@ -84,3 +84,7 @@ canvas {
 	color: white;
 	opacity: 1;
 }
+
+.slick-slide {
+	height: auto;
+}
