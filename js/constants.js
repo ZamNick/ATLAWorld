@@ -143,6 +143,13 @@ var CONSTANTS = {
 				"X": 90,
 				"Y": -300,
 				"Z": 10
+			},
+			{
+				"NAME": "Omashu",
+				"MARKER": "earth",
+				"X": 180,
+				"Y": 5,
+				"Z": 10
 			}
 		]
 	}
