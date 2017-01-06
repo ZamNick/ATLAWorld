@@ -150,6 +150,20 @@ var CONSTANTS = {
 				"X": 180,
 				"Y": 5,
 				"Z": 10
+			},
+			{
+				"NAME": "HaruVillage",
+				"MARKER": "earth",
+				"X": 0,
+				"Y": -4,
+				"Z": 10
+			},
+			{
+				"NAME": "FireNationPrisonRig",
+				"MARKER": "fire",
+				"X": 0,
+				"Y": -30,
+				"Z": 10
 			}
 		]
 	}
