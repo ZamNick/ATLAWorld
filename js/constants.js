@@ -306,67 +306,81 @@ var CONSTANTS = {
 		},
 		ARRAY: [
 			{
-				"NAME": "HakodaTribe",
-				"MARKER": "water",
-				"X": -147,
-				"Y": -748,
-				"Z": 10
+				NAME: "HakodaTribe",
+				MARKER: "water",
+				X: -147,
+				Y: -748,
+				Z: 10
 			},
 			{
-				"NAME": "WarshipOnSouthPole",
-				"MARKER": "water",
-				"X": -215,
-				"Y": -742,
-				"Z": 10
+				NAME: "WarshipOnSouthPole",
+				MARKER: "water",
+				X: -215,
+				Y: -742,
+				Z: 10
 			},
 			{
-				"NAME": "AangBanishmentOnSouthPole",
-				"MARKER": "water",
-				"X": -190,
-				"Y": -736,
-				"Z": 10
+				NAME: "AangBanishmentOnSouthPole",
+				MARKER: "water",
+				X: -190,
+				Y: -736,
+				Z: 10
 			},
 			{
-				"NAME": "SouthernAirTemple",
-				"MARKER": "air",
-				"X": -262,
-				"Y": -442,
-				"Z": 10
+				NAME: "SouthernAirTemple",
+				MARKER: "air",
+				X: -262,
+				Y: -442,
+				Z: 10
 			},
 			{
-				"NAME": "KyoshiIsland",
-				"MARKER": "earth",
-				"X": 90,
-				"Y": -300,
-				"Z": 10
+				NAME: "KyoshiIsland",
+				MARKER: "earth",
+				X: 90,
+				Y: -300,
+				Z: 10
 			},
 			{
-				"NAME": "Omashu",
-				"MARKER": "earth",
-				"X": 180,
-				"Y": 5,
-				"Z": 10
+				NAME: "Omashu",
+				MARKER: "earth",
+				X: 180,
+				Y: 5,
+				Z: 10
 			},
 			{
-				"NAME": "HaruVillage",
-				"MARKER": "earth",
-				"X": 0,
-				"Y": -4,
-				"Z": 10
+				NAME: "HaruVillage",
+				MARKER: "earth",
+				X: 0,
+				Y: -4,
+				Z: 10
 			},
 			{
-				"NAME": "FireNationPrisonRig",
-				"MARKER": "fire",
-				"X": 0,
-				"Y": -30,
-				"Z": 10
+				NAME: "FireNationPrisonRig",
+				MARKER: "fire",
+				X: 0,
+				Y: -30,
+				Z: 10
 			},
 			{
-				"NAME": "HeiBeiForest",
-				"MARKER": "earth",
-				"X": -55,
-				"Y": 75,
-				"Z": 10
+				NAME: "HeiBeiForest",
+				MARKER: "earth",
+				X: -55,
+				Y: 75,
+				Z: 10
+			},
+			{
+				NAME: "SenlinVillage",
+				MARKER: "earth",
+				X: -10,
+				Y: 75,
+				Z: 10
+			},
+			{
+				NAME: "CrescentIsland",
+				MARKER: "fire",
+				X: -180,
+				Y: 120,
+				Z: 10
 			}
 		]
 	}
