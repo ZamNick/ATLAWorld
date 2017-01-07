@@ -1,4 +1,4 @@
-function WindowController(camera, renderer) {
+function WindowController(camera, renderer, world) {
 
     AbstractController.call(this, camera);
 
@@ -11,7 +11,7 @@ function WindowController(camera, renderer) {
         renderer.setSize(window.innerWidth, window.innerHeight);
     };
 
-    window.addEventListener('resize', function(e) { onWindowResize(e); }, false );
+    window.addEventListener('resize', function(e) { onWindowResize(e); }, false);
 
     var _addOnWheel = function(elem, handler) {
         if (elem.addEventListener) {
@@ -38,6 +38,16 @@ function WindowController(camera, renderer) {
         camera.position.z += scale;
         camera.position.z = Math.min(camera.position.z, CONSTANTS.SCALE.MAX);
         camera.position.z = Math.max(camera.position.z, CONSTANTS.SCALE.MIN);
+
+        if(camera.labelsType === 1 && camera.position.z <= 1400) {
+            camera.labelsType = 2;
+            world.printLabels();
+        }
+
+        if(camera.labelsType === 2 && camera.position.z > 1400) {
+            camera.labelsType = 1;
+            world.printLabels();
+        }
 
         _self.updateCameraPosition();
     });

@@ -15,8 +15,9 @@ World.prototype.init = function() {
 	document.body.appendChild(this.renderer.domElement);
 
 	this.camera.position.z = CONSTANTS.CAMERA.START_Z_POSITION;
+	this.camera.labelsType = 1;
 
-	var windowController = new WindowController(this.camera, this.renderer);
+	var windowController = new WindowController(this.camera, this.renderer, this);
 	var mouseController = new MouseController(this.camera);
 
 	this.domEvents = new THREEx.DomEvents(this.camera, this.renderer.domElement);
@@ -146,39 +147,7 @@ World.prototype.start = function() {
 		this.scene.add(plane);
 	}
 
-	var paintLetter = function(FONT, LABEL, INDEX) {
-
-		if(INDEX === LABEL.TEXT.length) return;
-
-		setTimeout(function() {
-
-			var  textGeo = new THREE.TextGeometry(LABEL.TEXT[INDEX], {
-		            font: FONT,
-		            size: CONSTANTS.LABELS.SETTINGS.SIZE,
-		            height: CONSTANTS.LABELS.SETTINGS.HEIGHT,
-		            curveSegments: CONSTANTS.LABELS.SETTINGS.CURVE_SEGMENTS
-		    	});
-
-	    	var material = new THREE.MeshBasicMaterial({ color: LABEL.COLOR });
-			var mesh = new THREE.Mesh(textGeo, material);
-			
-			mesh.position.set(LABEL.X + 50 * INDEX, LABEL.Y, LABEL.Z);
-
-			self.scene.add(mesh);
-
-			paintLetter(FONT, LABEL, INDEX + 1);
-
-		}, 50);
-	}
-
-	setTimeout(function() {
-		var fontLoader = new THREE.FontLoader();
-		fontLoader.load(CONSTANTS.LABELS.SETTINGS.FONT, function(FONT) {
-			for(var i = 0; i < CONSTANTS.LABELS.ARRAY.length; ++i) {
-				paintLetter(FONT, CONSTANTS.LABELS.ARRAY[i], 0);
-			}
-		});
-	}, 1000);
+	this.printLabels();
 
 	(function loop() {
 		requestAnimationFrame(loop);
@@ -196,6 +165,56 @@ World.prototype.start = function() {
 
 		self.renderer.render(self.scene, self.camera);
 	})();
+}
+
+World.prototype.printLabels = function() {
+
+	var self = this;
+	var mustRemoved = [];
+
+	for(var i = 0; i < self.scene.children.length; ++i) {
+		if(self.scene.children[i].geometry.type === "TextGeometry") {
+			mustRemoved.push(self.scene.children[i]);
+		}
+	}
+
+	for(var i = 0; i < mustRemoved.length; ++i) {
+		self.scene.remove(mustRemoved[i]);
+	}
+	
+	var _printLetter = function(FONT, LABEL, INDEX) {
+		if(INDEX === LABEL.TEXT.length) return;
+		setTimeout(function() {
+
+			var  textGeo = new THREE.TextGeometry(LABEL.TEXT[INDEX], {
+		            font: FONT,
+		            size: LABEL.SIZE,
+		            height: CONSTANTS.LABELS.SETTINGS.HEIGHT,
+		            curveSegments: CONSTANTS.LABELS.SETTINGS.CURVE_SEGMENTS
+		    	});
+
+	    	var material = new THREE.MeshBasicMaterial({ color: LABEL.COLOR });
+			var mesh = new THREE.Mesh(textGeo, material);
+			
+			mesh.position.set(LABEL.X + LABEL.LETTER_SPACE * INDEX, LABEL.Y, LABEL.Z);
+
+			self.scene.add(mesh);
+
+			_printLetter(FONT, LABEL, INDEX + 1);
+
+		}, 50);
+	}
+
+	setTimeout(function() {
+		var fontLoader = new THREE.FontLoader();
+		fontLoader.load(CONSTANTS.LABELS.SETTINGS.FONT, function(FONT) {
+			for(var i = 0; i < CONSTANTS.LABELS.ARRAY.length; ++i) {
+				if(CONSTANTS.LABELS.ARRAY[i].TYPE === self.camera.labelsType) {
+					_printLetter(FONT, CONSTANTS.LABELS.ARRAY[i], 0);
+				}
+			}
+		});
+	}, 500);
 }
 
 function updatePreview(data) {
