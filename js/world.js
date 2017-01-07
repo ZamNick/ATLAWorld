@@ -193,8 +193,8 @@ function updatePreview(data) {
 		$(CONSTANTS.SLICK.CONTAINER).slick('slickRemove', 0);
 	}
 
-	for(var i = 0; i < data.url.length; ++i) {
-		$(CONSTANTS.SLICK.CONTAINER).slick('slickAdd', "<img src='" + data.url[i] + "' alt='" + data.name + "'>");
+	for(var i = 0; i < data.urls.length; ++i) {
+		$(CONSTANTS.SLICK.CONTAINER).slick('slickAdd', "<img src='" + data.urls[i] + "' alt='" + data.name + "'>");
 	}
 	
 	var blockquote = $('blockquote')[0];

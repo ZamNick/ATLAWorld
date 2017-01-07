@@ -1,6 +1,8 @@
 {
 	"name": "AangBanishmentOnSouthPole",
-	"url": [ "/materials/AangBanishmentOnSouthPole/picture.jpg" ],
+	"urls": [
+		"/materials/AangBanishmentOnSouthPole/picture.jpg"
+	],
 	"quotes": [
 		[
 			{

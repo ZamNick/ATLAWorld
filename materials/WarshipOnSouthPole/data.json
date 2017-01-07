@@ -1,6 +1,8 @@
 {
 	"name": "WarshipOnSouthPole",
-	"url": [ "/materials/WarshipOnSouthPole/picture.jpg" ],
+	"urls": [
+		"/materials/WarshipOnSouthPole/picture.jpg"
+	],
 	"quotes": [
 		[
 			{

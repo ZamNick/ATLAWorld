@@ -164,6 +164,13 @@ var CONSTANTS = {
 				"X": 0,
 				"Y": -30,
 				"Z": 10
+			},
+			{
+				"NAME": "HeiBeiForest",
+				"MARKER": "earth",
+				"X": -55,
+				"Y": 75,
+				"Z": 10
 			}
 		]
 	}
