@@ -75,24 +75,46 @@ var CONSTANTS = {
 
 	LABELS: {
 		SETTINGS: {
-			FONT: './fonts/CloisterBlack%20BT_Regular.json',
-			SIZE: 24,
+			FONT: './fonts/Coffee%20Mocha_Regular.json',
+			SIZE: 40,
 			HEIGHT: 1,
-			CURVE_SEGMENTS: 20,
-			COLOR: 0x707070
+			CURVE_SEGMENTS: 20
 		},
 		ARRAY: [
 			{
-				"TEXT": "South Pole",
-				"X": -150,
-				"Y": -850,
-				"Z": 10
+				TEXT: "South Pole",
+				COLOR: 0x505050,
+				X: -350,
+				Y: -850,
+				Z: 9
 			},
 			{
-				"TEXT": "Earth Kingdom",
-				"X": 0,
-				"Y": 0,
-				"Z": 10
+				TEXT: "North Pole",
+				COLOR: 0x505050,
+				X: -350,
+				Y: 800,
+				Z: 9
+			},
+			{
+				TEXT: "Earth",
+				COLOR: 0x9F9F9F,
+				X: 300,
+				Y: 300,
+				Z: 9
+			},
+			{
+				TEXT: "Kingdom",
+				COLOR: 0x9F9F9F,
+				X: 230,
+				Y: 100,
+				Z: 9
+			},
+			{
+				TEXT: "Fire Nation",
+				COLOR: 0xAFAFAF,
+				X: -1000,
+				Y: -70,
+				Z: 9
 			}
 		]
 	},
