@@ -75,7 +75,7 @@ var CONSTANTS = {
 
 	LABELS: {
 		SETTINGS: {
-			FONT: './fonts/Coffee%20Mocha_Regular.json',
+			FONT: './fonts/Georgia_Regular.json',
 			HEIGHT: 1,
 			CURVE_SEGMENTS: 20
 		},
@@ -126,7 +126,7 @@ var CONSTANTS = {
 				SIZE: 40,
 				LETTER_SPACE: 50,
 				TYPE: 1,
-				X: -1000,
+				X: -1050,
 				Y: -70,
 				Z: 9
 			},
@@ -134,9 +134,9 @@ var CONSTANTS = {
 				TEXT: "Mo Ce Sea",
 				COLOR: 0xAFAFAF,
 				SIZE: 20,
-				LETTER_SPACE: 25,
+				LETTER_SPACE: 32,
 				TYPE: 2,
-				X: -330,
+				X: -350,
 				Y: 200,
 				Z: 9
 			},
@@ -146,7 +146,7 @@ var CONSTANTS = {
 				SIZE: 20,
 				LETTER_SPACE: 25,
 				TYPE: 2,
-				X: 350,
+				X: 340,
 				Y: 40,
 				Z: 9
 			},
@@ -234,9 +234,9 @@ var CONSTANTS = {
 				TEXT: "Earth Kingdom",
 				COLOR: 0x9F9F9F,
 				SIZE: 20,
-				LETTER_SPACE: 25,
+				LETTER_SPACE: 40,
 				TYPE: 2,
-				X: -460,
+				X: -500,
 				Y: 500,
 				Z: 9
 			},
@@ -244,7 +244,7 @@ var CONSTANTS = {
 				TEXT: "Forest",
 				COLOR: 0x9F9F9F,
 				SIZE: 20,
-				LETTER_SPACE: 25,
+				LETTER_SPACE: 40,
 				TYPE: 2,
 				X: -370,
 				Y: 420,
@@ -380,6 +380,20 @@ var CONSTANTS = {
 				MARKER: "fire",
 				X: -180,
 				Y: 120,
+				Z: 10
+			},
+			{
+				NAME: "TradingVillage",
+				MARKER: "earth",
+				X: -30,
+				Y: 185,
+				Z: 10
+			},
+			{
+				NAME: "NicePuddle",
+				MARKER: "earth",
+				X: 0,
+				Y: 185,
 				Z: 10
 			}
 		]
