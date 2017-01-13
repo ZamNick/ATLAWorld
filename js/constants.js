@@ -395,6 +395,27 @@ var CONSTANTS = {
 				X: 0,
 				Y: 185,
 				Z: 10
+			},
+			{
+				NAME: "JetHideouts",
+				MARKER: "earth",
+				X: 240,
+				Y: 137,
+				Z: 10
+			},
+			{
+				NAME: "GaipanVillage",
+				MARKER: "earth",
+				X: 205,
+				Y: 135,
+				Z: 10
+			},
+			{
+				NAME: "TheGreatDivide",
+				MARKER: "earth",
+				X: 170,
+				Y: 243,
+				Z: 10
 			}
 		]
 	}
