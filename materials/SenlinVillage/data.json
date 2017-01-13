@@ -1,5 +1,11 @@
 {
-	"name": "SenlinVillage",
+	"name": "Senlin Village",
+	"nationality": "earth",
+	"location": "Western Earth Kingdom / Southern United Republic of Nations",
+	"position": "Minor farming settlement",
+	"gaverment": "Senlin Village leader",
+	"gaverment_url": "http://avatar.wikia.com/wiki/Senlin_Village_leader",
+	"lookLocation": true,
 	"urls": [
 		"/materials/SenlinVillage/picture.jpg",
 		"/materials/SenlinVillage/picture2.jpg",
@@ -8,8 +14,5 @@
 		"/materials/SenlinVillage/picture5.jpg",
 		"/materials/SenlinVillage/picture6.jpg",
 		"/materials/SenlinVillage/picture7.jpg"
-	],
-	"quotes": [
-
 	]
 }

@@ -1,0 +1,12 @@
+{
+	"name": "Scorched Forest",
+	"nationality": "earth",
+	"location": "Western Earth Kingdom / Southern United Republic of Nations",
+	"position": "Forest",
+	"lookLocation": true,
+	"urls": [
+		"/materials/ScorchedForest/picture.jpg",
+		"/materials/ScorchedForest/picture2.jpg",
+		"/materials/ScorchedForest/picture3.jpg"
+	]
+}

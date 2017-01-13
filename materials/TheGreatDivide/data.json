@@ -1,5 +1,9 @@
 {
-	"name": "TheGreatDivide",
+	"name": "The Great Divide",
+	"nationality": "earth",
+	"location": "Central Earth Kingdom",
+	"position": "The world's largest canyon",
+	"lookLocation": true,
 	"urls": [
 		"/materials/TheGreatDivide/picture.jpg",
 		"/materials/TheGreatDivide/picture2.jpg",
@@ -12,7 +16,5 @@
 		"/materials/TheGreatDivide/picture9.jpg",
 		"/materials/TheGreatDivide/picture10.jpg",
 		"/materials/TheGreatDivide/picture11.jpg"
-	],
-	"quotes": [
 	]
 }

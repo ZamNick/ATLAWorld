@@ -348,7 +348,7 @@ var CONSTANTS = {
 				Z: 10
 			},
 			{
-				NAME: "HaruVillage",
+				NAME: "MiningVillage",
 				MARKER: "earth",
 				X: 0,
 				Y: -4,
@@ -362,7 +362,7 @@ var CONSTANTS = {
 				Z: 10
 			},
 			{
-				NAME: "HeiBeiForest",
+				NAME: "ScorchedForest",
 				MARKER: "earth",
 				X: -55,
 				Y: 75,
@@ -390,14 +390,14 @@ var CONSTANTS = {
 				Z: 10
 			},
 			{
-				NAME: "NicePuddle",
+				NAME: "WaterfallLagoon",
 				MARKER: "earth",
 				X: 0,
 				Y: 185,
 				Z: 10
 			},
 			{
-				NAME: "JetHideouts",
+				NAME: "TreetopHideout",
 				MARKER: "earth",
 				X: 240,
 				Y: 137,

@@ -1,5 +1,11 @@
 {
-	"name": "CrescentIsland",
+	"name": "Crescent Island",
+	"nationality": "fire",
+	"location": "Eastern Fire Nation",
+	"position": "Inhabited",
+	"gaverment": "Fire Sages",
+	"gaverment_url": "http://avatar.wikia.com/wiki/Fire_Sages",
+	"lookLocation": true,
 	"urls": [
 		"/materials/CrescentIsland/picture.jpg",
 		"/materials/CrescentIsland/picture2.jpg",
@@ -9,8 +15,5 @@
 		"/materials/CrescentIsland/picture6.jpg",
 		"/materials/CrescentIsland/picture7.jpg",
 		"/materials/CrescentIsland/picture8.jpg"
-	],
-	"quotes": [
-
 	]
 }

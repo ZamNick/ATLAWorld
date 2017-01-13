@@ -1,8 +1,9 @@
 {
-	"name": "GaipanVillage",
+	"name": "Gaipan Village",
+	"nationality": "earth",
+	"location": "Western Earth Kingdom",
+	"position": "Fire Nation military outpost",
 	"urls": [
 		"/materials/GaipanVillage/picture.jpg"
-	],
-	"quotes": [
 	]
 }

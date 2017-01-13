@@ -1,5 +1,11 @@
 {
 	"name": "Omashu",
+	"nationality": "earth",
+	"location": "Southwestern Earth Kingdom",
+	"position": "Provincial capital",
+	"gaverment": "King of Omashu",
+	"gaverment_url": "http://avatar.wikia.com/wiki/King_of_Omashu",
+	"lookLocation": true,
 	"urls": [
 		"/materials/Omashu/picture.jpg",
 		"/materials/Omashu/picture2.jpg",
@@ -9,6 +15,5 @@
 		"/materials/Omashu/picture6.jpg",
 		"/materials/Omashu/picture7.jpg",
 		"/materials/Omashu/picture8.jpg"
-	],
-	"quotes": []
+	]
 }

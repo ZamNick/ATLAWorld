@@ -1,0 +1,19 @@
+{
+	"name": "Treetop Hideout",
+	"nationality": "earth",
+	"location": "Western Earth Kingdom",
+	"position": "Home of the Freedom Fighters",
+	"gaverment": "Leader Jet",
+	"gaverment_url": "http://avatar.wikia.com/wiki/Jet",
+	"lookLocation": true,
+	"urls": [
+		"/materials/TreetopHideout/picture.jpg",
+		"/materials/TreetopHideout/picture2.jpg",
+		"/materials/TreetopHideout/picture3.jpg",
+		"/materials/TreetopHideout/picture4.jpg",
+		"/materials/TreetopHideout/picture5.jpg",
+		"/materials/TreetopHideout/picture6.jpg",
+		"/materials/TreetopHideout/picture7.jpg",
+		"/materials/TreetopHideout/picture8.jpg"
+	]
+}

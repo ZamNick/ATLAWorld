@@ -1,5 +1,9 @@
 {
-	"name": "TradingVillage",
+	"name": "Trading Village",
+	"nationality": "earth",
+	"location": "Western Earth Kingdom / Southern United Republic of Nations",
+	"position": "Minor trading settlement",
+	"lookLocation": true,
 	"urls": [
 		"/materials/TradingVillage/picture.jpg",
 		"/materials/TradingVillage/picture2.jpg",
@@ -8,7 +12,5 @@
 		"/materials/TradingVillage/picture5.jpg",
 		"/materials/TradingVillage/picture6.jpg",
 		"/materials/TradingVillage/picture7.jpg"
-	],
-	"quotes": [
 	]
 }

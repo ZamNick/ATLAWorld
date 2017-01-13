@@ -49,7 +49,7 @@ World.prototype.start = function() {
 
 	this.domEvents.addEventListener(plane, 'click', function(e) {
 		
-		var preview = $('#preview');
+		var preview = $('.preview');
 
 		if(preview.hasClass('preview-show')) {
 			preview.removeClass('preview-show');
@@ -122,25 +122,22 @@ World.prototype.start = function() {
 
 		this.domEvents.addEventListener(plane, 'click', function(e) {
 
-			var preview = $('#preview');
+			var preview = $('.preview');
 
-			if(preview.hasClass('preview-show') && lastTab != e.target.name) {
+			if(preview.length && lastTab != e.target.name) {
 				preview.toggleClass('preview-show');
 				setTimeout(function() {
 					Loader._instance.loadJSON('/materials/' + e.target.name + '/data.json')
 									.then(function(data) { updatePreview(data); });
-					preview.toggleClass('preview-show');
 				}, 500);
-			} else if(!preview.hasClass('preview-show')) {
+			} else if(!preview.length) {
 				Loader._instance.loadJSON('/materials/' + e.target.name + '/data.json')
 								.then(function(data) { updatePreview(data); });
-				preview.toggleClass('preview-show');
 			} else {
 				preview.toggleClass('preview-show');
 			}
-
+	
 			lastTab = e.target.name;
-
 			e.stopPropagation();
 		});
 		
@@ -219,20 +216,30 @@ World.prototype.printLabels = function() {
 
 function updatePreview(data) {
 	
-	var quote = data.quotes[Math.round(Math.random() * (data.quotes.length - 1))];
+	var template = $('#handlebars-preview').html();
 
-	while($(CONSTANTS.SLICK.CONTAINER).slick('getSlick').slideCount) {
-		$(CONSTANTS.SLICK.CONTAINER).slick('slickRemove', 0);
-	}
-
-	for(var i = 0; i < data.urls.length; ++i) {
-		$(CONSTANTS.SLICK.CONTAINER).slick('slickAdd', "<img src='" + data.urls[i] + "' alt='" + data.name + "'>");
-	}
+	var templateScript = Handlebars.compile(template);
 	
-	var blockquote = $('blockquote')[0];
-	blockquote.innerHTML = '';
+	var html = templateScript({
+		name: data.name,
+		url: data.urls[0],
+		nationality: data.nationality,
+		location: data.location,
+		position: data.position,
+		gaverment: data.gaverment,
+		gaverment_url: data.gaverment_url,
+		lookLocation: data.lookLocation
+	});
 
-	for(var i = 0; i < quote.length; ++i) {
-		blockquote.innerHTML += "<div><span class='name'>" + quote[i].author + ": </span><span>" + quote[i].quote + "</span></div>";
-	}
+	var preview = $('.preview');
+	preview[0].innerHTML = '';
+	preview.append(html).addClass('preview-show');
 }
+
+Handlebars.registerHelper('if', function(a, opts) {
+    if (a) {
+        return opts.fn(this);
+    } else {
+        return opts.inverse(this);
+    }
+});

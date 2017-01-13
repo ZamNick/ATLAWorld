@@ -15,15 +15,13 @@ canvas {
 	filter: grayscale(.5);
 }
 
-#preview {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
+.preview {
 	position: fixed;
 	left: -40%;
 	height: 100%;
 	width: 40%;
-	background: #1C1C1C;
+	top: 0;
+	background: black;
 	color: white;
 	z-index: 1;
 	transition: left 0.5s ease-out;
@@ -32,36 +30,14 @@ canvas {
 	-o-transition: left 0.5s ease-out;
 }
 
-#preview img {
+.preview img {
 	width: 100%;
 	filter: grayscale(.5);
-}
-
-#preview span {
-	line-height: 25px;
-	font-style: italic;
-}
-
-#preview span.name {
-	font-family: Venecia;
-	font-size: 25px;
-	color: cyan;
-}
-
-#preview blockquote {
-	font-family: Arial;
-	padding: 20px;
-	margin: 20px;
-	border: 1px solid #424242;
-	border-radius: 20px;
-}
-
-#preview blockquote div:nth-child(2) {	
-	margin-top: 5px;
+	border: 3px solid #4F4F4F;
 }
 
 .preview-show {
-	left: 0 !important;
+	left: 0;
 }
 
 @font-face {
@@ -87,4 +63,69 @@ canvas {
 
 .slick-slide {
 	height: auto;
+}
+
+.preview-name {
+	text-align: center;
+	font-size: 32px;
+	padding: 15px;
+}
+
+.preview-image {
+	padding: 0 15px 0 10px;
+}
+
+.preview-description {
+	padding: 10px;
+	font-size: 18px;
+}
+
+.preview-description > div:nth-child(2) {
+	margin: 8px 0;
+}
+
+.preview-search {
+	color: #4F4F4F;
+    text-align: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    outline: 0;
+}
+
+.preview-search > span {
+	font-size: 20px;
+    display: block;
+    margin-top: 5px;
+}
+
+.preview-search-icon {
+	display: inline-block;
+    border: 1px solid white;
+    border-radius: 50%;
+}
+
+.preview-search-icon > i {
+    padding: 12px;
+    border: 2px solid #4F4F4F;
+    border-radius: 50%;
+}
+
+.preview-water {
+	color: cyan;
+}
+
+.preview-earth {
+	color: lawngreen;
+}
+
+.preview-air {
+	color: lightgray;
+}
+
+.preview-fire {
+	color: crimson;
 }

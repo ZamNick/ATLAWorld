@@ -1,0 +1,18 @@
+{
+	"name": "Mining Village",
+	"nationality": "earth",
+	"location": "Western Earth Kingdom",
+	"position": "Mining settlement",
+	"gaverment": "Leader Tyro",
+	"gaverment_url": "http://avatar.wikia.com/wiki/Tyro",
+	"lookLocation": true,
+	"urls": [
+		"/materials/MiningVillage/picture.jpg",
+		"/materials/MiningVillage/picture2.jpg",
+		"/materials/MiningVillage/picture3.jpg",
+		"/materials/MiningVillage/picture4.jpg",
+		"/materials/MiningVillage/picture5.jpg",
+		"/materials/MiningVillage/picture6.jpg",
+		"/materials/MiningVillage/picture7.jpg"
+	]
+}

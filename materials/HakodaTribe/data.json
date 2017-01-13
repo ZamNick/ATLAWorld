@@ -1,5 +1,10 @@
 {
-	"name": "HakodaTribe",
+	"name": "Hakoda's Tribe",
+	"nationality": "water",
+	"location": "South Pole",
+	"position": "Small town",
+	"gaverment": "Chieftain Hakoda / Chieftain Sokka",
+	"lookLocation": true,
 	"urls": [ 
 		"/materials/HakodaTribe/picture.jpg",
 		"/materials/HakodaTribe/picture2.jpg", 

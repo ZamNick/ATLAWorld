@@ -1,22 +1,15 @@
 {
-	"name": "KyoshiIsland",
+	"name": "Kyoshi Island",
+	"nationality": "earth",
+	"location": "South Sea",
+	"position": "Small island",
+	"gaverment": "Governor / Numerous village chiefs",
+	"lookLocation": true,
 	"urls": [
 		"/materials/KyoshiIsland/picture.jpg",
 		"/materials/KyoshiIsland/picture2.jpg",
 		"/materials/KyoshiIsland/picture3.jpg",
 		"/materials/KyoshiIsland/picture4.jpg",
 		"/materials/KyoshiIsland/picture5.jpg"
-	],
-	"quotes": [
-		[
-			{
-				"author": "Катара",
-				"quote": "У него хорошо получается !"
-			},
-			{
-				"author": "Сокка",
-				"quote": "Ты шутишь ? Все делает рыба !"
-			}
-		]
 	]
 }

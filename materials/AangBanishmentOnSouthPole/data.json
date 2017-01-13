@@ -1,18 +1,8 @@
 {
-	"name": "AangBanishmentOnSouthPole",
+	"name": "Aang banishment on South Pole",
+	"nationality": "water",
+	"lookLocation": false,
 	"urls": [
 		"/materials/AangBanishmentOnSouthPole/picture.jpg"
-	],
-	"quotes": [
-		[
-			{
-				"author": "Аанг",
-				"quote": "Аппа, жди здесь !!!"
-			},
-			{
-				"author": "Аппа",
-				"quote": "Аааггпфф..."
-			}
-		]
 	]
 }

@@ -1,5 +1,7 @@
 {
-	"name": "WarshipOnSouthPole",
+	"name": "Warship on South Pole",
+	"nationality": "water",
+	"lookLocation": false,
 	"urls": [
 		"/materials/WarshipOnSouthPole/picture.jpg"
 	],

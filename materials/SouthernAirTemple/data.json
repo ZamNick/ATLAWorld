@@ -1,5 +1,11 @@
 {
-	"name": "SouthernAirTemple",
+	"name": "Southern Air Temple",
+	"nationality": "air",
+	"location": "Patola Mountain Range",
+	"position": "Inhabited by Air Acolytes",
+	"gaverment": "Southern Council of Elders",
+	"gaverment_url": "http://avatar.wikia.com/wiki/Council_of_Elders",
+	"lookLocation": true,
 	"urls": [ 
 		"/materials/SouthernAirTemple/picture.jpg", 
 		"/materials/SouthernAirTemple/picture2.jpg",
@@ -7,27 +13,5 @@
 		"/materials/SouthernAirTemple/picture4.jpg",
 		"/materials/SouthernAirTemple/picture5.jpg",
 		"/materials/SouthernAirTemple/picture6.jpg"
-	],
-	"quotes": [
-		[
-			{
-				"author": "Аанг",
-				"quote": "Вставай, Сокка, нас ждет храм воздуха !"
-			},
-			{
-				"author": "Сокка",
-				"quote": "Спать - сейчас, храм - потом..."
-			}
-		],
-		[
-			{
-				"author": "Аанг",
-				"quote": "Катара, ждущий меня поможет мне разгадать загадку Аватара !"
-			},
-			{
-				"author": "Сокка",
-				"quote": "Может быть, у него заодно найдется кусочек сочного копченого мяса !"
-			}
-		]
 	]
 }
