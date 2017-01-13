@@ -416,6 +416,13 @@ var CONSTANTS = {
 				X: 170,
 				Y: 243,
 				Z: 10
+			},
+			{
+				NAME: "HarborTown",
+				MARKER: "earth",
+				X: -60,
+				Y: 265,
+				Z: 10
 			}
 		]
 	}

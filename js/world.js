@@ -125,11 +125,18 @@ World.prototype.start = function() {
 			var preview = $('.preview');
 
 			if(preview.length && lastTab != e.target.name) {
-				preview.toggleClass('preview-show');
-				setTimeout(function() {
+				if(!preview.hasClass('preview-show')) {
+					preview[0].innerHTML = '';
+					preview.toggleClass('preview-show');
 					Loader._instance.loadJSON('/materials/' + e.target.name + '/data.json')
 									.then(function(data) { updatePreview(data); });
-				}, 500);
+				} else {
+					preview.toggleClass('preview-show');
+					setTimeout(function() {
+						Loader._instance.loadJSON('/materials/' + e.target.name + '/data.json')
+										.then(function(data) { updatePreview(data); });
+					}, 500);
+				}
 			} else if(!preview.length) {
 				Loader._instance.loadJSON('/materials/' + e.target.name + '/data.json')
 								.then(function(data) { updatePreview(data); });

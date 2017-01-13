@@ -1,0 +1,10 @@
+{
+	"name": "Harbor Town",
+	"nationality": "earth",
+	"location": "Western Earth Kingdom / Southern United Republic of Nations",
+	"position": "Fishing port",
+	"lookLocation": false,
+	"urls": [
+		"/materials/HarborTown/picture.jpg"
+	]
+}
