@@ -234,7 +234,6 @@ function updatePreview(data) {
 		location: data.location,
 		position: data.position,
 		gaverment: data.gaverment,
-		gaverment_url: data.gaverment_url,
 		lookLocation: data.lookLocation
 	});
 

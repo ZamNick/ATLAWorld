@@ -3,8 +3,7 @@
 	"nationality": "earth",
 	"location": "Western Earth Kingdom / Southern United Republic of Nations",
 	"position": "Forest",
-	"gaverment": "Hei Bai spirit",
-	"gaverment_url": "http://avatar.wikia.com/wiki/Hei_Bai",
+	"gaverment": "<a target='_blank' href='http://avatar.wikia.com/wiki/Hei_Bai'>Hei Bai spirit</a>",
 	"lookLocation": true,
 	"urls": [
 		"/materials/ScorchedForest/picture.jpg",

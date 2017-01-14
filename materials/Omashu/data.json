@@ -3,8 +3,7 @@
 	"nationality": "earth",
 	"location": "Southwestern Earth Kingdom / Kolau Mountain Range",
 	"position": "Provincial capital",
-	"gaverment": "King of Omashu",
-	"gaverment_url": "http://avatar.wikia.com/wiki/King_of_Omashu",
+	"gaverment": "<a target='_blank' href='http://avatar.wikia.com/wiki/King_of_Omashu'>King of Omashu</a>",
 	"lookLocation": true,
 	"urls": [
 		"/materials/Omashu/picture.jpg",

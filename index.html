@@ -40,22 +40,10 @@
 				<div><span class='preview-{{ nationality }}'>Location: </span><span>{{ location }}</span></div>
 			{{/if}}
 			{{#if position}}
-				<div><span class='preview-{{ nationality }}'>Position: </span><span>{{ position }}</span></div>
+				<div><span class='preview-{{ nationality }}'>Position: </span><span>{{{ position }}}</span></div>
 			{{/if}}
 			{{#if gaverment}}
-				<div><span class='preview-{{ nationality }}'>Gaverment: </span><span>
-			{{/if}}
-			{{#if gaverment_url}}
-				<a target='_blank' href='{{ gaverment_url }}'>
-			{{/if}}
-			{{#if gaverment}}
-				{{ gaverment }}
-			{{/if}}
-			{{#if gaverment_url}}
-				</a>
-			{{/if}}
-			{{#if gaverment}}
-				</span></div>
+				<div><span class='preview-{{ nationality }}'>Gaverment: </span><span>{{{ gaverment }}}</span></div>
 			{{/if}}
 		</div>
 		{{#if lookLocation}}

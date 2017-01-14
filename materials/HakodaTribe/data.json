@@ -9,27 +9,5 @@
 		"/materials/HakodaTribe/picture.jpg",
 		"/materials/HakodaTribe/picture2.jpg", 
 		"/materials/HakodaTribe/picture3.jpg"
-	],
-	"quotes": [
-		[
-			{
-				"author": "Сокка",
-				"quote": "Ааах, Катара, уведи его оттуда, этот урок только для воинов !"
-			},
-			{
-				"author": "Воины",
-				"quote": "Уууиииииии....."
-			}
-		],
-		[
-			{
-				"author": "Катара",
-				"quote": "Я чувствую, он исполнен мудростью."
-			},
-			{
-				"author": "Аанг",
-				"quote": "Эээй, у меня язык прилип к посоху !"
-			}
-		]
 	]
 }

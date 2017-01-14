@@ -3,8 +3,7 @@
 	"nationality": "fire",
 	"location": "Off the west coast of the Earth Kingdom",
 	"position": "Fire Nation prison",
-	"gaverment": "Leader Warden",
-	"gaverment_url": "http://avatar.wikia.com/wiki/Warden_(prison_rig)",
+	"gaverment": "<a target='_blank' href='http://avatar.wikia.com/wiki/Warden_(prison_rig)'>Leader Warden</a>",
 	"lookLocation": true,
 	"urls": [
 		"/materials/FireNationPrisonRig/picture.jpg",
