@@ -149,5 +149,6 @@ h1 {
 	width: 100%;
 	background: url(../img/background.jpg);
 	background-size: 100%;
+	background-repeat: no-repeat;
 	filter: grayscale(.5);
 }

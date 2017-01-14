@@ -14,7 +14,6 @@ World.prototype.init = function() {
 	this.renderer.setSize(window.innerWidth, window.innerHeight);
 	document.body.appendChild(this.renderer.domElement);
 
-	this.camera.position.z = CONSTANTS.CAMERA.START_Z_POSITION;
 	this.camera.labelsType = 1;
 
 	var windowController = new WindowController(this.camera, this.renderer, this);
@@ -151,6 +150,9 @@ World.prototype.start = function() {
 		this.scene.add(plane);
 	}
 
+	this.camera.position.z = 500;
+	this.firstAnimation = true;
+
 	this.printLabels();
 
 	(function loop() {
@@ -165,6 +167,18 @@ World.prototype.start = function() {
 
 			if(clouds[i].position.x > CONSTANTS.MAP.SETTINGS.BOUNDING_BOX.HALF_X) clouds[i].position.x = -CONSTANTS.MAP.SETTINGS.BOUNDING_BOX.HALF_X;
 			if(clouds[i].position.y > CONSTANTS.MAP.SETTINGS.BOUNDING_BOX.HALF_Y) clouds[i].position.y = -CONSTANTS.MAP.SETTINGS.BOUNDING_BOX.HALF_Y;
+		}
+
+		if(self.firstAnimation) {
+			
+			var addHeight = Math.max(70 * (1 - (self.camera.position.z / CONSTANTS.CAMERA.START_Z_POSITION)), 2);
+
+			self.camera.position.z += addHeight;
+			
+			if(self.camera.position.z >= CONSTANTS.CAMERA.START_Z_POSITION) {
+				self.camera.position.z = CONSTANTS.CAMERA.START_Z_POSITION;
+				self.firstAnimation = false;
+			}
 		}
 
 		self.renderer.render(self.scene, self.camera);
