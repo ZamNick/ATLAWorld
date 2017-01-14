@@ -1,20 +1,10 @@
 {
 	"name": "Warship on South Pole",
 	"nationality": "water",
+	"location": "Western South Pole",
+	"position": "Abandoned",
 	"lookLocation": false,
 	"urls": [
 		"/materials/WarshipOnSouthPole/picture.jpg"
-	],
-	"quotes": [
-		[
-			{
-				"author": "Катара",
-				"quote": "Аанг, стой, нам нельзя туда ходить, на корабле могут быть ловушки !"
-			},
-			{
-				"author": "Аанг",
-				"quote": "Если хочешь стать борцом, избавься от страха."
-			}
-		]
 	]
 }

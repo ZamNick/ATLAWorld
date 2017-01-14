@@ -75,7 +75,7 @@ var CONSTANTS = {
 
 	LABELS: {
 		SETTINGS: {
-			FONT: './fonts/Georgia_Regular.json',
+			FONT: './fonts/Coffee%20Mocha_Regular.json',
 			HEIGHT: 1,
 			CURVE_SEGMENTS: 20
 		},
@@ -253,7 +253,7 @@ var CONSTANTS = {
 			{
 				TEXT: "Jet",
 				COLOR: 0x9F9F9F,
-				SIZE: 10,
+				SIZE: 15,
 				LETTER_SPACE: 15,
 				TYPE: 2,
 				X: 125,
@@ -263,7 +263,7 @@ var CONSTANTS = {
 			{
 				TEXT: "Forest",
 				COLOR: 0x9F9F9F,
-				SIZE: 10,
+				SIZE: 15,
 				LETTER_SPACE: 15,
 				TYPE: 2,
 				X: 100,
@@ -273,7 +273,7 @@ var CONSTANTS = {
 			{
 				TEXT: "Wulong",
 				COLOR: 0x9F9F9F,
-				SIZE: 10,
+				SIZE: 12,
 				LETTER_SPACE: 15,
 				TYPE: 2,
 				X: -470,
@@ -283,7 +283,7 @@ var CONSTANTS = {
 			{
 				TEXT: "Forest",
 				COLOR: 0x9F9F9F,
-				SIZE: 10,
+				SIZE: 15,
 				LETTER_SPACE: 15,
 				TYPE: 2,
 				X: -475,
