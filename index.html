@@ -23,9 +23,7 @@
 
 	<script id='handlebars-preview' type='text/x-handlebars-template'>
 		<div class='preview-name preview-{{ nationality }}'>{{ name }}</div>
-		<div class='preview-image'>
-			<img src='{{ url }}' alt='{{ name }}'>
-		</div>
+		<div class='preview-image'>{{{ image }}}</div>
 		<div class='preview-description'>
 			{{#if location}}
 				<div><span class='preview-{{ nationality }}'>Location: </span><span>{{ location }}</span></div>

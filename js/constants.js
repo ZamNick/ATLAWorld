@@ -13,17 +13,34 @@ var CONSTANTS = {
 		MIN: 700
 	},
 
-	IMAGES: {
-		MAP: 'img/map.png',
-		CLOUD: 'img/cloud.png',
-		CLOUD_2: 'img/cloud_2.png',
-		CLOUD_3: 'img/cloud_3.png',
-		CLOUD_4: 'img/cloud_4.png',
-		MARKER_WATER: 'img/water.png',
-		MARKER_AIR: 'img/air.png',
-		MARKER_EARTH: 'img/earth.png',
-		MARKER_FIRE: 'img/fire.png'
-	},
+	IMAGES: [
+		'img/map.png',
+		'img/cloud.png',
+		'img/cloud_2.png',
+		'img/cloud_3.png',
+		'img/cloud_4.png',
+		'img/water.png',
+		'img/air.png',
+		'img/earth.png',
+		'img/fire.png',
+		'/materials/AangBanishmentOnSouthPole/AangBanishmentOnSouthPole_1.jpg',
+		'/materials/CrescentIsland/CrescentIsland_1.jpg',
+		'/materials/FireNationPrisonRig/FireNationPrisonRig_1.jpg',
+		'/materials/GaipanVillage/GaipanVillage_1.jpg',
+		'/materials/HakodaTribe/HakodaTribe_1.jpg',
+		'/materials/HarborTown/HarborTown_1.jpg',
+		'/materials/KyoshiIsland/KyoshiIsland_1.jpg',
+		'/materials/MiningVillage/MiningVillage_1.jpg',
+		'/materials/Omashu/Omashu_1.jpg',
+		'/materials/ScorchedForest/ScorchedForest_1.jpg',
+		'/materials/SenlinVillage/SenlinVillage_1.jpg',
+		'/materials/SouthernAirTemple/SouthernAirTemple_1.jpg',
+		'/materials/TheGreatDivide/TheGreatDivide_1.jpg',
+		'/materials/TradingVillage/TradingVillage_1.jpg',
+		'/materials/TreetopHideout/TreetopHideout_1.jpg',
+		'/materials/WarshipOnSouthPole/WarshipOnSouthPole_1.jpg',
+		'/materials/WaterfallLagoon/WaterfallLagoon_1.jpg'
+	],
 
 	MARKER: {
 		HEIGHT: 30,

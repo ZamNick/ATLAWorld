@@ -240,10 +240,12 @@ function updatePreview(data) {
 	var template = $('#handlebars-preview').html();
 
 	var templateScript = Handlebars.compile(template);
+
+	var imgName = data.urls[0].split('/').pop().split('.')[0];
 	
 	var html = templateScript({
 		name: data.name,
-		url: data.urls[0],
+		image: $(Loader._instance.getImage(imgName))[0].outerHTML,
 		nationality: data.nationality,
 		location: data.location,
 		position: data.position,

@@ -6,12 +6,12 @@
 	"gaverment": "<a target='_blank' href='http://avatar.wikia.com/wiki/Senlin_Village_leader'>Senlin Village leader</a>",
 	"lookLocation": true,
 	"urls": [
-		"/materials/SenlinVillage/picture.jpg",
-		"/materials/SenlinVillage/picture2.jpg",
-		"/materials/SenlinVillage/picture3.jpg",
-		"/materials/SenlinVillage/picture4.jpg",
-		"/materials/SenlinVillage/picture5.jpg",
-		"/materials/SenlinVillage/picture6.jpg",
-		"/materials/SenlinVillage/picture7.jpg"
+		"/materials/SenlinVillage/SenlinVillage_1.jpg",
+		"/materials/SenlinVillage/SenlinVillage_2.jpg",
+		"/materials/SenlinVillage/SenlinVillage_3.jpg",
+		"/materials/SenlinVillage/SenlinVillage_4.jpg",
+		"/materials/SenlinVillage/SenlinVillage_5.jpg",
+		"/materials/SenlinVillage/SenlinVillage_6.jpg",
+		"/materials/SenlinVillage/SenlinVillage_7.jpg"
 	]
 }

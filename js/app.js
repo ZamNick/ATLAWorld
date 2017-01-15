@@ -1,5 +1,5 @@
 window.onload = function() {
-	Loader._instance.loadImages(function() {
+	Loader._instance.loadImages(CONSTANTS.IMAGES, function() {
 		$('.start').fadeOut(2000);
 		setTimeout(function() {
 			var world = new World();

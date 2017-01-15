@@ -6,13 +6,13 @@
 	"gaverment": "<a target='_blank' href='http://avatar.wikia.com/wiki/Jet'>Leader Jet</a>",
 	"lookLocation": true,
 	"urls": [
-		"/materials/TreetopHideout/picture.jpg",
-		"/materials/TreetopHideout/picture2.jpg",
-		"/materials/TreetopHideout/picture3.jpg",
-		"/materials/TreetopHideout/picture4.jpg",
-		"/materials/TreetopHideout/picture5.jpg",
-		"/materials/TreetopHideout/picture6.jpg",
-		"/materials/TreetopHideout/picture7.jpg",
-		"/materials/TreetopHideout/picture8.jpg"
+		"/materials/TreetopHideout/TreetopHideout_1.jpg",
+		"/materials/TreetopHideout/TreetopHideout_2.jpg",
+		"/materials/TreetopHideout/TreetopHideout_3.jpg",
+		"/materials/TreetopHideout/TreetopHideout_4.jpg",
+		"/materials/TreetopHideout/TreetopHideout_5.jpg",
+		"/materials/TreetopHideout/TreetopHideout_6.jpg",
+		"/materials/TreetopHideout/TreetopHideout_7.jpg",
+		"/materials/TreetopHideout/TreetopHideout_8.jpg"
 	]
 }

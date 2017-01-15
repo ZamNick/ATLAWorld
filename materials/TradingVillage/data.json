@@ -5,12 +5,12 @@
 	"position": "Minor trading settlement",
 	"lookLocation": true,
 	"urls": [
-		"/materials/TradingVillage/picture.jpg",
-		"/materials/TradingVillage/picture2.jpg",
-		"/materials/TradingVillage/picture3.jpg",
-		"/materials/TradingVillage/picture4.jpg",
-		"/materials/TradingVillage/picture5.jpg",
-		"/materials/TradingVillage/picture6.jpg",
-		"/materials/TradingVillage/picture7.jpg"
+		"/materials/TradingVillage/TradingVillage_1.jpg",
+		"/materials/TradingVillage/TradingVillage_2.jpg",
+		"/materials/TradingVillage/TradingVillage_3.jpg",
+		"/materials/TradingVillage/TradingVillage_4.jpg",
+		"/materials/TradingVillage/TradingVillage_5.jpg",
+		"/materials/TradingVillage/TradingVillage_6.jpg",
+		"/materials/TradingVillage/TradingVillage_7.jpg"
 	]
 }

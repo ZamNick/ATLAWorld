@@ -9,7 +9,6 @@ Object.defineProperty(Loader, '_instance', { value:
 		var _loader = new THREE.ImageLoader();
 		var _xhr = new XMLHttpRequest();
 		var _spinner = document.getElementById('spinner');
-		var _uploadedImages = 0;
 
 		var _updateSpinner = function(loaded, unloaded) {
 
@@ -43,44 +42,60 @@ Object.defineProperty(Loader, '_instance', { value:
 			context.translate(-centerX, -centerY);
 		}
 
-		_updateSpinner(_uploadedImages, Object.keys(CONSTANTS.IMAGES).length);
-
 		return {
 
 			getImage: function(name) {
 				return _images[name];
 			},
 
-			loadImages: function(callback) {
+			loadImage: function(path) {
 
-				var loadImage = function(path) {
-					return new Promise(function(resolve, reject) {
+				var flag = (path.split('/')[0] === 'img');
+				var imageName = path.split('/').pop().split('.')[0];
+				
+				return new Promise(function(resolve, reject) {
+					if(flag) {
 						_loader.load(path, function(image) {
-							console.log(path + ' was loaded.');
-							_uploadedImages++;
-							_updateSpinner(_uploadedImages, Object.keys(CONSTANTS.IMAGES).length);
-							_images[path.substr(4, path.length - 8)] = image;
+							_images[imageName] = image;
 							resolve();
 						},
 						function(xhr) {
 							console.log('[' + Math.round(xhr.loaded / xhr.total * 100) + '%] ' + path );
 						},
 						function(xhr) {
-							console.err('Something going wrong. Error occured into load image: ' + path);
+							console.err('Something going wrong. Error occured while loading image: ' + path);
 						});
-					});
+					} else {
+						var image = new Image();
+						image.onload = function() {
+							_images[imageName] = image;
+							resolve();
+						}
+						image.src = path;
+					}
+				});
+			},
+
+			loadImages: function(images, callback) {
+				
+				var self = this;
+				var _uploadedImages = 0;
+				_updateSpinner(_uploadedImages, images.length);
+
+				var chain = self.loadImage(images[0]);
+				for(var i = 1; i < images.length; ++i) {
+					(function(i) {
+						chain = chain.then(function() {
+							_updateSpinner(++_uploadedImages, images.length);
+							return self.loadImage(images[i]); 
+						});
+					})(i);
 				}
 
-				loadImage(CONSTANTS.IMAGES.MAP)
-				.then(function() { return loadImage(CONSTANTS.IMAGES.CLOUD); })
-				.then(function() { return loadImage(CONSTANTS.IMAGES.CLOUD_2); })
-				.then(function() { return loadImage(CONSTANTS.IMAGES.CLOUD_3); })
-				.then(function() { return loadImage(CONSTANTS.IMAGES.CLOUD_4); })
-				.then(function() { return loadImage(CONSTANTS.IMAGES.MARKER_WATER); })
-				.then(function() { return loadImage(CONSTANTS.IMAGES.MARKER_AIR); })
-				.then(function() { return loadImage(CONSTANTS.IMAGES.MARKER_EARTH); })
-				.then(function() { return loadImage(CONSTANTS.IMAGES.MARKER_FIRE); })
-				.then(function() { callback(); });
+				chain.then(function() { 
+					_updateSpinner(++_uploadedImages, images.length);
+					callback();
+				});
 			},
 
 			loadJSON: function(path) {
@@ -93,6 +108,10 @@ Object.defineProperty(Loader, '_instance', { value:
 						}
 					}
 				});
+			},
+
+			loadLocation: function(location) {
+
 			}
 		};
 	})()

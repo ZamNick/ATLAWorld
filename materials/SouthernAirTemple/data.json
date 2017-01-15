@@ -6,11 +6,11 @@
 	"gaverment": "<a target='_blank' href='http://avatar.wikia.com/wiki/Council_of_Elders'>Southern Council of Elders</a>",
 	"lookLocation": true,
 	"urls": [ 
-		"/materials/SouthernAirTemple/picture.jpg", 
-		"/materials/SouthernAirTemple/picture2.jpg",
-		"/materials/SouthernAirTemple/picture3.jpg",
-		"/materials/SouthernAirTemple/picture4.jpg",
-		"/materials/SouthernAirTemple/picture5.jpg",
-		"/materials/SouthernAirTemple/picture6.jpg"
+		"/materials/SouthernAirTemple/SouthernAirTemple_1.jpg", 
+		"/materials/SouthernAirTemple/SouthernAirTemple_2.jpg",
+		"/materials/SouthernAirTemple/SouthernAirTemple_3.jpg",
+		"/materials/SouthernAirTemple/SouthernAirTemple_4.jpg",
+		"/materials/SouthernAirTemple/SouthernAirTemple_5.jpg",
+		"/materials/SouthernAirTemple/SouthernAirTemple_6.jpg"
 	]
 }
