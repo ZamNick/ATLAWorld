@@ -39,7 +39,10 @@ var CONSTANTS = {
 		'/materials/TradingVillage/TradingVillage_1.jpg',
 		'/materials/TreetopHideout/TreetopHideout_1.jpg',
 		'/materials/WarshipOnSouthPole/WarshipOnSouthPole_1.jpg',
-		'/materials/WaterfallLagoon/WaterfallLagoon_1.jpg'
+		'/materials/WaterfallLagoon/WaterfallLagoon_1.jpg',
+		'/materials/HerbalistInstitute/HerbalistInstitute_1.jpg',
+		'/materials/PohuaiStronghold/PohuaiStronghold_1.jpg',
+		'/materials/RuinsOfTaku/RuinsOfTaku_1.jpg'
 	],
 
 	MARKER: {
@@ -439,6 +442,27 @@ var CONSTANTS = {
 				MARKER: "earth",
 				X: -60,
 				Y: 265,
+				Z: 10
+			},
+			{
+				NAME: "HerbalistInstitute",
+				MARKER: "earth",
+				X: -27,
+				Y: 350,
+				Z: 10
+			},
+			{
+				NAME: "PohuaiStronghold",
+				MARKER: "fire",
+				X: -39,
+				Y: 377,
+				Z: 10
+			},
+			{
+				NAME: "RuinsOfTaku",
+				MARKER: "earth",
+				X: -27,
+				Y: 317,
 				Z: 10
 			}
 		]

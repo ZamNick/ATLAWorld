@@ -5,6 +5,8 @@
 	"position": "Fishing port",
 	"lookLocation": false,
 	"urls": [
-		"/materials/HarborTown/HarborTown_1.jpg"
+		"/materials/HarborTown/HarborTown_1.jpg",
+		"/materials/HarborTown/HarborTown_2.jpg",
+		"/materials/HarborTown/HarborTown_3.jpg"
 	]
 }
