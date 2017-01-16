@@ -42,7 +42,8 @@ var CONSTANTS = {
 		'/materials/WaterfallLagoon/WaterfallLagoon_1.jpg',
 		'/materials/HerbalistInstitute/HerbalistInstitute_1.jpg',
 		'/materials/PohuaiStronghold/PohuaiStronghold_1.jpg',
-		'/materials/RuinsOfTaku/RuinsOfTaku_1.jpg'
+		'/materials/RuinsOfTaku/RuinsOfTaku_1.jpg',
+		"/materials/MakapuVillage/MakapuVillage_1.jpg"
 	],
 
 	MARKER: {
@@ -463,6 +464,13 @@ var CONSTANTS = {
 				MARKER: "earth",
 				X: -27,
 				Y: 317,
+				Z: 10
+			},
+			{
+				NAME: "MakapuVillage",
+				MARKER: "earth",
+				X: -107,
+				Y: 321,
 				Z: 10
 			}
 		]
