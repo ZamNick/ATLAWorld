@@ -1,0 +1,16 @@
+{
+	"name": "Northern Air Temple",
+	"nationality": "air",
+	"location": "Northern Earth Kingdom mountains",
+	"position": "Inhabited by Air Acolytes (formerly) / Colonized by Earth Kingdom refugees (formerly)",
+	"gaverment": "<a target='_blank' href='http://avatar.wikia.com/wiki/Council_of_Elders'>Northern Council of Elders</a> (formerly) / <a target='_blank' href='http://avatar.wikia.com/wiki/Mechanist'>The mechanist</a> (formerly)",
+	"lookLocation": true,
+	"urls": [
+		"/materials/NorthernAirTemple/NorthernAirTemple_1.jpg",
+		"/materials/NorthernAirTemple/NorthernAirTemple_2.jpg",
+		"/materials/NorthernAirTemple/NorthernAirTemple_3.jpg",
+		"/materials/NorthernAirTemple/NorthernAirTemple_4.jpg",
+		"/materials/NorthernAirTemple/NorthernAirTemple_5.jpg",
+		"/materials/NorthernAirTemple/NorthernAirTemple_6.jpg"
+	]
+}

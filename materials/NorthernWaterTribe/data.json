@@ -1,0 +1,18 @@
+{
+	"name": "Northern Water Tribe",
+	"nationality": "water",
+	"location": "North Pole",
+	"position": "Independent state",
+	"gaverment": "<a target='_blank' href='http://avatar.wikia.com/wiki/Tribal_chief'>Tribal chief</a>",
+	"lookLocation": true,
+	"urls": [
+		"/materials/NorthernWaterTribe/NorthernWaterTribe_1.jpg",
+		"/materials/NorthernWaterTribe/NorthernWaterTribe_2.jpg",
+		"/materials/NorthernWaterTribe/NorthernWaterTribe_3.jpg",
+		"/materials/NorthernWaterTribe/NorthernWaterTribe_4.jpg",
+		"/materials/NorthernWaterTribe/NorthernWaterTribe_5.jpg",
+		"/materials/NorthernWaterTribe/NorthernWaterTribe_6.jpg",
+		"/materials/NorthernWaterTribe/NorthernWaterTribe_7.jpg",
+		"/materials/NorthernWaterTribe/NorthernWaterTribe_8.jpg"
+	]
+}

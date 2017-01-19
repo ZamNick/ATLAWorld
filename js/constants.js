@@ -43,7 +43,11 @@ var CONSTANTS = {
 		'/materials/HerbalistInstitute/HerbalistInstitute_1.jpg',
 		'/materials/PohuaiStronghold/PohuaiStronghold_1.jpg',
 		'/materials/RuinsOfTaku/RuinsOfTaku_1.jpg',
-		"/materials/MakapuVillage/MakapuVillage_1.jpg"
+		'/materials/MakapuVillage/MakapuVillage_1.jpg',
+		'/materials/TheAbbey/TheAbbey_1.jpg',
+		'/materials/FireNationColonialVillage/FireNationColonialVillage_1.jpg',
+		"/materials/NorthernAirTemple/NorthernAirTemple_1.jpg",
+		"/materials/NorthernWaterTribe/NorthernWaterTribe_1.jpg"
 	],
 
 	MARKER: {
@@ -471,6 +475,34 @@ var CONSTANTS = {
 				MARKER: "earth",
 				X: -107,
 				Y: 321,
+				Z: 10
+			},
+			{
+				NAME: "TheAbbey",
+				MARKER: "earth",
+				X: -225,
+				Y: 385,
+				Z: 10
+			},
+			{
+				NAME: "FireNationColonialVillage",
+				MARKER: "fire",
+				X: -307,
+				Y: 595,
+				Z: 10
+			},
+			{
+				NAME: "NorthernAirTemple",
+				MARKER: "air",
+				X: 210,
+				Y: 670,
+				Z: 10
+			},
+			{
+				NAME: "NorthernWaterTribe",
+				MARKER: "water",
+				X: -45,
+				Y: 760,
 				Z: 10
 			}
 		]
