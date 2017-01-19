@@ -191,6 +191,7 @@ h1 {
 	display: inline-block;
 	border: 2px solid #4F4F4F;
 	box-shadow: 0 0 50px 25px #000;
+	overflow: hidden;
 }
 
 .location div img {
@@ -199,4 +200,11 @@ h1 {
 	-webkit-user-drag: none;
 	-webkit-user-select: none;
 	-ms-user-select: none;
+}
+
+.location h1 {
+	position: absolute;
+	padding: 20px 90px;
+	color: gray;
+	z-index: 1;
 }

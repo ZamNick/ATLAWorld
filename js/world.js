@@ -299,6 +299,7 @@ function updatePreview(data) {
 				templateScript = Handlebars.compile(template);
 
 				html = templateScript({
+					name: "Knowhere",
 					images: images
 				});
 
@@ -311,6 +312,7 @@ function updatePreview(data) {
 				var grabbed = false;
 				var _x = 0;
 				var _y = 0;
+				var currentTranslate = 0;
 
 				location.on('mousedown', function(e) {
 					grabbed = true;
@@ -331,7 +333,18 @@ function updatePreview(data) {
 						_x = e.pageX;
 						_y = e.pageY;
 
-						$('.location').css('left', parseInt($('.location').css('left')) + e.movementX);
+						currentTranslate -= e.movementX * 0.3;
+						currentLeftPosition = parseInt($('.location').css('left')) + e.movementX;
+
+						if(currentLeftPosition < 0) {
+							$('.location').css('left', currentLeftPosition);
+						}
+
+						if(currentTranslate > 0) {
+							$('.location > div img').first().css('transform', 'translate(' + currentTranslate + 'px, 0)');
+						} else {
+							currentTranslate = 0;
+						}
 					}
 				});
 
