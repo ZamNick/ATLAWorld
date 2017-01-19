@@ -182,11 +182,21 @@ h1 {
 }
 
 .location {
+	position: absolute;
 	white-space: nowrap;
 }
 
-.location img {
+.location div {
 	height: 100%;
+	display: inline-block;
 	border: 2px solid #4F4F4F;
 	box-shadow: 0 0 50px 25px #000;
+}
+
+.location div img {
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-drag: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
 }

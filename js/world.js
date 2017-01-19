@@ -308,6 +308,33 @@ function updatePreview(data) {
 
 				location[0].style.width = commonWidth + 'px';
 
+				var grabbed = false;
+				var _x = 0;
+				var _y = 0;
+
+				location.on('mousedown', function(e) {
+					grabbed = true;
+					_x = e.pageX;
+					_y = e.pageY;
+				});
+
+				location.on('mouseup', function(e) {
+					grabbed = false;
+				});
+
+				location.on('mousemove', function(e) {
+					if(grabbed) {
+						
+						e.movementX = e.pageX - _x;
+						e.movementY = e.pageY - _y;
+						
+						_x = e.pageX;
+						_y = e.pageY;
+
+						$('.location').css('left', parseInt($('.location').css('left')) + e.movementX);
+					}
+				});
+
 				setTimeout(function() {
 					location.show();
 				}, 2000);
