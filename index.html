@@ -44,12 +44,26 @@
 		</button>
 		{{/if}}
 	</script>
+
+	<script id='handlebars-load-location' type='text/x-handlebars-template'>
+		<h1 class='load-location-text'>{{ name }}</h1>
+		<canvas class='load-location-spinner'></canvas>
+		{{{ image }}}
+	</script>
+
+	<script id='handlebars-location' type='text/x-handlebars-template'>
+		{{#each images}}
+			{{{ this }}}
+		{{/each}}
+	</script>
 </head>
 <body>
 	<div class='start'>
 		<h1>Avatar The Last Airbender World</h1>
-		<canvas id='spinner'></canvas>
+		<canvas class='start-spinner'></canvas>
 	</div>
+	<div class='load-location'></div>
+	<div class='location'></div>
 	<div class='preview'></div>
 
 	<!-- CUSTOME -->

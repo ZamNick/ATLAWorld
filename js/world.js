@@ -256,6 +256,64 @@ function updatePreview(data) {
 	var preview = $('.preview');
 	preview[0].innerHTML = '';
 	preview.append(html).addClass('preview-show');
+
+	$('.preview-search').on('click', function() {
+		
+		preview.removeClass('preview-show');
+		
+		var mainCanvas = $("body > canvas")[0];
+		$(mainCanvas).fadeOut(2000);
+
+		setTimeout(function() {
+
+			template = $('#handlebars-load-location').html();
+			templateScript = Handlebars.compile(template);
+			
+			html = templateScript({
+				name: data.name,
+				image: $(Loader._instance.getImage(imgName))[0].outerHTML
+			});
+
+			var loadLocationSection = $('.load-location');
+			//loadLocationSection[0].style.background = 'url(' + data.urls[0] + ')';
+			
+			loadLocationSection[0].innerHTML = '';
+			loadLocationSection.append(html);
+
+			loadLocationSection.show();
+
+			Loader._instance.loadLocation(data, function() {
+
+				loadLocationSection.fadeOut(2000);
+
+				var images = [];
+				var commonWidth = 0;
+
+				for(var i = 0; i < data.urls.length; ++i) {
+					imgName = data.urls[i].split('/').pop().split('.')[0];
+					commonWidth += Loader._instance.getImage(imgName).naturalWidth;
+					images.push($(Loader._instance.getImage(imgName))[0].outerHTML);
+				}
+
+				template = $('#handlebars-location').html();
+				templateScript = Handlebars.compile(template);
+
+				html = templateScript({
+					images: images
+				});
+
+				var location = $('.location');
+				location[0].innerHTML = '';
+				location.append(html);
+
+				location[0].style.width = commonWidth + 'px';
+
+				setTimeout(function() {
+					location.show();
+				}, 2000);
+			});
+		}, 2000);
+	});
 }
 
 Handlebars.registerHelper('if', function(a, opts) {

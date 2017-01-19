@@ -8,9 +8,8 @@ Object.defineProperty(Loader, '_instance', { value:
 		var _images = {};
 		var _loader = new THREE.ImageLoader();
 		var _xhr = new XMLHttpRequest();
-		var _spinner = document.getElementById('spinner');
 
-		var _updateSpinner = function(loaded, unloaded) {
+		var _updateSpinner = function(loaded, unloaded, _spinner) {
 
 			var context = _spinner.getContext('2d');
 			var centerX = _spinner.width / 2;
@@ -76,24 +75,24 @@ Object.defineProperty(Loader, '_instance', { value:
 				});
 			},
 
-			loadImages: function(images, callback) {
+			loadImages: function(images, _spinner, callback) {
 				
 				var self = this;
 				var _uploadedImages = 0;
-				_updateSpinner(_uploadedImages, images.length);
+				_updateSpinner(_uploadedImages, images.length, _spinner);
 
 				var chain = self.loadImage(images[0]);
 				for(var i = 1; i < images.length; ++i) {
 					(function(i) {
 						chain = chain.then(function() {
-							_updateSpinner(++_uploadedImages, images.length);
+							_updateSpinner(++_uploadedImages, images.length, _spinner);
 							return self.loadImage(images[i]); 
 						});
 					})(i);
 				}
 
 				chain.then(function() { 
-					_updateSpinner(++_uploadedImages, images.length);
+					_updateSpinner(++_uploadedImages, images.length, _spinner);
 					callback();
 				});
 			},
@@ -110,8 +109,14 @@ Object.defineProperty(Loader, '_instance', { value:
 				});
 			},
 
-			loadLocation: function(location) {
+			loadLocation: function(location, callback) {
+				var _spinner = document.getElementsByClassName('load-location-spinner')[0];
+				this.loadImages(location.urls, _spinner, callback);
+			},
 
+			init: function(images, callback) {	
+				var _spinner = document.getElementsByClassName('start-spinner')[0];
+				this.loadImages(images, _spinner, callback);
 			}
 		};
 	})()
