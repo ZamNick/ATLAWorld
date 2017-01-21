@@ -192,6 +192,7 @@ h1 {
 	border: 2px solid #4F4F4F;
 	box-shadow: 0 0 50px 25px #000;
 	overflow: hidden;
+	transform: translate(0, 0);
 }
 
 .location div img {
@@ -204,7 +205,6 @@ h1 {
 
 .location h1 {
 	position: absolute;
-	padding: 20px 90px;
-	color: gray;
+	padding: 70px;
 	z-index: 1;
 }

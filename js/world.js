@@ -299,7 +299,7 @@ function updatePreview(data) {
 				templateScript = Handlebars.compile(template);
 
 				html = templateScript({
-					name: "Knowhere",
+					name: data.name,
 					images: images
 				});
 
@@ -340,11 +340,8 @@ function updatePreview(data) {
 							$('.location').css('left', currentLeftPosition);
 						}
 
-						if(currentTranslate > 0) {
-							$('.location > div img').first().css('transform', 'translate(' + currentTranslate + 'px, 0)');
-						} else {
-							currentTranslate = 0;
-						}
+						currentTranslate = Math.max(currentTranslate, 0);
+						$('.location > div img').first().css('transform', 'translate(' + currentTranslate + 'px, 0)');
 					}
 				});
 
