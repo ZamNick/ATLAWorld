@@ -318,6 +318,10 @@ function updatePreview(data) {
 				var currentLeftPosition = 0;
 				var currentImage = 0;
 
+				var POINT = 300;
+
+				$($('.location > div img').get(currentImage)).addClass('active');
+
 				location.on('mousedown', function(e) {
 					grabbed = true;
 					_x = e.pageX;
@@ -341,6 +345,18 @@ function updatePreview(data) {
 
 						currentTranslate -= e.movementX * 0.3;
 						currentLeftPosition = parseInt($('.location').css('left')) + e.movementX;
+
+						$($('.location > div img').get(currentImage)).removeClass('active');
+						
+						if(Math.abs(currentLeftPosition) > currentImage * 1000 + POINT) {
+							++currentImage;
+						}
+
+						if(Math.abs(currentLeftPosition) < (currentImage - 1) * 1000 + POINT) {
+							--currentImage;
+						}
+
+						$($('.location > div img').get(currentImage)).addClass('active');
 
 						if(currentLeftPosition < 0) {
 							$('.location').css('left', currentLeftPosition);

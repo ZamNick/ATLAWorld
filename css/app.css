@@ -200,8 +200,17 @@ h1 {
 	border-bottom-left-radius: 20px;
 }
 
+.location div img {
+	opacity: 0.4;
+}
+
+.location div img.active {
+	opacity: 1;
+}
+
 .location div, .location div img {
 	height: 100%;
+	width: 1000px; /* width of the image. */
 }
 
 .location div, .location div img, .location h1 {
