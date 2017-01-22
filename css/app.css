@@ -210,7 +210,7 @@ h1 {
 
 .location div, .location div img {
 	height: 100%;
-	width: 1000px; /* width of the image. */
+	box-sizing: border-box;
 }
 
 .location div, .location div img, .location h1 {
