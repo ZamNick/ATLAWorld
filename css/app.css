@@ -200,6 +200,10 @@ h1 {
 	border-bottom-left-radius: 20px;
 }
 
+.location div, .location div img {
+	height: 100%;
+}
+
 .location div, .location div img, .location h1 {
 	user-select: none;
 	-moz-user-select: none;
@@ -207,11 +211,11 @@ h1 {
 	-webkit-user-select: none;
 	-ms-user-select: none;
 	pointer-events: none;
-	height: 100%;
 }
 
 .location h1 {
 	position: absolute;
 	padding: 70px;
 	z-index: 1;
+	font-style: italic;
 }
