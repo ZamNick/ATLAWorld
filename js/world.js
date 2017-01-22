@@ -310,18 +310,24 @@ function updatePreview(data) {
 				location[0].style.width = commonWidth + 'px';
 
 				var grabbed = false;
+
 				var _x = 0;
 				var _y = 0;
+
 				var currentTranslate = 0;
+				var currentLeftPosition = 0;
+				var currentImage = 0;
 
 				location.on('mousedown', function(e) {
 					grabbed = true;
 					_x = e.pageX;
 					_y = e.pageY;
+					$(".location").css('cursor', '-webkit-grabbing');
 				});
 
 				location.on('mouseup', function(e) {
 					grabbed = false;
+					$(".location").css('cursor', '-webkit-grab');
 				});
 
 				location.on('mousemove', function(e) {

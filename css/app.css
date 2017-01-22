@@ -184,23 +184,28 @@ h1 {
 .location {
 	position: absolute;
 	white-space: nowrap;
+	cursor: -webkit-grab;
+	margin-left: 2px;
+	filter: grayscale(0.4);
 }
 
 .location div {
-	height: 100%;
 	display: inline-block;
 	border: 2px solid #4F4F4F;
-	box-shadow: 0 0 50px 25px #000;
+	box-shadow: 0 0 50px 40px #000;
 	overflow: hidden;
 	transform: translate(0, 0);
+	border-top-left-radius: 20px;
+	border-bottom-left-radius: 20px;
 }
 
-.location div img {
+.location div, .location div img, .location h1 {
 	user-select: none;
 	-moz-user-select: none;
 	-webkit-user-drag: none;
 	-webkit-user-select: none;
 	-ms-user-select: none;
+	pointer-events: none;
 }
 
 .location h1 {
