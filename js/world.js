@@ -275,7 +275,6 @@ function updatePreview(data) {
 			});
 
 			var loadLocationSection = $('.load-location');
-			//loadLocationSection[0].style.background = 'url(' + data.urls[0] + ')';
 			
 			loadLocationSection[0].innerHTML = '';
 			loadLocationSection.append(html);
@@ -287,11 +286,9 @@ function updatePreview(data) {
 				loadLocationSection.fadeOut(2000);
 
 				var images = [];
-				var commonWidth = 0;
 
 				for(var i = 0; i < data.urls.length; ++i) {
 					imgName = data.urls[i].split('/').pop().split('.')[0];
-					commonWidth += Loader._instance.getImage(imgName).naturalWidth;
 					images.push($(Loader._instance.getImage(imgName))[0].outerHTML);
 				}
 
@@ -307,8 +304,6 @@ function updatePreview(data) {
 				location[0].innerHTML = '';
 				location.append(html);
 
-				location[0].style.width = commonWidth + 'px';
-
 				var grabbed = false;
 
 				var _x = 0;
@@ -317,8 +312,6 @@ function updatePreview(data) {
 				var currentTranslate = 0;
 				var currentLeftPosition = 0;
 				var currentImage = 0;
-
-				var POINT = 300;
 
 				$($('.location > div img').get(currentImage)).addClass('active');
 
@@ -347,12 +340,15 @@ function updatePreview(data) {
 						currentLeftPosition = parseInt($('.location').css('left')) + e.movementX;
 
 						$($('.location > div img').get(currentImage)).removeClass('active');
+
+						var slideWidth = $('.location > div img').width();
+						var POINT = slideWidth * 0.4;
 						
-						if(Math.abs(currentLeftPosition) > currentImage * 1000 + POINT) {
+						if(Math.abs(currentLeftPosition) > currentImage * slideWidth + POINT) {
 							++currentImage;
 						}
 
-						if(Math.abs(currentLeftPosition) < (currentImage - 1) * 1000 + POINT) {
+						if(Math.abs(currentLeftPosition) < (currentImage - 1) * slideWidth + POINT) {
 							--currentImage;
 						}
 
