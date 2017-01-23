@@ -297,6 +297,7 @@ function updatePreview(data) {
 
 				html = templateScript({
 					name: data.name,
+					nationality: data.nationality,
 					images: images
 				});
 
@@ -312,6 +313,10 @@ function updatePreview(data) {
 				var currentTranslate = 0;
 				var currentLeftPosition = 0;
 				var currentImage = 0;
+
+				updateTitle();
+
+				$($('.location > div img').get(1)).css('transform', 'translate(-' + $('.location > div img').width() * 0.15 + 'px, 0)');
 
 				$($('.location > div img').get(currentImage)).addClass('active');
 
@@ -336,13 +341,18 @@ function updatePreview(data) {
 						_x = e.pageX;
 						_y = e.pageY;
 
-						currentTranslate -= e.movementX * 0.3;
-						currentLeftPosition = parseInt($('.location').css('left')) + e.movementX;
-
-						$($('.location > div img').get(currentImage)).removeClass('active');
-
 						var slideWidth = $('.location > div img').width();
 						var POINT = slideWidth * 0.4;
+						var leftPositionBorder = -slideWidth * (images.length - 1.4);
+
+						currentLeftPosition = parseInt($('.location').css('left')) + e.movementX;
+						currentLeftPosition = Math.max(currentLeftPosition, leftPositionBorder);
+
+						if(currentLeftPosition > leftPositionBorder) {
+							currentTranslate -= e.movementX * 0.3;
+						}
+
+						$($('.location > div img').get(currentImage)).removeClass('active');
 						
 						if(Math.abs(currentLeftPosition) > currentImage * slideWidth + POINT) {
 							++currentImage;
@@ -354,12 +364,12 @@ function updatePreview(data) {
 
 						$($('.location > div img').get(currentImage)).addClass('active');
 
-						if(currentLeftPosition < 0) {
-							$('.location').css('left', currentLeftPosition);
-						}
+						currentLeftPosition = Math.min(currentLeftPosition, 0);
+						$('.location').css('left', currentLeftPosition);
 
 						currentTranslate = Math.max(currentTranslate, 0);
 						$('.location > div img').first().css('transform', 'translate(' + currentTranslate + 'px, 0)');
+						$($('.location > div img').get(1)).css('transform', 'translate(' + Math.min(-(POINT * 0.375) + currentTranslate, 0) + 'px, 0)');
 					}
 				});
 
@@ -389,3 +399,19 @@ Handlebars.registerHelper('if', function(a, opts) {
         return opts.inverse(this);
     }
 });
+
+$(window).resize(function(e) {
+	updateTitle();
+});
+
+function updateTitle() {
+
+	var _w = $('.location > div img').width();
+	var _h = $('.location > div img').height();
+
+	var _ww = $('.location > h1').width();
+	var _hh = $('.location > h1').height();
+
+	$('.location > h1').css('top', (_h / 2) - _hh + 'px');
+	$('.location > h1').css('left', (_w - _ww) / 2 + 'px');
+}

@@ -224,7 +224,8 @@ h1 {
 
 .location h1 {
 	position: absolute;
-	padding: 70px;
+	padding: 0;
 	z-index: 1;
 	font-style: italic;
+	text-shadow: 0 3px 5px #000;
 }
