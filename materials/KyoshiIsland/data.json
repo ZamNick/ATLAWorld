@@ -5,6 +5,7 @@
 	"position": "Small island",
 	"gaverment": "Governor / Numerous village chiefs",
 	"lookLocation": true,
+	"exploreMore": true,
 	"urls": [
 		"/materials/KyoshiIsland/KyoshiIsland_1.jpg",
 		"/materials/KyoshiIsland/KyoshiIsland_2.jpg",
@@ -13,5 +14,5 @@
 		"/materials/KyoshiIsland/KyoshiIsland_5.jpg"
 	],
 	"audio": "/materials/KyoshiIsland.mp3",
-	"video": "https://www.youtube.com/watch?v=tqnfCsqLPpE"
+	"video": "/materials/KyoshiIsland/Kyoshi.mp4"
 }

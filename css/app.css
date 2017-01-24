@@ -213,7 +213,7 @@ h1 {
 	box-sizing: border-box;
 }
 
-.location div, .location div img, .location h1 {
+.location div, .location div img, .location h1, .location h4 {
 	user-select: none;
 	-moz-user-select: none;
 	-webkit-user-drag: none;
@@ -228,4 +228,48 @@ h1 {
 	z-index: 1;
 	font-style: italic;
 	text-shadow: 0 3px 5px #000;
+}
+
+.location-map-icon {
+	height: 40px;
+	width: 40px;
+	position: absolute;
+	left: 30px;
+	top: 30px;
+	z-index: 1;
+	color: #fff;
+}
+
+.location-identificator {
+	position: absolute;
+	color: #fff;
+	z-index: 1;
+	bottom: 30px;
+	left: 30px;
+}
+
+.location-explore-more {
+	display: block;
+	position: absolute;
+	right: 40px;
+	bottom: 30px;
+	z-index: 1;
+	color: #fff;
+	text-align: center;
+	cursor: pointer;
+}
+
+.location-explore-more i {
+	padding: 12px;
+	border: 2px solid #fff;
+	border-radius: 50%;
+}
+
+.location-explore-more h4 {
+	margin-top: 5px;
+}
+
+
+.location-more {
+	display: none;
 }

@@ -52,10 +52,18 @@
 	</script>
 
 	<script id='handlebars-location' type='text/x-handlebars-template'>
+		<i class='fa fa-2x fa-map-o location-map-icon'></i>
+		<h4 class='location-identificator'>ATLA<br />World</h4>
 		<h1 class='preview-{{ nationality }}'>{{ name }}</h1>
 		{{#each images}}
 			<div>{{{ this }}}</div>
 		{{/each}}
+		{{#if exploreMore}}
+		<span class='location-explore-more'>
+			<i class='fa fa-map-signs fa-2x'></i>
+			<h4>Explore<br />more</h4>
+		</span>
+		{{/if}}
 	</script>
 </head>
 <body>
@@ -65,6 +73,7 @@
 	</div>
 	<div class='load-location'></div>
 	<div class='location'></div>
+	<div class='location-more'></div>
 	<div class='preview'></div>
 
 	<!-- CUSTOME -->
