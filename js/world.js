@@ -285,17 +285,19 @@ function updatePreview(data) {
 
 				loadLocationSection.fadeOut(2000);
 
-				/*var audioListener = new THREE.AudioListener();
+				/*
+				var audioListener = new THREE.AudioListener();
 				var sound = new THREE.Audio(audioListener);
 				var audioLoader = new THREE.AudioLoader();
 
 				audioLoader.load('/materials/KyoshiIsland/KyoshiIsland.mp3', function(audio) {
 					sound.setBuffer(audio);
 					sound.setLoop(true);
-					sound.setVolume(0.5);
+					sound.setVolume(0.3);
 					sound.play();
-				});*/
-
+				});
+				*/
+				
 				setTimeout(function() {
 					Location._instance.updateLocation(data);
 				}, 2000);

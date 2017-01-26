@@ -64,6 +64,19 @@ Object.defineProperty(Location, '_instance', { value:
 					
 					if(Math.abs(currentLeftPosition) > currentImage * slideWidth + POINT) {
 						++currentImage;
+
+						/*
+						if(currentImage === 3) {
+							var audioListener = new THREE.AudioListener();
+							var sound = new THREE.Audio(audioListener);
+							var audioLoader = new THREE.AudioLoader();
+
+							audioLoader.load('/materials/KyoshiIsland/Aang.mp3', function(audio) {
+								sound.setBuffer(audio);
+								sound.play();
+							});
+						}
+						*/
 					}
 
 					if(Math.abs(currentLeftPosition) < (currentImage - 1) * slideWidth + POINT) {
