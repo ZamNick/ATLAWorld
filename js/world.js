@@ -310,7 +310,9 @@ function updatePreview(data) {
 				if(data.exploreMore) {
 					$('.location-explore-more').on('click', function(e) {
 						$('.location').fadeOut(2000);
-						$('.location-more').show().append('<iframe style="position:absolute;height:100%;width:100%;" src="/materials/KyoshiIsland/Kyoshi.mp4" frameborder="0" allowfullscreen autoplay></iframe>');
+						setTimeout(function() {
+							$('.location-more').show().append('<iframe style="position:absolute;height:100%;width:100%;" src="/materials/KyoshiIsland/Kyoshi.mp4" frameborder="0" allowfullscreen autoplay></iframe>');
+						}, 2000);
 					});
 				}
 
