@@ -88,6 +88,20 @@ Object.defineProperty(Location, '_instance', { value:
 					currentLeftPosition = Math.min(currentLeftPosition, 0);
 					location.css('left', currentLeftPosition);
 
+					if(currentLeftPosition < 0) {
+						$('.location-map-icon').fadeOut(500);
+						$('.location-identificator').fadeOut(500);
+					} else {
+						$('.location-map-icon').fadeIn(500);
+						$('.location-identificator').fadeIn(500);
+					}
+
+					if(currentLeftPosition <= leftPositionBorder) {
+						$('.location-explore-more').fadeIn(500);
+					} else {
+						$('.location-explore-more').fadeOut(500);
+					}
+
 					currentTranslate = Math.max(currentTranslate, 0);
 					$('.location > div img').first().css('transform', 'translate(' + currentTranslate + 'px, 0)');
 					$($('.location > div img').get(1)).css('transform', 'translate(' + Math.min(-(POINT * 0.375) + currentTranslate, 0) + 'px, 0)');
@@ -96,7 +110,7 @@ Object.defineProperty(Location, '_instance', { value:
 			});
 		})();
 
-		$(window).resize(function(e) { updateLocationText(); });
+		$(window).resize(function() { updateLocationText(); });
 
 		return {
 			updateLocation: function(data) {
