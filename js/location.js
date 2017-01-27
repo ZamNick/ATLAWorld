@@ -108,7 +108,7 @@ Object.defineProperty(Location, '_instance', { value:
 
 					for(var i = 1; i < images.length; ++i) {
 						if(settings[i] && settings[i].parallax) {
-							$($('.location > div img').get(i)).css('transform', 'translate(' + Math.min(-(POINT * settings[i].offset) + currentTranslate, 0) + 'px, 0)');
+							$($('.location > div img').get(i)).css('transform', 'translate(' + Math.min(-(POINT * settings[i].offset) + currentTranslate, 0) * settings[i].direction + 'px, 0)');
 						}
 					}
 				}
@@ -163,12 +163,9 @@ Object.defineProperty(Location, '_instance', { value:
 					}
 				}
 
-				//$($('.location > div img').get(1)).css('transform', 'translate(-' + $('.location > div img').width() * 0.15 + 'px, 0)');
-				//$($('.location > div img').get(2)).css('transform', 'translate(-' + $('.location > div img').width() * 0.30 + 'px, 0)');
-
 				/* TEST MODE */
 				if(data.exploreMore) {
-					$('.location-explore-more').on('click', function(e) {
+					$('.location-explore-more').on('click', function() {
 						$('.location').fadeOut(2000);
 						setTimeout(function() {
 							$('.location-more').show().append('<iframe style="position:absolute;height:100%;width:100%;" src="/materials/KyoshiIsland/Kyoshi.mp4" frameborder="0" allowfullscreen autoplay></iframe>');
