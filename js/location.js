@@ -6,6 +6,7 @@ Object.defineProperty(Location, '_instance', { value:
 	(function() {
 
 		var images = [];
+		var settings = [];
 		var currentTranslate = 0;
 		var currentLeftPosition = 0;
 		var currentImage = 0;
@@ -104,8 +105,12 @@ Object.defineProperty(Location, '_instance', { value:
 
 					currentTranslate = Math.max(currentTranslate, 0);
 					$('.location > div img').first().css('transform', 'translate(' + currentTranslate + 'px, 0)');
-					$($('.location > div img').get(1)).css('transform', 'translate(' + Math.min(-(POINT * 0.375) + currentTranslate, 0) + 'px, 0)');
-					$($('.location > div img').get(2)).css('transform', 'translate(' + Math.min(-(POINT * 1.2) + currentTranslate, 0) + 'px, 0)');
+
+					for(var i = 1; i < images.length; ++i) {
+						if(settings[i] && settings[i].parallax) {
+							$($('.location > div img').get(i)).css('transform', 'translate(' + Math.min(-(POINT * settings[i].offset) + currentTranslate, 0) + 'px, 0)');
+						}
+					}
 				}
 			});
 		})();
@@ -116,6 +121,7 @@ Object.defineProperty(Location, '_instance', { value:
 			updateLocation: function(data) {
 
 				images = [];
+				settings = data.settings;
 
 				for(var i = 0; i < data.urls.length; ++i) {
 					var imgName = data.urls[i].split('/').pop().split('.')[0];
@@ -145,8 +151,20 @@ Object.defineProperty(Location, '_instance', { value:
 				updateLocationText();
 
 				$($('.location > div img').get(0)).addClass('active');
-				$($('.location > div img').get(1)).css('transform', 'translate(-' + $('.location > div img').width() * 0.15 + 'px, 0)');
-				$($('.location > div img').get(2)).css('transform', 'translate(-' + $('.location > div img').width() * 0.30 + 'px, 0)');
+
+				var currentOffset = 0;
+
+				for(var i = 0; i < data.urls.length; ++i) {
+					if(settings[i]) {
+						if(settings[i].parallax) {
+							$($('.location > div img').get(i)).css('transform', 'translate(-' + $('.location > div img').width() * currentOffset + 'px, 0)');
+							currentOffset += 0.15
+						}
+					}
+				}
+
+				//$($('.location > div img').get(1)).css('transform', 'translate(-' + $('.location > div img').width() * 0.15 + 'px, 0)');
+				//$($('.location > div img').get(2)).css('transform', 'translate(-' + $('.location > div img').width() * 0.30 + 'px, 0)');
 
 				/* TEST MODE */
 				if(data.exploreMore) {

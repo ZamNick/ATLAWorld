@@ -4,8 +4,7 @@
 	"location": "South Sea",
 	"position": "Small island",
 	"gaverment": "Governor / Numerous village chiefs",
-	"lookLocation": true,
-	"exploreMore": true,
+	"lookLocation": true,	
 	"urls": [
 		"/materials/KyoshiIsland/KyoshiIsland_1.jpg",
 		"/materials/KyoshiIsland/KyoshiIsland_2.jpg",
@@ -15,6 +14,38 @@
 		"/materials/KyoshiIsland/KyoshiIsland_6.jpg",
 		"/materials/KyoshiIsland/KyoshiIsland_7.jpg"
 	],
-	"audio": "/materials/KyoshiIsland.mp3",
-	"video": "/materials/KyoshiIsland/Kyoshi.mp4"
+	"audio": [
+		"/materials/KyoshiIsland/KyoshiIsland.mp3",
+		"/materials/KyoshiIsland/Aang.mp3"
+	],
+	"settings": [
+		{
+			"parallax": true
+		},
+		{
+			"parallax": true,
+			"offset": 0.375
+		},
+		{
+			"parallax": true,
+			"offset": 1.2
+		},
+		{
+			"parallax": true,
+			"offset": 1.9,
+			"audio": "/materials/KyoshiIsland/Aang.mp3"
+		},
+		{
+			"parallax": true,
+			"offset": 2.8,
+			"video": "/materials/KyoshiIsland/Kyoshi.mp4"
+		},
+		{
+
+		},
+		{
+			"parallax": true,
+			"offset": 4.2
+		}
+	]
 }
