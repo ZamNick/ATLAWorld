@@ -66,18 +66,9 @@ Object.defineProperty(Location, '_instance', { value:
 					if(Math.abs(currentLeftPosition) > currentImage * slideWidth + POINT) {
 						++currentImage;
 
-						/*
-						if(currentImage === 3) {
-							var audioListener = new THREE.AudioListener();
-							var sound = new THREE.Audio(audioListener);
-							var audioLoader = new THREE.AudioLoader();
-
-							audioLoader.load('/materials/KyoshiIsland/Aang.mp3', function(audio) {
-								sound.setBuffer(audio);
-								sound.play();
-							});
+						if(settings[currentImage] && settings[currentImage].audio) {
+							AudioPlayer._instance.playSound(settings[currentImage].audio);
 						}
-						*/
 					}
 
 					if(Math.abs(currentLeftPosition) < (currentImage - 1) * slideWidth + POINT) {
@@ -160,17 +151,16 @@ Object.defineProperty(Location, '_instance', { value:
 							$($('.location > div img').get(i)).css('transform', 'translate(-' + $('.location > div img').width() * currentOffset + 'px, 0)');
 							currentOffset += 0.15
 						}
+						if(settings[i].video) {
+							$('.location-video').show().css('left', $('.location > div img').width() * (i + 1) - 130)
+							.on('click', function() {
+								$('.location').fadeOut(2000);
+								setTimeout(function() {
+									$('.location-more').show().append('<iframe style="position:absolute;height:100%;width:100%;" src="/materials/KyoshiIsland/Kyoshi.mp4" frameborder="0" allowfullscreen autoplay></iframe>');
+								}, 2000);
+							});
+						}
 					}
-				}
-
-				/* TEST MODE */
-				if(data.exploreMore) {
-					$('.location-explore-more').on('click', function() {
-						$('.location').fadeOut(2000);
-						setTimeout(function() {
-							$('.location-more').show().append('<iframe style="position:absolute;height:100%;width:100%;" src="/materials/KyoshiIsland/Kyoshi.mp4" frameborder="0" allowfullscreen autoplay></iframe>');
-						}, 2000);
-					});
 				}
 			}
 		};

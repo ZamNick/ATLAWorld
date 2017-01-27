@@ -269,6 +269,20 @@ h1 {
 	margin-top: 5px;
 }
 
-.location-more, .location-video {
+.location-more {
 	display: none;
+}
+
+.location-video {
+	display: none;
+	position: absolute;
+	z-index: 1;
+	color: #424242;
+	font-size: 130px;
+	top: 70px;
+}
+
+.location-video:hover {
+	cursor: pointer;
+	color: #fff;
 }

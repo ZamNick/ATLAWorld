@@ -6,6 +6,9 @@ Object.defineProperty(Loader, '_instance', { value:
 	(function() {
 
 		var _images = {};
+		var _audio = {};
+
+		var _audioLoader = new THREE.AudioLoader();
 		var _loader = new THREE.ImageLoader();
 		var _xhr = new XMLHttpRequest();
 
@@ -47,6 +50,10 @@ Object.defineProperty(Loader, '_instance', { value:
 				return _images[name];
 			},
 
+			getAudio: function(name) {
+				return _audio[name];
+			},
+
 			loadImage: function(path) {
 
 				var flag = (path.split('/')[0] === 'img');
@@ -75,25 +82,23 @@ Object.defineProperty(Loader, '_instance', { value:
 				});
 			},
 
-			loadImages: function(images, _spinner, callback) {
+			loadImages: function(images, _spinner, loaded, needLoad) {
 				
 				var self = this;
-				var _uploadedImages = 0;
-				_updateSpinner(_uploadedImages, images.length, _spinner);
+				_updateSpinner(loaded, needLoad, _spinner);
 
 				var chain = self.loadImage(images[0]);
 				for(var i = 1; i < images.length; ++i) {
 					(function(i) {
 						chain = chain.then(function() {
-							_updateSpinner(++_uploadedImages, images.length, _spinner);
+							_updateSpinner(++loaded, needLoad, _spinner);
 							return self.loadImage(images[i]); 
 						});
 					})(i);
 				}
 
-				chain.then(function() { 
-					_updateSpinner(++_uploadedImages, images.length, _spinner);
-					callback();
+				return chain.then(function() { 
+					_updateSpinner(++loaded, needLoad, _spinner);
 				});
 			},
 
@@ -111,12 +116,50 @@ Object.defineProperty(Loader, '_instance', { value:
 
 			loadLocation: function(location, callback) {
 				var _spinner = document.getElementsByClassName('load-location-spinner')[0];
-				this.loadImages(location.urls, _spinner, callback);
+				var self = this;
+				self.loadImages(location.urls, _spinner, 0, location.urls.length + location.audio.length)
+					.then(function() {
+						return self.loadAudio(location.audio, _spinner, location.urls.length, location.urls.length + location.audio.length);	
+					}).then(function() {
+						callback();
+					});
 			},
 
 			init: function(images, callback) {	
 				var _spinner = document.getElementsByClassName('start-spinner')[0];
-				this.loadImages(images, _spinner, callback);
+				this.loadImages(images, _spinner, 0, images.length).then(function() { callback(); });
+			},
+
+			loadSound: function(path) {
+
+				var soundName = path.split('/').pop().split('.')[0];
+
+				return new Promise(function(resolve, reject) {
+					_audioLoader.load(path, function(sound) {
+						_audio[soundName] = sound;
+						resolve();
+					});
+				});
+			},
+
+			loadAudio: function(audio, _spinner, loaded, needLoad) {
+
+				var self = this;
+				_updateSpinner(loaded, needLoad, _spinner);
+
+				var chain = self.loadSound(audio[0]);
+				for(var i = 1; i < audio.length; ++i) {
+					(function(i) {
+						chain = chain.then(function() {
+							_updateSpinner(++loaded, needLoad, _spinner);
+							return self.loadSound(audio[i]);
+						});
+					})(i);
+				}
+
+				return chain.then(function() {
+					_updateSpinner(++loaded, needLoad, _spinner);
+				});
 			}
 		};
 	})()

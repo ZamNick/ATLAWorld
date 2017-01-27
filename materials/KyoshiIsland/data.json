@@ -36,7 +36,11 @@
 			"parallax": true,
 			"offset": 1.9,
 			"direction": 1,
-			"audio": "/materials/KyoshiIsland/Aang.mp3"
+			"audio": {
+				"path": "/materials/KyoshiIsland/Aang.mp3",
+				"loop": false,
+				"volume": 0.1
+			}
 		},
 		{
 			"parallax": true,
