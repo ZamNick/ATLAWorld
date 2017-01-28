@@ -10,7 +10,7 @@
 		"/materials/KyoshiIsland/KyoshiIsland_2.jpg",
 		"/materials/KyoshiIsland/KyoshiIsland_3.jpg",
 		"/materials/KyoshiIsland/KyoshiIsland_4.jpg",
-		"/materials/KyoshiIsland/KyoshiIsland_5.png",
+		"/materials/KyoshiIsland/KyoshiIsland_44.jpg",
 		"/materials/KyoshiIsland/KyoshiIsland_6.jpg",
 		"/materials/KyoshiIsland/KyoshiIsland_7.jpg"
 	],
@@ -43,9 +43,6 @@
 			}
 		},
 		{
-			"parallax": true,
-			"offset": 2.8,
-			"direction": -1,
 			"video": "/materials/KyoshiIsland/Kyoshi.mp4"
 		},
 		{

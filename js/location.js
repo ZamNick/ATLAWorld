@@ -25,6 +25,12 @@ Object.defineProperty(Location, '_instance', { value:
 
 			$('.location > h1').css('top', (_h / 2) - _hh + 'px');
 			$('.location > h1').css('left', (_w - _ww) / 2 + 'px');
+
+			for(var i = 0; i < images.length; ++i) {
+				if(settings[i] && settings[i].video) {
+					$('.location-video').show().css('left', $('.location > div img').width() * (i + 1) - 200);
+				}
+			}
 		};
 
 		(function() {
@@ -152,7 +158,7 @@ Object.defineProperty(Location, '_instance', { value:
 							currentOffset += 0.15
 						}
 						if(settings[i].video) {
-							$('.location-video').show().css('left', $('.location > div img').width() * (i + 1) - 130)
+							$('.location-video').show().css('left', $('.location > div img').width() * (i + 1) - 200)
 							.on('click', function() {
 								$('.location').fadeOut(2000);
 								setTimeout(function() {
