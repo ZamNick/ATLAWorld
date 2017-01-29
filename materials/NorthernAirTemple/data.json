@@ -3,7 +3,7 @@
 	"nationality": "air",
 	"location": "Northern Earth Kingdom mountains",
 	"position": "Inhabited by Air Acolytes (formerly) / Colonized by Earth Kingdom refugees (formerly)",
-	"gaverment": "<a target='_blank' href='http://avatar.wikia.com/wiki/Council_of_Elders'>Northern Council of Elders</a> (formerly) / <a target='_blank' href='http://avatar.wikia.com/wiki/Mechanist'>The mechanist</a> (formerly)",
+	"government": "<a target='_blank' href='http://avatar.wikia.com/wiki/Council_of_Elders'>Northern Council of Elders</a> (formerly) / <a target='_blank' href='http://avatar.wikia.com/wiki/Mechanist'>The mechanist</a> (formerly)",
 	"lookLocation": true,
 	"urls": [
 		"/materials/NorthernAirTemple/NorthernAirTemple_1.jpg",

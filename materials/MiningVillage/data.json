@@ -3,7 +3,7 @@
 	"nationality": "earth",
 	"location": "Western Earth Kingdom",
 	"position": "Mining settlement",
-	"gaverment": "<a target='_blank' href='http://avatar.wikia.com/wiki/Tyro'>Leader Tyro</a>",
+	"government": "<a target='_blank' href='http://avatar.wikia.com/wiki/Tyro'>Leader Tyro</a>",
 	"lookLocation": true,
 	"urls": [
 		"/materials/MiningVillage/MiningVillage_1.jpg",

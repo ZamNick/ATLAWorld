@@ -249,7 +249,7 @@ function updatePreview(data) {
 		nationality: data.nationality,
 		location: data.location,
 		position: data.position,
-		gaverment: data.gaverment,
+		government: data.government,
 		lookLocation: data.lookLocation
 	});
 

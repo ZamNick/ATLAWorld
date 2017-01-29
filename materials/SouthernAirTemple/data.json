@@ -3,7 +3,7 @@
 	"nationality": "air",
 	"location": "Patola Mountain Range",
 	"position": "Inhabited by Air Acolytes",
-	"gaverment": "<a target='_blank' href='http://avatar.wikia.com/wiki/Council_of_Elders'>Southern Council of Elders</a>",
+	"government": "<a target='_blank' href='http://avatar.wikia.com/wiki/Council_of_Elders'>Southern Council of Elders</a>",
 	"lookLocation": true,
 	"urls": [ 
 		"/materials/SouthernAirTemple/SouthernAirTemple_1.jpg", 

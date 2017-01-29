@@ -3,7 +3,7 @@
 	"nationality": "water",
 	"location": "South Pole",
 	"position": "Small town",
-	"gaverment": "<a target='_blank' href='http://avatar.wikia.com/wiki/Hakoda'>Chieftain Hakoda</a> / <a target='_blank' href='http://avatar.wikia.com/wiki/Sokka'>Chieftain Sokka</a>",
+	"government": "<a target='_blank' href='http://avatar.wikia.com/wiki/Hakoda'>Chieftain Hakoda</a> / <a target='_blank' href='http://avatar.wikia.com/wiki/Sokka'>Chieftain Sokka</a>",
 	"lookLocation": true,
 	"urls": [ 
 		"/materials/HakodaTribe/HakodaTribe_1.jpg",
