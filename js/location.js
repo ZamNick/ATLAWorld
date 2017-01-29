@@ -58,7 +58,7 @@ Object.defineProperty(Location, '_instance', { value:
 
 					var slideWidth = $('.location > div img').width();
 					var POINT = slideWidth * 0.4;
-					var leftPositionBorder = -slideWidth * (images.length - 1.4);
+					var leftPositionBorder = -($('.location').width() - $(window).width());
 
 					currentLeftPosition = parseInt(location.css('left')) + e.movementX;
 					currentLeftPosition = Math.max(currentLeftPosition, leftPositionBorder);
