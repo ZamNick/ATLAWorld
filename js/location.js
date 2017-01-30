@@ -28,7 +28,7 @@ Object.defineProperty(Location, '_instance', { value:
 
 			for(var i = 0; i < images.length; ++i) {
 				if(settings[i] && settings[i].video) {
-					$('.location-video').css('left', $('.location > div img').width() * (i + 1) - 200);
+					$('.location-video').css('left', $('.location > div img').width() * (i + 1) - settings[i].video.leftOffset);
 				}
 				if(settings[i] && settings[i].label) {
 					$('.location-label').css('left', $('.location > div img').width() * i + settings[i].label.leftOffset)
