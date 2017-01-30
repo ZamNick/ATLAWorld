@@ -43,7 +43,16 @@
 			}
 		},
 		{
-			"video": "/materials/KyoshiIsland/Kyoshi.mp4"
+			"video": {
+				"path": "/materials/KyoshiIsland/Kyoshi.mp4",
+				"top": 70,
+				"leftOffset": 200
+			},
+			"label": {
+				"top": 280,
+				"leftOffset": 100,
+				"text": "Avatar Kyoshi"
+			}
 		},
 		{
 

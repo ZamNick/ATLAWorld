@@ -273,16 +273,29 @@ h1 {
 	display: none;
 }
 
-.location-video {
+.location-video, .location-label {
 	display: none;
 	position: absolute;
 	z-index: 1;
 	color: #424242;
-	font-size: 130px;
-	top: 70px;
+	text-align: center;
 }
 
-.location-video:hover {
+.location-video, .location-label i {
+	font-size: 100px;
+	text-shadow: 1px 2px 5px #000;
+	transition: all 0.3s linear;
+	-webkit-transition: all 0.3s linear;
+	-moz-transition: all 0.3s linear;
+	-o-transition: all 0.3s linear;
+}
+
+.location-video:hover, .location-label i:hover {
 	cursor: pointer;
-	color: #fff;
+	opacity: .7;
+}
+
+.location-label-text {
+	margin-top: 15px;
+	text-transform: uppercase;
 }

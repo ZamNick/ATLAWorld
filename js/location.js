@@ -28,7 +28,10 @@ Object.defineProperty(Location, '_instance', { value:
 
 			for(var i = 0; i < images.length; ++i) {
 				if(settings[i] && settings[i].video) {
-					$('.location-video').show().css('left', $('.location > div img').width() * (i + 1) - 200);
+					$('.location-video').css('left', $('.location > div img').width() * (i + 1) - 200);
+				}
+				if(settings[i] && settings[i].label) {
+					$('.location-label').css('left', $('.location > div img').width() * i + settings[i].label.leftOffset)
 				}
 			}
 		};
@@ -158,13 +161,27 @@ Object.defineProperty(Location, '_instance', { value:
 							currentOffset += 0.15
 						}
 						if(settings[i].video) {
-							$('.location-video').show().css('left', $('.location > div img').width() * (i + 1) - 200)
-							.on('click', function() {
-								$('.location').fadeOut(2000);
-								setTimeout(function() {
-									$('.location-more').show().append('<iframe style="position:absolute;height:100%;width:100%;" src="/materials/KyoshiIsland/Kyoshi.mp4" frameborder="0" allowfullscreen autoplay></iframe>');
-								}, 2000);
-							});
+							(function(i) {
+								$('.location-video')
+									.show()
+									.css('left', $('.location > div img').width() * (i + 1) - settings[i].video.leftOffset)
+									.css('top', settings[i].video.top)
+									.on('click', function() {
+										$('.location').fadeOut(2000);
+										setTimeout(function() {
+											console.log(settings);
+											console.log(i);
+											$('.location-more').show().append('<iframe style="position:absolute;height:100%;width:100%;" src="' + settings[i].video.path + '" frameborder="0" allowfullscreen autoplay></iframe>');
+										}, 2000);
+									});
+							})(i);
+						}
+						if(settings[i].label) {
+							$('.location-label')
+								.show()
+								.css('left', $('.location > div img').width() * i + settings[i].label.leftOffset)
+								.css('top', settings[i].label.top);
+							$('.location-label-text').html(settings[i].label.text);
 						}
 					}
 				}
