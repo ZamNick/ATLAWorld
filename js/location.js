@@ -43,9 +43,11 @@ Object.defineProperty(Location, '_instance', { value:
 				_x = e.pageX;
 				_y = e.pageY;
 				location.css('cursor', '-webkit-grabbing');
+
+				Label._instance.hide();
 			});
 
-			location.on('mouseup', function(e) {
+			location.on('mouseup', function() {
 				grabbed = false;
 				location.css('cursor', '-webkit-grab');
 			});
@@ -169,8 +171,6 @@ Object.defineProperty(Location, '_instance', { value:
 									.on('click', function() {
 										$('.location').fadeOut(2000);
 										setTimeout(function() {
-											console.log(settings);
-											console.log(i);
 											$('.location-more').show().append('<iframe style="position:absolute;height:100%;width:100%;" src="' + settings[i].video.path + '" frameborder="0" allowfullscreen autoplay></iframe>');
 										}, 2000);
 									});
@@ -180,7 +180,13 @@ Object.defineProperty(Location, '_instance', { value:
 							$('.location-label')
 								.show()
 								.css('left', $('.location > div img').width() * i + settings[i].label.leftOffset)
-								.css('top', settings[i].label.top);
+								.css('top', settings[i].label.top)
+								.on('click', function() {
+									Label._instance.updateLabel({
+										title: "Avatar Kyoshi",
+										text: "dhajs hajkshd kjashdkj haskjdh kajshdkj ashdjkh asjkhd jashdjkh askjhdaskjdh"
+									});
+								});
 							$('.location-label-text').html(settings[i].label.text);
 						}
 					}

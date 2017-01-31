@@ -158,10 +158,6 @@ h1 {
 	display: none;
 	height: 100%;
 	width: 100%;
-	/*
-	background-size: cover !important;
-	background-repeat: no-repeat;
-	*/
 	filter: grayscale(.5);
 }
 
@@ -298,4 +294,45 @@ h1 {
 .location-label-text {
 	margin-top: 15px;
 	text-transform: uppercase;
+}
+
+.location-label-info {
+	display: none;
+	position: absolute;
+	left: 0;
+	background: #660066;
+	z-index: 1;
+	max-width: 450px;
+	padding: 25px 20px;
+	height: 100%;
+	box-shadow: inset 0 20px 150px #000;
+	box-sizing: border-box;
+	text-align: center;
+}
+
+.location-label-info h1 {
+	font-size: 40px;
+	padding: 0;
+}
+
+.location-label-info span {
+	color: #FFF;
+	font-size: 25px;
+	line-height: 45px;
+}
+
+.location-label-info-line {
+	border: 1px solid #FFF;
+	margin: 20px 0;
+}
+
+.location-label-info-drag {
+	position: relative;
+	top: 85px;
+	cursor: -webkit-grab;
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-drag: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
 }

@@ -70,6 +70,14 @@
 		</span>
 		{{/if}}
 	</script>
+
+	<script id='handlebars-location-label-info' type='text/x-handlebars-template'>
+		<div class='location-label-info-drag'>
+			<h1>{{ title }}</h1>
+			<div class='location-label-info-line'></div>
+			<span>{{ text }}</span>
+		</div>
+	</script>
 </head>
 <body>
 	<div class='start'>
@@ -79,12 +87,14 @@
 	<div class='load-location'></div>
 	<div class='location'></div>
 	<div class='location-more'></div>
+	<div class='location-label-info'></div>
 	<div class='preview'></div>
 
 	<!-- CUSTOME -->
 	<script src='./js/constants.js'></script>
 	<script src='./js/loader.js'></script>
 	<script src='./js/location.js'></script>
+	<script src='./js/label.js'></script>
 	<script src='./js/audioPlayer.js'></script>
 	<script src='./js/abstractController.js'></script>
 	<script src='./js/windowController.js'></script>
