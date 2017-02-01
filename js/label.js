@@ -44,6 +44,8 @@ Object.defineProperty(Label, '_instance', { value:
 		return {
 			updateLabel: function(data) {
 
+				if(label.is(':visible')) return;
+
 				var template = $('#handlebars-location-label-info').html();
 				var templateScript = Handlebars.compile(template);
 
@@ -68,11 +70,21 @@ Object.defineProperty(Label, '_instance', { value:
 			},
 
 			show: function() {
-				label.show();
+
+				label.slideDown(500);
+
+				var labelDragArea = $('.location-label-info-drag');
+
+				setTimeout(function() {
+					labelDragArea.fadeIn(500);
+				}, 300);
 			},
 
 			hide: function() {
-				label.hide();
+				// var labelDragArea = $('.location-label-info-drag');
+				// labelDragArea.fadeOut(200);
+				// label.slideUp(500);
+				label.fadeOut(150);
 			}
 		};
 	})()

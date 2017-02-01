@@ -275,18 +275,23 @@ h1 {
 	z-index: 1;
 	color: #424242;
 	text-align: center;
+	transition: all 0.3s linear;
+	-webkit-transition: all 0.3s linear;
+	-moz-transition: all 0.3s linear;
+	-o-transition: all 0.3s linear;
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-drag: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
 }
 
 .location-video, .location-label i {
 	font-size: 100px;
 	text-shadow: 1px 2px 5px #000;
-	transition: all 0.3s linear;
-	-webkit-transition: all 0.3s linear;
-	-moz-transition: all 0.3s linear;
-	-o-transition: all 0.3s linear;
 }
 
-.location-video:hover, .location-label i:hover {
+.location-video:hover, .location-label:hover {
 	cursor: pointer;
 	opacity: .7;
 }
@@ -302,7 +307,7 @@ h1 {
 	left: 0;
 	background: #660066;
 	z-index: 1;
-	max-width: 450px;
+	width: 450px;
 	padding: 25px 20px;
 	height: 100%;
 	box-shadow: inset 0 20px 150px #000;
@@ -318,6 +323,7 @@ h1 {
 .location-label-info span {
 	color: #FFF;
 	font-size: 25px;
+	font-style: italic;
 	line-height: 45px;
 }
 
@@ -327,6 +333,7 @@ h1 {
 }
 
 .location-label-info-drag {
+	display: none;
 	position: relative;
 	top: 85px;
 	cursor: -webkit-grab;
