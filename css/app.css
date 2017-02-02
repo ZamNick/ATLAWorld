@@ -305,7 +305,7 @@ h1 {
 	display: none;
 	position: absolute;
 	left: 0;
-	background: #660066;
+	background: rgb(62, 75, 94);
 	z-index: 1;
 	width: 450px;
 	padding: 25px 20px;
@@ -342,4 +342,11 @@ h1 {
 	-webkit-user-drag: none;
 	-webkit-user-select: none;
 	-ms-user-select: none;
+}
+
+.location-label-info-drag-transition {
+	transition: top 0.5s ease-out;
+	-webkit-transition: top 0.5s ease-out;
+	-moz-transition: top 0.5s ease-out;
+	-o-transition: top 0.5s ease-out;
 }

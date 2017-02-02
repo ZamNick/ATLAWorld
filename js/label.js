@@ -18,11 +18,27 @@ Object.defineProperty(Label, '_instance', { value:
 				_x = e.pageX;
 				_y = e.pageY;
 				elem.css('cursor', '-webkit-grabbing');
+				elem.removeClass('location-label-info-drag-transition');
 			});
 
 			elem.on('mouseup', function() {
 				grabbed = false;
 				elem.css('cursor', '-webkit-grab');
+
+				var top = parseInt(elem.css('top'));
+				var dist = top - 85;
+				
+				var halfElemHeight = -Math.floor($(elem).height() / 2);
+
+				if(dist > 0) {
+					elem.css('top', 85);
+					elem.addClass('location-label-info-drag-transition');
+				}
+
+				if(top < halfElemHeight) {
+					elem.css('top', halfElemHeight);
+					elem.addClass('location-label-info-drag-transition');	
+				}
 			});
 
 			elem.on('mousemove', function(e) {
@@ -34,7 +50,20 @@ Object.defineProperty(Label, '_instance', { value:
 					_x = e.pageX;
 					_y = e.pageY;
 
-					currentTopPosition = parseInt(elem.css('top')) + e.movementY;
+					var dist;
+					var top = parseInt(elem.css('top'));
+					var halfElemHeight = -Math.floor($(elem).height() / 2);
+					
+					if(top > 85) {
+						dist = top - 85;
+						currentTopPosition = top + Math.min(10 * (e.movementY / dist), e.movementY);
+					} else if(top < halfElemHeight) {
+						dist = -(top - halfElemHeight);
+						console.log(e.movementY, 10 * (e.movementY / dist));
+						currentTopPosition = top + Math.max(10 * (e.movementY / dist), e.movementY);
+					} else {
+						currentTopPosition = top + e.movementY;
+					}
 
 					elem.css('top', currentTopPosition);
 				}
@@ -80,11 +109,8 @@ Object.defineProperty(Label, '_instance', { value:
 				}, 300);
 			},
 
-			hide: function() {
-				// var labelDragArea = $('.location-label-info-drag');
-				// labelDragArea.fadeOut(200);
-				// label.slideUp(500);
-				label.fadeOut(150);
+			hide: function() {				
+				label.fadeOut(250);
 			}
 		};
 	})()
