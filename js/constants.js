@@ -15,6 +15,25 @@ var CONSTANTS = {
 		MIN: 700
 	},
 
+	LOADER: {
+		SPINNER: {
+			START: '.start-spinner',
+			LOCATION: '.load-location-spinner',
+			CONTEXT: '2d',
+			RADIUS: 50,
+			LOADED: {
+				LINE_WIDTH: 5,
+				STROKE_STYLE: 'lightblue',
+				SHADOW_COLOR: 'white',
+				SHADOW_BLUR: 20
+			},
+			UNLOADED: {
+				LINE_WIDTH: 1,
+				STROKE_STYLE: 'white'
+			}
+		}
+	},
+
 	IMAGES: [
 		'img/map.png',
 		'img/cloud.png',

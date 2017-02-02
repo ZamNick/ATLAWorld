@@ -14,10 +14,10 @@ Object.defineProperty(Loader, '_instance', { value:
 
 		var _updateSpinner = function(loaded, unloaded, _spinner) {
 
-			var context = _spinner.getContext('2d');
+			var context = _spinner.getContext(CONSTANTS.LOADER.SPINNER.CONTEXT);
 			var centerX = _spinner.width / 2;
 			var centerY = _spinner.height / 2;
-			var radius = 50;
+			var radius = CONSTANTS.LOADER.SPINNER.RADIUS;
 			var endArc = 2 * Math.PI * (loaded / unloaded);
 
 			context.clearRect(0, 0, _spinner.width, _spinner.height);
@@ -28,15 +28,15 @@ Object.defineProperty(Loader, '_instance', { value:
 
 			context.beginPath();
 			context.arc(centerX, centerY, radius, 0, endArc, false);
-			context.lineWidth = 5;
-			context.strokeStyle = 'lightblue';
-			context.shadowColor = 'white';
-			context.shadowBlur = 20;
+			context.lineWidth = CONSTANTS.LOADER.SPINNER.LOADED.LINE_WIDTH;
+			context.strokeStyle = CONSTANTS.LOADER.SPINNER.LOADED.STROKE_STYLE;
+			context.shadowColor = CONSTANTS.LOADER.SPINNER.LOADED.SHADOW_COLOR;
+			context.shadowBlur = CONSTANTS.LOADER.SPINNER.LOADED.SHADOW_BLUR;
 			context.stroke();
 			context.beginPath();
 			context.arc(centerX, centerY, radius, endArc, 2 * Math.PI, false);
-			context.lineWidth = 1;
-			context.strokeStyle = 'white';
+			context.lineWidth = CONSTANTS.LOADER.SPINNER.UNLOADED.LINE_WIDTH;
+			context.strokeStyle = CONSTANTS.LOADER.SPINNER.UNLOADED.STROKE_STYLE;
 			context.stroke();
 
 			context.translate(centerX, centerY);
@@ -115,7 +115,7 @@ Object.defineProperty(Loader, '_instance', { value:
 			},
 
 			loadLocation: function(location, callback) {
-				var _spinner = document.getElementsByClassName('load-location-spinner')[0];
+				var _spinner = $(CONSTANTS.LOADER.SPINNER.LOCATION)[0];
 				var self = this;
 				self.loadImages(location.urls, _spinner, 0, location.urls.length + location.audio.length)
 					.then(function() {
@@ -126,7 +126,7 @@ Object.defineProperty(Loader, '_instance', { value:
 			},
 
 			init: function(images, callback) {	
-				var _spinner = document.getElementsByClassName('start-spinner')[0];
+				var _spinner = $(CONSTANTS.LOADER.SPINNER.START)[0];
 				this.loadImages(images, _spinner, 0, images.length).then(function() { callback(); });
 			},
 
@@ -138,6 +138,12 @@ Object.defineProperty(Loader, '_instance', { value:
 					_audioLoader.load(path, function(sound) {
 						_audio[soundName] = sound;
 						resolve();
+					},
+					function(xhr) {
+						console.log('[' + Math.round(xhr.loaded / xhr.total * 100) + '%] ' + path );
+					},
+					function(xhr) {
+						console.err('Something going wrong. Error occured while loading audio: ' + path);
 					});
 				});
 			},
