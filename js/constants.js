@@ -56,17 +56,6 @@ var CONSTANTS = {
 		SEGMENTS: 32
 	},
 
-	SLICK: {
-		CONTAINER: '.container',
-		SETTINGS: {
-			dots: true,
-			arrows: false,
-			slidesToShow: 1,
-			slidesToScroll: 1,
-			speed: 300
-		}
-	},
-
 	CLOUDS: [
 		{
 			NAME: "cloud",

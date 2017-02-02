@@ -20,8 +20,6 @@ World.prototype.init = function() {
 	var mouseController = new MouseController(this.camera);
 
 	this.domEvents = new THREEx.DomEvents(this.camera, this.renderer.domElement);
-
-	$(CONSTANTS.SLICK.CONTAINER).slick(CONSTANTS.SLICK.SETTINGS);
 };
 
 World.prototype.start = function() {
