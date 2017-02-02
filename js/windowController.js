@@ -1,3 +1,5 @@
+'use strict';
+
 function WindowController(camera, renderer, world) {
 
     AbstractController.call(this, camera);

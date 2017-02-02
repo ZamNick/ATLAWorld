@@ -1,3 +1,5 @@
+'use strict';
+
 window.onload = function() {
 	Loader._instance.init(CONSTANTS.IMAGES, function() {
 		$('.start').fadeOut(2000);

@@ -1,3 +1,5 @@
+'use strict';
+
 function World() { }
 
 World.prototype.init = function() {

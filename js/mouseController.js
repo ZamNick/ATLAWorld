@@ -1,3 +1,5 @@
+'use strict';
+
 function MouseController(camera) {
 
 	AbstractController.call(this, camera);

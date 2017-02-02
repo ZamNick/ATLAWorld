@@ -1,3 +1,5 @@
+'use strict';
+
 var CONSTANTS = {
 
 	CAMERA: {
@@ -311,6 +313,10 @@ var CONSTANTS = {
 		SETTINGS: {
 			NAME: 'map',
 			SEGMENTS: 32,
+			SIZE: {
+				X: 3600,
+				Y: 1844
+			},
 			BOUNDING_BOX: {
 				X: 4000,
 				Y: 2000,
