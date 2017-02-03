@@ -4,40 +4,32 @@ function WindowController(camera, renderer, world) {
 
     AbstractController.call(this, camera);
 
+    var _scale = 0;
+    var _delta = 0;
     var _self = this;
-
-    function onWindowResize(e) {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-
-        renderer.setSize(window.innerWidth, window.innerHeight);
-    };
-
-    window.addEventListener('resize', function(e) { onWindowResize(e); }, false);
-
     var _addOnWheel = function(elem, handler) {
         if (elem.addEventListener) {
             if ('onwheel' in document) {
-              elem.addEventListener("wheel", handler); // IE9+, FF17+
+              elem.addEventListener("wheel", handler);
             } else if ('onmousewheel' in document) {
-                elem.addEventListener("mousewheel", handler); // устаревший вариант события
+                elem.addEventListener("mousewheel", handler);
             } else {
-                elem.addEventListener("MozMousePixelScroll", handler); // 3.5 <= Firefox < 17, более старое событие DOMMouseScroll пропустим
+                elem.addEventListener("MozMousePixelScroll", handler);
             }
         } else {
-            text.attachEvent("onmousewheel", handler); // IE8-
+            elem.attachEvent("onmousewheel", handler);
         }
     }
 
     _addOnWheel(document, function(e) {
 
-        var scale = 0;
-        var delta = e.deltaY || e.detail || e.wheelDelta;
+        _scale = 0;
+        _delta = e.deltaY || e.detail || e.wheelDelta;
 
-        if (delta > 0) scale += 10;
-        else scale -= 10;
+        if (_delta > 0) _scale += CONSTANTS.SCALE.DELTA;
+        else _scale -= CONSTANTS.SCALE.DELTA;
 
-        camera.position.z += scale;
+        camera.position.z += _scale;
         camera.position.z = Math.min(camera.position.z, CONSTANTS.SCALE.MAX);
         camera.position.z = Math.max(camera.position.z, CONSTANTS.SCALE.MIN);
 
@@ -53,4 +45,13 @@ function WindowController(camera, renderer, world) {
 
         _self.updateCameraPosition();
     });
+
+    function onWindowResize() {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    };
+
+    window.addEventListener('resize', function() { onWindowResize(); }, false);
 }

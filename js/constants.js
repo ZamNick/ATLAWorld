@@ -12,7 +12,8 @@ var CONSTANTS = {
 
 	SCALE: {
 		MAX: 2200,
-		MIN: 700
+		MIN: 700,
+		DELTA: 10
 	},
 
 	LOADER: {
