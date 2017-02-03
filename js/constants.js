@@ -34,6 +34,20 @@ var CONSTANTS = {
 		}
 	},
 
+	LABEL_INFO: {
+		CLASS: '.location-label-info',
+		SLIDE_DOWN_DURATION: 500,
+		FADE_OUT_DURATION: 250,
+		DRAG_AREA: {
+			CLASS: '.location-label-info-drag',
+			TRANSITION_CLASS: 'location-label-info-drag-transition',
+			FADE_IN_DURATION: 500,
+			FADE_IN_DELAY: 300,
+			MAX_TOP: 85,
+			COMPRESS_COEFFICIENT: 10
+		}
+	},
+
 	IMAGES: [
 		'img/map.png',
 		'img/cloud.png',

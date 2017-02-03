@@ -5,64 +5,66 @@ var Label = {};
 Object.defineProperty(Label, '_instance', { value: 
 	(function() {
 
-		var grabbed = false;
 		var _x = 0;
 		var _y = 0;
+		var grabbed = false;
+		var labelDragArea = null;
 		var currentTopPosition = 0;
-		var label = $('.location-label-info');
+		var label = $(CONSTANTS.LABEL_INFO.CLASS);
 
 		var attachEvents = function(elem) {
 
 			elem.on('mousedown', function(e) {
+				
 				grabbed = true;
+				
 				_x = e.pageX;
 				_y = e.pageY;
+				
 				elem.css('cursor', '-webkit-grabbing');
-				elem.removeClass('location-label-info-drag-transition');
+				elem.removeClass(CONSTANTS.LABEL_INFO.DRAG_AREA.TRANSITION_CLASS);
 			});
 
 			elem.on('mouseup', function() {
-				grabbed = false;
-				elem.css('cursor', '-webkit-grab');
-
-				var top = parseInt(elem.css('top'));
-				var dist = top - 85;
 				
+				var top = parseInt(elem.css('top'));
+				var dist = top - CONSTANTS.LABEL_INFO.DRAG_AREA.MAX_TOP;
 				var halfElemHeight = -Math.floor($(elem).height() / 2);
 
+				grabbed = false;
+				
+				elem.css('cursor', '-webkit-grab');
+
 				if(dist > 0) {
-					elem.css('top', 85);
-					elem.addClass('location-label-info-drag-transition');
+					elem.css('top', CONSTANTS.LABEL_INFO.DRAG_AREA.MAX_TOP);
+					elem.addClass(CONSTANTS.LABEL_INFO.DRAG_AREA.TRANSITION_CLASS);
 				}
 
 				if(top < halfElemHeight) {
 					elem.css('top', halfElemHeight);
-					elem.addClass('location-label-info-drag-transition');	
+					elem.addClass(CONSTANTS.LABEL_INFO.DRAG_AREA.TRANSITION_CLASS);
 				}
 			});
 
 			elem.on('mousemove', function(e) {
 				if(grabbed) {
 
-					e.movementX = e.pageX - _x;
-					e.movementY = e.pageY - _y;
+					var dist = 0;
+					var top = parseInt(elem.css('top'));
+					var halfElemHeight = -Math.floor($(elem).height() / 2);
+					var deltaY = e.pageY - _y;
 
 					_x = e.pageX;
 					_y = e.pageY;
-
-					var dist;
-					var top = parseInt(elem.css('top'));
-					var halfElemHeight = -Math.floor($(elem).height() / 2);
 					
-					if(top > 85) {
-						dist = top - 85;
-						currentTopPosition = top + Math.min(10 * (e.movementY / dist), e.movementY);
+					if(top > CONSTANTS.LABEL_INFO.DRAG_AREA.MAX_TOP) {
+						dist = top - CONSTANTS.LABEL_INFO.DRAG_AREA.MAX_TOP;
+						currentTopPosition = top + Math.min(CONSTANTS.LABEL_INFO.DRAG_AREA.COMPRESS_COEFFICIENT * (deltaY / dist), deltaY);
 					} else if(top < halfElemHeight) {
 						dist = -(top - halfElemHeight);
-						console.log(e.movementY, 10 * (e.movementY / dist));
-						currentTopPosition = top + Math.max(10 * (e.movementY / dist), e.movementY);
+						currentTopPosition = top + Math.max(CONSTANTS.LABEL_INFO.DRAG_AREA.COMPRESS_COEFFICIENT * (deltaY / dist), deltaY);
 					} else {
-						currentTopPosition = top + e.movementY;
+						currentTopPosition = top + deltaY;
 					}
 
 					elem.css('top', currentTopPosition);
@@ -77,15 +79,12 @@ Object.defineProperty(Label, '_instance', { value:
 
 				var template = $('#handlebars-location-label-info').html();
 				var templateScript = Handlebars.compile(template);
-
-				var html = templateScript({
-					title: data.title,
-					text: data.text
-				});
+				var html = templateScript(data);
 
 				label[0].innerHTML = '';
 				label.append(html);
 
+				labelDragArea = $(CONSTANTS.LABEL_INFO.DRAG_AREA.CLASS);
 				currentTopPosition = 0;
 				grabbed = false;
 				_x = 0;
@@ -93,24 +92,20 @@ Object.defineProperty(Label, '_instance', { value:
 
 				this.show();
 
-				var labelDragArea = $('.location-label-info-drag');
-
 				attachEvents(labelDragArea);
 			},
 
 			show: function() {
 
-				label.slideDown(500);
-
-				var labelDragArea = $('.location-label-info-drag');
+				label.slideDown(CONSTANTS.LABEL_INFO.SLIDE_DOWN_DURATION);
 
 				setTimeout(function() {
-					labelDragArea.fadeIn(500);
-				}, 300);
+					labelDragArea.fadeIn(CONSTANTS.LABEL_INFO.DRAG_AREA.FADE_IN_DURATION);
+				}, CONSTANTS.LABEL_INFO.DRAG_AREA.FADE_IN_DELAY);
 			},
 
 			hide: function() {				
-				label.fadeOut(250);
+				label.fadeOut(CONSTANTS.LABEL_INFO.FADE_OUT_DURATION);
 			}
 		};
 	})()
