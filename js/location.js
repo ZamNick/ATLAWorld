@@ -18,21 +18,24 @@ Object.defineProperty(Location, '_instance', { value:
 		var _y = 0;
 		
 		var location = $(CONSTANTS.LOCATION.CLASS);
+		var locationTitle = null;
+		var locationVideo = null;
+		var locationLabel = null;
 
 		var updateLocationText = function() {
 			
 			var _w = $('.location > div img').width();
 			var _h = $('.location > div img').height();
 
-			var _ww = $(CONSTANTS.LOCATION.TITLE).width();
-			var _hh = $(CONSTANTS.LOCATION.TITLE).height();
+			var _ww = locationTitle.width();
+			var _hh = locationTitle.height();
 
-			$(CONSTANTS.LOCATION.TITLE).css('top', (_h / 2) - _hh);
-			$(CONSTANTS.LOCATION.TITLE).css('left', (_w - _ww) / 2);
+			locationTitle.css('top', (_h / 2) - _hh);
+			locationTitle.css('left', (_w - _ww) / 2);
 
 			for(var i = 0; i < images.length; ++i) {
 				if(settings[i] && settings[i].video) {
-					$('.location-video').css('left', $('.location > div img').width() * (i + 1) - settings[i].video.leftOffset);
+					locationVideo.css('left', $('.location > div img').width() * (i + 1) - settings[i].video.leftOffset);
 				}
 				if(settings[i] && settings[i].label) {
 					$('.location-label').css('left', $('.location > div img').width() * i + settings[i].label.leftOffset)
@@ -155,9 +158,14 @@ Object.defineProperty(Location, '_instance', { value:
 				currentTranslate = 0;
 				currentLeftPosition = 0;
 				currentImage = 0;
+				
 				grabbed = false;
+
 				_x = 0;
 				_y = 0;
+
+				locationTitle = $(CONSTANTS.LOCATION.TITLE);
+				locationVideo = $(CONSTANTS.LOCATION.VIDEO);
 
 				updateLocationText();
 
@@ -173,8 +181,7 @@ Object.defineProperty(Location, '_instance', { value:
 						}
 						if(settings[i].video) {
 							(function(i) {
-								$('.location-video')
-									.show()
+								locationVideo.show()
 									.css('left', $('.location > div img').width() * (i + 1) - settings[i].video.leftOffset)
 									.css('top', settings[i].video.top)
 									.on('click', function() {
