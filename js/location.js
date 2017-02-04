@@ -22,6 +22,9 @@ Object.defineProperty(Location, '_instance', { value:
 		var locationTitle = null;
 		var locationVideo = null;
 		var locationLabel = null;
+		var locationMapIcon = null;
+		var locationIdentificator = null;
+		var locationExploreMore = null;
 
 		var updateLocationText = function() {
 			
@@ -101,17 +104,17 @@ Object.defineProperty(Location, '_instance', { value:
 					location.css('left', currentLeftPosition);
 
 					if(currentLeftPosition < 0) {
-						$('.location-map-icon').fadeOut(500);
-						$('.location-identificator').fadeOut(500);
+						locationMapIcon.fadeOut(500);
+						locationIdentificator.fadeOut(500);
 					} else {
-						$('.location-map-icon').fadeIn(500);
-						$('.location-identificator').fadeIn(500);
+						locationMapIcon.fadeIn(500);
+						locationIdentificator.fadeIn(500);
 					}
 
 					if(currentLeftPosition <= leftPositionBorder) {
-						$('.location-explore-more').fadeIn(500);
+						locationExploreMore.fadeIn(500);
 					} else {
-						$('.location-explore-more').fadeOut(500);
+						locationExploreMore.fadeOut(500);
 					}
 
 					currentTranslate = Math.max(currentTranslate, 0);
@@ -162,8 +165,11 @@ Object.defineProperty(Location, '_instance', { value:
 
 				locationTitle = $(CONSTANTS.LOCATION.TITLE);
 				locationVideo = $(CONSTANTS.LOCATION.VIDEO);
-				locationLabel = $(CONSTANTS.LOCATION.LABEL);
+				locationLabel = $(CONSTANTS.LOCATION.LABEL.CLASS);
 				locationImages = $(CONSTANTS.LOCATION.IMAGES);
+				locationMapIcon = $(CONSTANTS.LOCATION.MAP_ICON);
+				locationIdentificator = $(CONSTANTS.LOCATION.IDENTIFICATOR);
+				locationExploreMore = $(CONSTANTS.LOCATION.EXPLORE_MORE);
 
 				updateLocationText();
 
@@ -174,7 +180,7 @@ Object.defineProperty(Location, '_instance', { value:
 				for(var i = 0; i < data.urls.length && settings[i]; ++i) {
 					if(settings[i].parallax) {
 						$(locationImages.get(i)).css('transform', 'translate(-' + locationImages.width() * currentOffset + 'px, 0)');
-						currentOffset += 0.15
+						currentOffset += 0.15;
 					}
 					if(settings[i].video) {
 						(function(i) {
@@ -200,7 +206,7 @@ Object.defineProperty(Location, '_instance', { value:
 									Label._instance.updateLabel(settings[i].label.description);
 									e.stopPropagation();
 								});
-							$('.location-label-text').html(settings[i].label.text);	
+							$(CONSTANTS.LOCATION.LABEL.TEXT).html(settings[i].label.text);	
 						})(i);
 					}
 				}

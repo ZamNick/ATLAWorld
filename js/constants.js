@@ -53,8 +53,14 @@ var CONSTANTS = {
 		CLASS: '.location',
 		TITLE: '.location > h1',
 		VIDEO: '.location-video',
-		LABEL: '.location-label',
-		IMAGES: '.location > div img'
+		LABEL: {
+			CLASS: '.location-label',
+			TEXT: '.location-label-text'
+		},
+		IMAGES: '.location > div img',
+		MAP_ICON: '.location-map-icon',
+		IDENTIFICATOR: '.location-identificator',
+		EXPLORE_MORE: '.location-explore-more'
 	},
 
 	IMAGES: [
