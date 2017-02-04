@@ -34,11 +34,11 @@ Object.defineProperty(Location, '_instance', { value:
 			locationTitle.css('top', (_h / 2) - _hh);
 			locationTitle.css('left', (_w - _ww) / 2);
 
-			for(var i = 0; i < images.length; ++i) {
-				if(settings[i] && settings[i].video) {
+			for(var i = 0; i < images.length && settings[i]; ++i) {
+				if(settings[i].video) {
 					locationVideo.css('left', _w * (i + 1) - settings[i].video.leftOffset);
 				}
-				if(settings[i] && settings[i].label) {
+				if(settings[i].label) {
 					locationLabel.css('left', _w * i + settings[i].label.leftOffset)
 				}
 			}
@@ -167,43 +167,41 @@ Object.defineProperty(Location, '_instance', { value:
 
 				updateLocationText();
 
-				$(locationImages.get(0)).addClass('active');
+				locationImages.first().addClass('active');
 
 				var currentOffset = 0;
 
-				for(var i = 0; i < data.urls.length; ++i) {
-					if(settings[i]) {
-						if(settings[i].parallax) {
-							$(locationImages.get(i)).css('transform', 'translate(-' + $('.location > div img').width() * currentOffset + 'px, 0)');
-							currentOffset += 0.15
-						}
-						if(settings[i].video) {
-							(function(i) {
-								locationVideo
-									.show()
-									.css('left', locationImages.width() * (i + 1) - settings[i].video.leftOffset)
-									.css('top', settings[i].video.top)
-									.on('click', function() {
-										$(CONSTANTS.LOCATION.CLASS).fadeOut(2000);
-										setTimeout(function() {
-											$('.location-more').show().append('<iframe style="position:absolute;height:100%;width:100%;" src="' + settings[i].video.path + '" frameborder="0" allowfullscreen autoplay></iframe>');
-										}, 2000);
-									});
-							})(i);
-						}
-						if(settings[i].label) {
-							(function(i) {
-								locationLabel
-									.show()
-									.css('left', locationImages.width() * i + settings[i].label.leftOffset)
-									.css('top', settings[i].label.top)
-									.on('mousedown', function(e) {
-										Label._instance.updateLabel(settings[i].label.description);
-										e.stopPropagation();
-									});
-								$('.location-label-text').html(settings[i].label.text);	
-							})(i);
-						}
+				for(var i = 0; i < data.urls.length && settings[i]; ++i) {
+					if(settings[i].parallax) {
+						$(locationImages.get(i)).css('transform', 'translate(-' + locationImages.width() * currentOffset + 'px, 0)');
+						currentOffset += 0.15
+					}
+					if(settings[i].video) {
+						(function(i) {
+							locationVideo
+								.show()
+								.css('left', locationImages.width() * (i + 1) - settings[i].video.leftOffset)
+								.css('top', settings[i].video.top)
+								.on('click', function() {
+									$(CONSTANTS.LOCATION.CLASS).fadeOut(2000);
+									setTimeout(function() {
+										$('.location-more').show().append('<iframe style="position:absolute;height:100%;width:100%;" src="' + settings[i].video.path + '" frameborder="0" allowfullscreen autoplay></iframe>');
+									}, 2000);
+								});
+						})(i);
+					}
+					if(settings[i].label) {
+						(function(i) {
+							locationLabel
+								.show()
+								.css('left', locationImages.width() * i + settings[i].label.leftOffset)
+								.css('top', settings[i].label.top)
+								.on('mousedown', function(e) {
+									Label._instance.updateLabel(settings[i].label.description);
+									e.stopPropagation();
+								});
+							$('.location-label-text').html(settings[i].label.text);	
+						})(i);
 					}
 				}
 			}
