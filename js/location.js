@@ -15,17 +15,18 @@ Object.defineProperty(Location, '_instance', { value:
 		var grabbed = false;
 		
 		var _x = 0;
-		var _y = 0;
 		
 		var location = $(CONSTANTS.LOCATION.CLASS);
+
+		var locationImages = null;
 		var locationTitle = null;
 		var locationVideo = null;
 		var locationLabel = null;
 
 		var updateLocationText = function() {
 			
-			var _w = $('.location > div img').width();
-			var _h = $('.location > div img').height();
+			var _w = locationImages.width();
+			var _h = locationImages.height();
 
 			var _ww = locationTitle.width();
 			var _hh = locationTitle.height();
@@ -35,10 +36,10 @@ Object.defineProperty(Location, '_instance', { value:
 
 			for(var i = 0; i < images.length; ++i) {
 				if(settings[i] && settings[i].video) {
-					locationVideo.css('left', $('.location > div img').width() * (i + 1) - settings[i].video.leftOffset);
+					locationVideo.css('left', _w * (i + 1) - settings[i].video.leftOffset);
 				}
 				if(settings[i] && settings[i].label) {
-					$('.location-label').css('left', $('.location > div img').width() * i + settings[i].label.leftOffset)
+					locationLabel.css('left', _w * i + settings[i].label.leftOffset)
 				}
 			}
 		};
@@ -50,7 +51,6 @@ Object.defineProperty(Location, '_instance', { value:
 				grabbed = true;
 				
 				_x = e.pageX;
-				_y = e.pageY;
 				
 				location.css('cursor', '-webkit-grabbing');
 				
@@ -67,24 +67,21 @@ Object.defineProperty(Location, '_instance', { value:
 			location.on('mousemove', function(e) {
 				if(grabbed) {
 					
-					e.movementX = e.pageX - _x;
-					e.movementY = e.pageY - _y;
-					
-					_x = e.pageX;
-					_y = e.pageY;
-
-					var slideWidth = $('.location > div img').width();
+					var deltaX = e.pageX - _x;
+					var slideWidth = locationImages.width();
 					var POINT = slideWidth * 0.4;
 					var leftPositionBorder = -($(CONSTANTS.LOCATION.CLASS).width() - $(window).width());
 
-					currentLeftPosition = parseInt(location.css('left')) + e.movementX;
+					_x = e.pageX;
+
+					currentLeftPosition = parseInt(location.css('left')) + deltaX;
 					currentLeftPosition = Math.max(currentLeftPosition, leftPositionBorder);
 
 					if(currentLeftPosition > leftPositionBorder) {
-						currentTranslate -= e.movementX * 0.3;
+						currentTranslate -= deltaX * 0.3;
 					}
 
-					$($('.location > div img').get(currentImage)).removeClass('active');
+					$(locationImages.get(currentImage)).removeClass('active');
 					
 					if(Math.abs(currentLeftPosition) > currentImage * slideWidth + POINT) {
 						++currentImage;
@@ -98,7 +95,7 @@ Object.defineProperty(Location, '_instance', { value:
 						--currentImage;
 					}
 
-					$($('.location > div img').get(currentImage)).addClass('active');
+					$(locationImages.get(currentImage)).addClass('active');
 
 					currentLeftPosition = Math.min(currentLeftPosition, 0);
 					location.css('left', currentLeftPosition);
@@ -118,11 +115,11 @@ Object.defineProperty(Location, '_instance', { value:
 					}
 
 					currentTranslate = Math.max(currentTranslate, 0);
-					$('.location > div img').first().css('transform', 'translate(' + currentTranslate + 'px, 0)');
+					locationImages.first().css('transform', 'translate(' + currentTranslate + 'px, 0)');
 
 					for(var i = 1; i < images.length; ++i) {
 						if(settings[i] && settings[i].parallax) {
-							$($('.location > div img').get(i)).css('transform', 'translate(' + Math.min(-(POINT * settings[i].offset) + currentTranslate, 0) * settings[i].direction + 'px, 0)');
+							$(locationImages.get(i)).css('transform', 'translate(' + Math.min(-(POINT * settings[i].offset) + currentTranslate, 0) * settings[i].direction + 'px, 0)');
 						}
 					}
 				}
@@ -162,28 +159,29 @@ Object.defineProperty(Location, '_instance', { value:
 				grabbed = false;
 
 				_x = 0;
-				_y = 0;
 
 				locationTitle = $(CONSTANTS.LOCATION.TITLE);
 				locationVideo = $(CONSTANTS.LOCATION.VIDEO);
+				locationLabel = $(CONSTANTS.LOCATION.LABEL);
+				locationImages = $(CONSTANTS.LOCATION.IMAGES);
 
 				updateLocationText();
 
-				$($('.location > div img').get(0)).addClass('active');
+				$(locationImages.get(0)).addClass('active');
 
 				var currentOffset = 0;
 
 				for(var i = 0; i < data.urls.length; ++i) {
 					if(settings[i]) {
 						if(settings[i].parallax) {
-							$($('.location > div img').get(i)).css('transform', 'translate(-' + $('.location > div img').width() * currentOffset + 'px, 0)');
+							$(locationImages.get(i)).css('transform', 'translate(-' + $('.location > div img').width() * currentOffset + 'px, 0)');
 							currentOffset += 0.15
 						}
 						if(settings[i].video) {
 							(function(i) {
 								locationVideo
 									.show()
-									.css('left', $('.location > div img').width() * (i + 1) - settings[i].video.leftOffset)
+									.css('left', locationImages.width() * (i + 1) - settings[i].video.leftOffset)
 									.css('top', settings[i].video.top)
 									.on('click', function() {
 										$(CONSTANTS.LOCATION.CLASS).fadeOut(2000);
@@ -195,9 +193,9 @@ Object.defineProperty(Location, '_instance', { value:
 						}
 						if(settings[i].label) {
 							(function(i) {
-								$('.location-label')
+								locationLabel
 									.show()
-									.css('left', $('.location > div img').width() * i + settings[i].label.leftOffset)
+									.css('left', locationImages.width() * i + settings[i].label.leftOffset)
 									.css('top', settings[i].label.top)
 									.on('mousedown', function(e) {
 										Label._instance.updateLabel(settings[i].label.description);

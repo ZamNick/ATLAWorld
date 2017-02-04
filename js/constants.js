@@ -52,7 +52,9 @@ var CONSTANTS = {
 	LOCATION: {
 		CLASS: '.location',
 		TITLE: '.location > h1',
-		VIDEO: '.location-video'
+		VIDEO: '.location-video',
+		LABEL: '.location-label',
+		IMAGES: '.location > div img'
 	},
 
 	IMAGES: [
