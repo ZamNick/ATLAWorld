@@ -26,7 +26,7 @@ Object.defineProperty(Location, '_instance', { value:
 		var locationIdentificator = null;
 		var locationExploreMore = null;
 
-		var updateLocationText = function() {
+		var updateLocationElements = function() {
 			
 			var _w = locationImages.width();
 			var _h = locationImages.height();
@@ -104,17 +104,17 @@ Object.defineProperty(Location, '_instance', { value:
 					location.css('left', currentLeftPosition);
 
 					if(currentLeftPosition < 0) {
-						locationMapIcon.fadeOut(500);
-						locationIdentificator.fadeOut(500);
+						locationMapIcon.fadeOut(CONSTANTS.LOCATION.FADE_OUT_DURATION);
+						locationIdentificator.fadeOut(CONSTANTS.LOCATION.FADE_OUT_DURATION);
 					} else {
-						locationMapIcon.fadeIn(500);
-						locationIdentificator.fadeIn(500);
+						locationMapIcon.fadeIn(CONSTANTS.LOCATION.FADE_IN_DURATION);
+						locationIdentificator.fadeIn(CONSTANTS.LOCATION.FADE_IN_DURATION);
 					}
 
 					if(currentLeftPosition <= leftPositionBorder) {
-						locationExploreMore.fadeIn(500);
+						locationExploreMore.fadeIn(CONSTANTS.LOCATION.FADE_IN_DURATION);
 					} else {
-						locationExploreMore.fadeOut(500);
+						locationExploreMore.fadeOut(CONSTANTS.LOCATION.FADE_OUT_DURATION);
 					}
 
 					currentTranslate = Math.max(currentTranslate, 0);
@@ -129,7 +129,7 @@ Object.defineProperty(Location, '_instance', { value:
 			});
 		})();
 
-		$(window).resize(function() { updateLocationText(); });
+		$(window).resize(function() { updateLocationElements(); });
 
 		return {
 			updateLocation: function(data) {
@@ -171,7 +171,7 @@ Object.defineProperty(Location, '_instance', { value:
 				locationIdentificator = $(CONSTANTS.LOCATION.IDENTIFICATOR);
 				locationExploreMore = $(CONSTANTS.LOCATION.EXPLORE_MORE);
 
-				updateLocationText();
+				updateLocationElements();
 
 				locationImages.first().addClass('active');
 

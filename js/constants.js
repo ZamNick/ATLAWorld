@@ -60,7 +60,9 @@ var CONSTANTS = {
 		IMAGES: '.location > div img',
 		MAP_ICON: '.location-map-icon',
 		IDENTIFICATOR: '.location-identificator',
-		EXPLORE_MORE: '.location-explore-more'
+		EXPLORE_MORE: '.location-explore-more',
+		FADE_IN_DURATION: 500,
+		FADE_OUT_DURATION: 500
 	},
 
 	IMAGES: [
