@@ -181,7 +181,8 @@ Object.defineProperty(Location, '_instance', { value:
 						}
 						if(settings[i].video) {
 							(function(i) {
-								locationVideo.show()
+								locationVideo
+									.show()
 									.css('left', $('.location > div img').width() * (i + 1) - settings[i].video.leftOffset)
 									.css('top', settings[i].video.top)
 									.on('click', function() {
@@ -193,18 +194,17 @@ Object.defineProperty(Location, '_instance', { value:
 							})(i);
 						}
 						if(settings[i].label) {
-							$('.location-label')
-								.show()
-								.css('left', $('.location > div img').width() * i + settings[i].label.leftOffset)
-								.css('top', settings[i].label.top)
-								.on('mousedown', function(e) {
-									Label._instance.updateLabel({
-										title: "Avatar Kyoshi",
-										text: "Kyoshi was the Earth Kingdom-born Avatar immediately succeeding Avatar Kuruk of the Northern Water Tribe, and preceding Avatar Roku of the Fire Nation. She died at the age of 230, making her the oldest known human. Kyoshi was a tall woman, towering over most people, and also possessed the largest feet of any Avatar. Her traditional weapons were golden metal fans which, in addition to her manner of dress and style of fighting, were adopted by the Kyoshi Warriors of Kyoshi Island, her homeland."
+							(function(i) {
+								$('.location-label')
+									.show()
+									.css('left', $('.location > div img').width() * i + settings[i].label.leftOffset)
+									.css('top', settings[i].label.top)
+									.on('mousedown', function(e) {
+										Label._instance.updateLabel(settings[i].label.description);
+										e.stopPropagation();
 									});
-									e.stopPropagation();
-								});
-							$('.location-label-text').html(settings[i].label.text);
+								$('.location-label-text').html(settings[i].label.text);	
+							})(i);
 						}
 					}
 				}
