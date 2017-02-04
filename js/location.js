@@ -7,24 +7,28 @@ Object.defineProperty(Location, '_instance', { value:
 
 		var images = [];
 		var settings = [];
+
 		var currentTranslate = 0;
 		var currentLeftPosition = 0;
 		var currentImage = 0;
+
 		var grabbed = false;
+		
 		var _x = 0;
 		var _y = 0;
-		var location = $('.location');
+		
+		var location = $(CONSTANTS.LOCATION.CLASS);
 
 		var updateLocationText = function() {
 			
 			var _w = $('.location > div img').width();
 			var _h = $('.location > div img').height();
 
-			var _ww = $('.location > h1').width();
-			var _hh = $('.location > h1').height();
+			var _ww = $(CONSTANTS.LOCATION.TITLE).width();
+			var _hh = $(CONSTANTS.LOCATION.TITLE).height();
 
-			$('.location > h1').css('top', (_h / 2) - _hh + 'px');
-			$('.location > h1').css('left', (_w - _ww) / 2 + 'px');
+			$(CONSTANTS.LOCATION.TITLE).css('top', (_h / 2) - _hh);
+			$(CONSTANTS.LOCATION.TITLE).css('left', (_w - _ww) / 2);
 
 			for(var i = 0; i < images.length; ++i) {
 				if(settings[i] && settings[i].video) {
@@ -39,16 +43,21 @@ Object.defineProperty(Location, '_instance', { value:
 		(function() {
 				
 			location.on('mousedown', function(e) {
+				
 				grabbed = true;
+				
 				_x = e.pageX;
 				_y = e.pageY;
+				
 				location.css('cursor', '-webkit-grabbing');
 				
 				Label._instance.hide();
 			});
 
 			location.on('mouseup', function() {
+				
 				grabbed = false;
+				
 				location.css('cursor', '-webkit-grab');
 			});
 
@@ -63,7 +72,7 @@ Object.defineProperty(Location, '_instance', { value:
 
 					var slideWidth = $('.location > div img').width();
 					var POINT = slideWidth * 0.4;
-					var leftPositionBorder = -($('.location').width() - $(window).width());
+					var leftPositionBorder = -($(CONSTANTS.LOCATION.CLASS).width() - $(window).width());
 
 					currentLeftPosition = parseInt(location.css('left')) + e.movementX;
 					currentLeftPosition = Math.max(currentLeftPosition, leftPositionBorder);
@@ -169,7 +178,7 @@ Object.defineProperty(Location, '_instance', { value:
 									.css('left', $('.location > div img').width() * (i + 1) - settings[i].video.leftOffset)
 									.css('top', settings[i].video.top)
 									.on('click', function() {
-										$('.location').fadeOut(2000);
+										$(CONSTANTS.LOCATION.CLASS).fadeOut(2000);
 										setTimeout(function() {
 											$('.location-more').show().append('<iframe style="position:absolute;height:100%;width:100%;" src="' + settings[i].video.path + '" frameborder="0" allowfullscreen autoplay></iframe>');
 										}, 2000);

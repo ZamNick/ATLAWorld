@@ -49,6 +49,11 @@ var CONSTANTS = {
 		}
 	},
 
+	LOCATION: {
+		CLASS: '.location',
+		TITLE: '.location > h1'
+	},
+
 	IMAGES: [
 		'img/map.png',
 		'img/cloud.png',
