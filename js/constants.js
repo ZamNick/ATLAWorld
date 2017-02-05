@@ -61,6 +61,7 @@ var CONSTANTS = {
 		MAP_ICON: '.location-map-icon',
 		IDENTIFICATOR: '.location-identificator',
 		EXPLORE_MORE: '.location-explore-more',
+		MORE: '.location-more',
 		FADE_IN_DURATION: 500,
 		FADE_OUT_DURATION: 500
 	},

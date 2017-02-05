@@ -191,7 +191,7 @@ Object.defineProperty(Location, '_instance', { value:
 								.on('click', function() {
 									$(CONSTANTS.LOCATION.CLASS).fadeOut(2000);
 									setTimeout(function() {
-										$('.location-more').show().append('<iframe style="position:absolute;height:100%;width:100%;" src="' + settings[i].video.path + '" frameborder="0" allowfullscreen autoplay></iframe>');
+										VideoPlayer._instance.play(settings[i].video.path);
 									}, 2000);
 								});
 						})(i);
