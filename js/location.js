@@ -165,11 +165,11 @@ Object.defineProperty(Location, '_instance', { value:
 
 				locationTitle = $(CONSTANTS.LOCATION.TITLE);
 				locationVideo = $(CONSTANTS.LOCATION.VIDEO);
-				locationLabel = $(CONSTANTS.LOCATION.LABEL.CLASS);
 				locationImages = $(CONSTANTS.LOCATION.IMAGES);
 				locationMapIcon = $(CONSTANTS.LOCATION.MAP_ICON);
-				locationIdentificator = $(CONSTANTS.LOCATION.IDENTIFICATOR);
+				locationLabel = $(CONSTANTS.LOCATION.LABEL.CLASS);
 				locationExploreMore = $(CONSTANTS.LOCATION.EXPLORE_MORE);
+				locationIdentificator = $(CONSTANTS.LOCATION.IDENTIFICATOR);
 
 				updateLocationElements();
 
