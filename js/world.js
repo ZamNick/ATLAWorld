@@ -46,8 +46,16 @@ World.prototype.start = function() {
 
 	var plane = new THREE.Mesh(geometry, material);
 
-	this.domEvents.addEventListener(plane, 'click', function(e) {
+	this.domEvents.addEventListener(plane, 'click', function() {
 		
+		var preview = $('.preview');
+
+		if(preview.hasClass('preview-show')) {
+			preview.removeClass('preview-show');
+		}
+	});
+
+	this.domEvents.addEventListener(plane, 'touchstart', function() {
 		var preview = $('.preview');
 
 		if(preview.hasClass('preview-show')) {
@@ -96,6 +104,34 @@ World.prototype.start = function() {
 
 	var lastTab = null;
 
+	var togglePreview = function(e) {
+		
+		var preview = $('.preview');
+
+		if(preview.length && lastTab != e.target.name) {
+			if(!preview.hasClass('preview-show')) {
+				preview[0].innerHTML = '';
+				preview.toggleClass('preview-show');
+				Loader._instance.loadJSON('/materials/' + e.target.name + '/data.json')
+								.then(function(data) { updatePreview(data); });
+			} else {
+				preview.toggleClass('preview-show');
+				setTimeout(function() {
+					Loader._instance.loadJSON('/materials/' + e.target.name + '/data.json')
+									.then(function(data) { updatePreview(data); });
+				}, 500);
+			}
+		} else if(!preview.length) {
+			Loader._instance.loadJSON('/materials/' + e.target.name + '/data.json')
+							.then(function(data) { updatePreview(data); });
+		} else {
+			preview.toggleClass('preview-show');
+		}
+
+		lastTab = e.target.name;
+		e.stopPropagation();
+	}
+
 	for(var i = 0; i < CONSTANTS.MAP.ARRAY.length; ++i) {
 
 		texture = new THREE.Texture();
@@ -120,33 +156,13 @@ World.prototype.start = function() {
 		plane.name = CONSTANTS.MAP.ARRAY[i].NAME;
 
 		this.domEvents.addEventListener(plane, 'click', function(e) {
-
-			var preview = $('.preview');
-
-			if(preview.length && lastTab != e.target.name) {
-				if(!preview.hasClass('preview-show')) {
-					preview[0].innerHTML = '';
-					preview.toggleClass('preview-show');
-					Loader._instance.loadJSON('/materials/' + e.target.name + '/data.json')
-									.then(function(data) { updatePreview(data); });
-				} else {
-					preview.toggleClass('preview-show');
-					setTimeout(function() {
-						Loader._instance.loadJSON('/materials/' + e.target.name + '/data.json')
-										.then(function(data) { updatePreview(data); });
-					}, 500);
-				}
-			} else if(!preview.length) {
-				Loader._instance.loadJSON('/materials/' + e.target.name + '/data.json')
-								.then(function(data) { updatePreview(data); });
-			} else {
-				preview.toggleClass('preview-show');
-			}
-	
-			lastTab = e.target.name;
-			e.stopPropagation();
+			togglePreview(e);
 		});
 		
+		this.domEvents.addEventListener(plane, 'touchstart', function(e) {
+			togglePreview(e);
+		});
+
 		this.scene.add(plane);
 	}
 
