@@ -262,7 +262,7 @@ function updatePreview(data) {
 		preview.removeClass('preview-show');
 		
 		var mainCanvas = $("body > canvas")[0];
-		$(mainCanvas).fadeOut(2000);
+		$(mainCanvas).fadeOut(CONSTANTS.COMMON.FADE_OUT_DURATION);
 
 		setTimeout(function() {
 
@@ -283,7 +283,7 @@ function updatePreview(data) {
 
 			Loader._instance.loadLocation(data, function() {
 
-				loadLocationSection.fadeOut(2000);
+				loadLocationSection.fadeOut(CONSTANTS.COMMON.FADE_OUT_DURATION);
 
 				/*
 				var audioListener = new THREE.AudioListener();
@@ -300,9 +300,9 @@ function updatePreview(data) {
 				
 				setTimeout(function() {
 					Location._instance.updateLocation(data);
-				}, 2000);
+				}, CONSTANTS.COMMON.FADE_OUT_DURATION);
 			});
-		}, 2000);
+		}, CONSTANTS.COMMON.FADE_OUT_DURATION);
 	});
 }
 

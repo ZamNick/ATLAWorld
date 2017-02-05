@@ -189,10 +189,10 @@ Object.defineProperty(Location, '_instance', { value:
 								.css('left', locationImages.width() * (i + 1) - settings[i].video.leftOffset)
 								.css('top', settings[i].video.top)
 								.on('click', function() {
-									$(CONSTANTS.LOCATION.CLASS).fadeOut(2000);
+									$(CONSTANTS.LOCATION.CLASS).fadeOut(CONSTANTS.COMMON.FADE_OUT_DURATION);
 									setTimeout(function() {
 										VideoPlayer._instance.play(settings[i].video.path);
-									}, 2000);
+									}, CONSTANTS.COMMON.FADE_OUT_DURATION);
 								});
 						})(i);
 					}

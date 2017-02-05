@@ -2,11 +2,11 @@
 
 window.onload = function() {
 	Loader._instance.init(CONSTANTS.IMAGES, function() {
-		$('.start').fadeOut(2000);
+		$('.start').fadeOut(CONSTANTS.COMMON.FADE_OUT_DURATION);
 		setTimeout(function() {
 			var world = new World();
 			world.init();
 			world.start();
-		}, 2000);
+		}, CONSTANTS.COMMON.FADE_OUT_DURATION);
 	});
 }

@@ -16,6 +16,12 @@ var CONSTANTS = {
 		DELTA: 10
 	},
 
+	COMMON: {
+		MILLISECONDS: 1000,
+		FADE_OUT_DURATION: 2000,
+		FADE_IN_DURATION: 2000
+	},
+
 	LOADER: {
 		SPINNER: {
 			START: '.start-spinner',
