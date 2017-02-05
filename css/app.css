@@ -207,13 +207,13 @@ h1 {
 }
 
 .location-map-icon {
+	position: absolute;
 	height: 40px;
 	width: 40px;
-	position: absolute;
 	left: 30px;
 	top: 30px;
 	z-index: 1;
-	color: #fff;
+	cursor: pointer;
 }
 
 .location-identificator {

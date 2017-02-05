@@ -154,6 +154,7 @@ Object.defineProperty(Location, '_instance', { value:
 
 				location[0].innerHTML = '';
 				location.append(html);
+				location.show();
 
 				currentTranslate = 0;
 				currentLeftPosition = 0;
@@ -170,6 +171,13 @@ Object.defineProperty(Location, '_instance', { value:
 				locationLabel = $(CONSTANTS.LOCATION.LABEL.CLASS);
 				locationExploreMore = $(CONSTANTS.LOCATION.EXPLORE_MORE);
 				locationIdentificator = $(CONSTANTS.LOCATION.IDENTIFICATOR);
+
+				locationMapIcon.on('click', function() {
+					location.fadeOut(CONSTANTS.COMMON.FADE_OUT_DURATION);
+					setTimeout(function() {
+						$('body > canvas').fadeIn(CONSTANTS.COMMON.FADE_IN_DURATION);
+					}, CONSTANTS.COMMON.FADE_OUT_DURATION);
+				});
 
 				updateLocationElements();
 
