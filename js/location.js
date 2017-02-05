@@ -67,6 +67,13 @@ Object.defineProperty(Location, '_instance', { value:
 				location.css('cursor', '-webkit-grab');
 			});
 
+			location.on('mouseleave', function() {
+
+				grabbed = false;
+
+				location.css('cursor', '-webkit-grab');
+			});
+
 			location.on('mousemove', function(e) {
 				if(grabbed) {
 					
