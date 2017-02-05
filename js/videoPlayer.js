@@ -14,22 +14,19 @@ Object.defineProperty(VideoPlayer, '_instance', { value:
 
 				videotag.addEventListener('durationchange', function() {
 
-					var playingTime = videotag.duration * CONSTANTS.COMMON.MILLISECONDS;
-
 					$(CONSTANTS.LOCATION.MORE)[0].innerHTML = '';
 					$(CONSTANTS.LOCATION.MORE).show().append(videotag);
 
 					videotag.play();
+				});
 
+				videotag.addEventListener('ended', function() {
+
+					$(CONSTANTS.LOCATION.MORE).fadeOut(CONSTANTS.COMMON.FADE_OUT_DURATION);
+					
 					setTimeout(function() {
-						
-						$(CONSTANTS.LOCATION.MORE).fadeOut(CONSTANTS.COMMON.FADE_OUT_DURATION);
-						
-						setTimeout(function() {
-							$(CONSTANTS.LOCATION.CLASS).fadeIn(CONSTANTS.COMMON.FADE_IN_DURATION);
-						}, CONSTANTS.COMMON.FADE_OUT_DURATION);
-
-					}, playingTime);
+						$(CONSTANTS.LOCATION.CLASS).fadeIn(CONSTANTS.COMMON.FADE_IN_DURATION);
+					}, CONSTANTS.COMMON.FADE_OUT_DURATION);
 				});
 			}
 		};
