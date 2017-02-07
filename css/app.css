@@ -131,7 +131,24 @@ h1 {
 	background: url(../img/background.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
+	background-position: 0 -60px;
 	filter: grayscale(.5);
+}
+
+.start footer {
+	position: fixed;
+	height: 60px;
+	bottom: 0;
+	width: 100%;
+	background: #3F3F3F;
+	display: flex;
+	align-items: center;
+	padding-left: 20px;
+}
+
+.start footer img {
+	height: 30px;
+	opacity: .7;
 }
 
 .load-location {
@@ -333,4 +350,17 @@ h1 {
 	-webkit-transition: top 0.5s ease-out;
 	-moz-transition: top 0.5s ease-out;
 	-o-transition: top 0.5s ease-out;
+}
+
+@media (max-width: 800px) {
+	.start h1 {
+		font-size: 50px;
+		padding: 50px 5% 30px;
+	}
+}
+
+@media (max-width: 400px) {
+	.start h1 {
+		font-size: 40px;
+	}
 }
