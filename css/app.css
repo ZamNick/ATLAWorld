@@ -122,7 +122,7 @@ h1 {
 	width: 200px;
 	height: 100px;
 	display: block;
-	margin: 0 auto;
+	margin: 15px auto;
 }
 
 .start {
@@ -137,10 +137,10 @@ h1 {
 
 .start footer {
 	position: fixed;
-	height: 60px;
+	height: 50px;
 	bottom: 0;
 	width: 100%;
-	background: #3F3F3F;
+	background: rgb(34, 33, 36);
 	display: flex;
 	align-items: center;
 	padding-left: 20px;
@@ -149,6 +149,13 @@ h1 {
 .start footer img {
 	height: 30px;
 	opacity: .7;
+}
+
+.start-logo {
+	height: 200px;
+	margin: auto;
+	display: block;
+	padding-top: 30px;
 }
 
 .load-location {
@@ -168,10 +175,6 @@ h1 {
 
 .load-location-text {
 	padding: 50px 15% 0px;
-}
-
-.load-location-spinner {
-	margin: 15px auto;
 }
 
 .location {
@@ -350,17 +353,4 @@ h1 {
 	-webkit-transition: top 0.5s ease-out;
 	-moz-transition: top 0.5s ease-out;
 	-o-transition: top 0.5s ease-out;
-}
-
-@media (max-width: 800px) {
-	.start h1 {
-		font-size: 50px;
-		padding: 50px 5% 30px;
-	}
-}
-
-@media (max-width: 400px) {
-	.start h1 {
-		font-size: 40px;
-	}
 }
