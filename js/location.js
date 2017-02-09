@@ -179,6 +179,9 @@ Object.defineProperty(Location, '_instance', { value:
 				locationExploreMore = $(CONSTANTS.LOCATION.EXPLORE_MORE);
 				locationIdentificator = $(CONSTANTS.LOCATION.IDENTIFICATOR);
 
+				location.on('dragstart', function() { return false; });
+				location.attr('draggable', false);
+
 				locationMapIcon.on('click', function() {
 					location.fadeOut(CONSTANTS.COMMON.FADE_OUT_DURATION);
 					setTimeout(function() {
