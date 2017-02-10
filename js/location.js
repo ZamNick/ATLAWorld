@@ -87,8 +87,8 @@ Object.defineProperty(Location, '_instance', { value:
 					currentLeftPosition = parseInt(location.css('left')) + deltaX;
 					currentLeftPosition = Math.max(currentLeftPosition, leftPositionBorder);
 
-					if(currentLeftPosition > leftPositionBorder) {
-						currentTranslate -= deltaX * 0.3;
+					if(currentLeftPosition >= leftPositionBorder) {
+						currentTranslate = -currentLeftPosition * 0.3;
 					}
 
 					$(locationImages.get(currentImage)).removeClass('active');
@@ -125,6 +125,7 @@ Object.defineProperty(Location, '_instance', { value:
 					}
 
 					currentTranslate = Math.max(currentTranslate, 0);
+
 					locationImages.first().css('transform', 'translate(' + currentTranslate + 'px, 0)');
 
 					for(var i = 1; i < images.length; ++i) {
