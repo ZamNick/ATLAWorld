@@ -4,30 +4,49 @@ var VideoPlayer = {};
 
 Object.defineProperty(VideoPlayer, '_instance', { value: 
 	(function() {
+
+		var _videotag = document.createElement('video');
+
 		return {
 			play: function(path) {
 
-				var videotag = document.createElement('video');
+				var self = this;
 
-				videotag.src = path;
-				videotag.controls = true;
+				_videotag.src = path;
+				_videotag.controls = true;
 
-				videotag.addEventListener('durationchange', function() {
+				_videotag.addEventListener('durationchange', function() {
 
 					$(CONSTANTS.LOCATION.MORE)[0].innerHTML = '';
-					$(CONSTANTS.LOCATION.MORE).show().append(videotag);
 
-					videotag.play();
+					$(CONSTANTS.LOCATION.MORE)
+								.show()
+								.append("<img src='./img/close.png' style='position:absolute;color:white;right:12px;z-index:1;cursor:pointer'>")
+								.append(_videotag);
+
+					$(CONSTANTS.LOCATION.MORE)
+								.find('img')
+								.on('click', function() { self.stop(); });
+
+					_videotag.play();
 				});
 
-				videotag.addEventListener('ended', function() {
+				_videotag.addEventListener('ended', function() { self.stop(); });
+			},
 
-					$(CONSTANTS.LOCATION.MORE).fadeOut(CONSTANTS.COMMON.FADE_OUT_DURATION);
-					
-					setTimeout(function() {
-						$(CONSTANTS.LOCATION.CLASS).fadeIn(CONSTANTS.COMMON.FADE_IN_DURATION);
-					}, CONSTANTS.COMMON.FADE_OUT_DURATION);
-				});
+			stop: function() {
+
+				_videotag.pause();
+
+				$(CONSTANTS.LOCATION.MORE).fadeOut(CONSTANTS.COMMON.FADE_OUT_DURATION);
+
+				setTimeout(function() {
+
+					_videotag.currentTime = 0;
+
+					$(CONSTANTS.LOCATION.CLASS).fadeIn(CONSTANTS.COMMON.FADE_IN_DURATION);
+
+				}, CONSTANTS.COMMON.FADE_OUT_DURATION);
 			}
 		};
 	})()
