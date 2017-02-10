@@ -105,7 +105,7 @@ World.prototype.start = function() {
 	var lastTab = null;
 
 	var togglePreview = function(e) {
-		
+
 		var preview = $('.preview');
 
 		if(preview.length && lastTab != e.target.name) {
@@ -272,6 +272,10 @@ function updatePreview(data) {
 	var preview = $('.preview');
 	preview[0].innerHTML = '';
 	preview.append(html).addClass('preview-show');
+
+	$('.preview-close').on('click', function() {
+		$('.preview').toggleClass('preview-show');
+	});
 
 	$('.preview-search').on('click', function() {
 		

@@ -38,6 +38,22 @@ h1 {
 	-o-transition: left 0.5s ease-out;
 }
 
+.preview-close {
+	padding: 0;
+	border: none;
+	outline: none;
+	display: none;
+	cursor: pointer;
+	background: inherit;
+	margin: 5px 5px 0 auto;
+}
+
+.preview-close img {
+	border: 0 !important;
+	height: 40px !important;
+	width: 60px !important;
+}
+
 .preview img {
 	width: 100%;
 	filter: grayscale(.5);
@@ -353,4 +369,29 @@ h1 {
 	-webkit-transition: top 0.5s ease-out;
 	-moz-transition: top 0.5s ease-out;
 	-o-transition: top 0.5s ease-out;
+}
+
+@media (max-width: 800px) {
+	.preview {
+		width: 100%;
+		left: 0;
+		top: -100%;
+		overflow-y: scroll;
+		transition: top 0.5s ease-out;
+		-webkit-transition: top 0.5s ease-out;
+		-moz-transition: top 0.5s ease-out;
+		-o-transition: top 0.5s ease-out;
+	}
+	.preview-show {
+		top: 0;
+	}
+	.preview-close {
+		display: block;
+	}
+	.preview-name {
+		padding-top: 0;
+	}
+	.preview-search {
+		margin: 20px auto;
+	}
 }
