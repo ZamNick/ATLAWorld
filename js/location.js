@@ -27,6 +27,8 @@ Object.defineProperty(Location, '_instance', { value:
 		var locationExploreMore = null;
 
 		var updateLocationElements = function() {
+
+			if(!locationImages) return;
 			
 			var _w = locationImages.width();
 			var _h = locationImages.height();

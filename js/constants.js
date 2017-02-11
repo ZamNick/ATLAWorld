@@ -82,7 +82,6 @@ var CONSTANTS = {
 		'img/air.png',
 		'img/earth.png',
 		'img/fire.png',
-		'/materials/AangBanishmentOnSouthPole/AangBanishmentOnSouthPole_1.jpg',
 		'/materials/CrescentIsland/CrescentIsland_1.jpg',
 		'/materials/FireNationPrisonRig/FireNationPrisonRig_1.jpg',
 		'/materials/GaipanVillage/GaipanVillage_1.jpg',
@@ -394,13 +393,6 @@ var CONSTANTS = {
 				MARKER: "water",
 				X: -215,
 				Y: -742,
-				Z: 10
-			},
-			{
-				NAME: "AangBanishmentOnSouthPole",
-				MARKER: "water",
-				X: -190,
-				Y: -736,
 				Z: 10
 			},
 			{
