@@ -3,5 +3,11 @@
   "version": "0.0.1",
   "dependencies": {
     "three": "^0.82.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-sourcemaps": "^2.4.1",
+    "gulp-uglify": "^2.0.1"
   }
 }
