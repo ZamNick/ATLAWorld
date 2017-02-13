@@ -166,6 +166,8 @@ Object.defineProperty(Location, '_instance', { value:
 				location.append(html);
 				location.show();
 
+				AudioPlayer._instance.playSound(data.backgroundMusic);
+
 				currentTranslate = 0;
 				currentLeftPosition = 0;
 				currentImage = 0;
@@ -187,6 +189,7 @@ Object.defineProperty(Location, '_instance', { value:
 
 				locationMapIcon.on('click', function() {
 					location.fadeOut(CONSTANTS.COMMON.FADE_OUT_DURATION);
+					AudioPlayer._instance.stopAllSounds();
 					setTimeout(function() {
 						$('body > canvas').fadeIn(CONSTANTS.COMMON.FADE_IN_DURATION);
 					}, CONSTANTS.COMMON.FADE_OUT_DURATION);
@@ -211,6 +214,7 @@ Object.defineProperty(Location, '_instance', { value:
 								.css('top', settings[i].video.top)
 								.on('click', function() {
 									$(CONSTANTS.LOCATION.CLASS).fadeOut(CONSTANTS.COMMON.FADE_OUT_DURATION);
+									AudioPlayer._instance.pauseSounds();
 									setTimeout(function() {
 										VideoPlayer._instance.play(settings[i].video.path);
 									}, CONSTANTS.COMMON.FADE_OUT_DURATION);

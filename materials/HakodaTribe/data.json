@@ -9,5 +9,28 @@
 		"/materials/HakodaTribe/HakodaTribe_1.jpg",
 		"/materials/HakodaTribe/HakodaTribe_2.jpg", 
 		"/materials/HakodaTribe/HakodaTribe_3.jpg"
+	],
+	"audio": [
+		"/materials/HakodaTribe/HakodaTribe.mp3"
+	],
+	"backgroundMusic": {
+		"path": "/materials/HakodaTribe/HakodaTribe.mp3",
+		"loop": true,
+		"volume": 0.1
+	},
+	"settings": [
+		{
+			"parallax": true
+		},
+		{
+			"parallax": true,
+			"offset": 0.375,
+			"direction": 1
+		},
+		{
+			"parallax": true,
+			"offset": 1.2,
+			"direction": 1
+		}
 	]
 }

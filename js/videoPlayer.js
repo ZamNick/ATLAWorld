@@ -42,6 +42,8 @@ Object.defineProperty(VideoPlayer, '_instance', { value:
 
 				setTimeout(function() {
 
+					AudioPlayer._instance.restorePlaying();
+
 					_videotag.currentTime = 0;
 
 					$(CONSTANTS.LOCATION.CLASS).fadeIn(CONSTANTS.COMMON.FADE_IN_DURATION);

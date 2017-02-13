@@ -371,6 +371,26 @@ h1 {
 	-o-transition: top 0.5s ease-out;
 }
 
+.menu {
+	position: absolute;
+	z-index: 1;
+	width: 100%;
+}
+
+.menu__button {
+	cursor: pointer;
+	border: none;
+	outline: none;
+	background: transparent;
+	color: rgba(47, 47, 47, 0.5);
+	float: right;
+	padding: 12px;
+}
+
+.menu__button_padding-right {
+	padding-right: 30px;
+}
+
 @media (max-width: 800px) {
 	.preview {
 		width: 100%;

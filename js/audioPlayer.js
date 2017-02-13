@@ -7,6 +7,7 @@ Object.defineProperty(AudioPlayer, '_instance', { value:
 
 		var _audioListener = new THREE.AudioListener();
 		var _sounds = [];
+		var _paused = [];
 
 		return {
 
@@ -29,9 +30,12 @@ Object.defineProperty(AudioPlayer, '_instance', { value:
 				_sounds.push(_sound);
 			},
 
-			pauseAllSounds: function() {
+			pauseSounds: function() {
 				for(var i = 0; i < _sounds.length; ++i) {
-					_sounds[i].pause();
+					if(_sounds[i].isPlaying) {
+						_sounds[i].pause();
+						_paused.push(i);
+					}
 				}
 			},
 
@@ -42,9 +46,10 @@ Object.defineProperty(AudioPlayer, '_instance', { value:
 			},
 
 			restorePlaying: function() {
-				for(var i = 0; i < _sounds.length; ++i) {
-					_sounds[i].play();
+				for(var i = 0; i < _paused.length; ++i) {
+					_sounds[_paused[i]].play();
 				}
+				_paused = [];
 			}
 		};
 	})()

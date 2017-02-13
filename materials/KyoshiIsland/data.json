@@ -18,6 +18,11 @@
 		"/materials/KyoshiIsland/KyoshiIsland.mp3",
 		"/materials/KyoshiIsland/Aang.mp3"
 	],
+	"backgroundMusic": {
+		"path": "/materials/KyoshiIsland/KyoshiIsland.mp3",
+		"loop": true,
+		"volume": 0.1
+	},
 	"settings": [
 		{
 			"parallax": true
