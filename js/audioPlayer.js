@@ -22,18 +22,56 @@ Object.defineProperty(AudioPlayer, '_instance', { value:
 					_sound.setLoop(true);
 				}
 
-				if(settings && settings.volume) {
-					_sound.setVolume(settings.volume);
-				}
-
-				_sound.play();
 				_sounds.push(_sound);
+
+				this.fadeInSound(_sounds.length - 1, true);
+			},
+
+			fadeInSound: function(index, flag) {
+
+				var volume = 0;
+
+				_sounds[index].setVolume(volume);
+				
+				if(flag) _sounds[index].play();
+
+				var intervalId = setInterval(function() {
+
+					volume = Math.min(volume + 0.005, 0.1);
+
+					_sounds[index].setVolume(volume);
+
+					if(volume === 0.1) {
+						clearInterval(intervalId);
+					}
+
+				}, 50);
+			},
+
+			fadeOutSound: function(index, flag) {
+				
+				var volume = _sounds[index].getVolume();
+
+				var intervalId = setInterval(function() {
+
+					volume = Math.max(volume - 0.005, 0);
+					
+					_sounds[index].setVolume(volume);
+
+					if(!volume) {
+
+						if(flag) _sounds[index].stop();
+						
+						clearInterval(intervalId);
+					}
+
+				}, 50);
 			},
 
 			pauseSounds: function() {
 				for(var i = 0; i < _sounds.length; ++i) {
 					if(_sounds[i].isPlaying) {
-						_sounds[i].pause();
+						this.fadeOutSound(i, false);
 						_paused.push(i);
 					}
 				}
@@ -41,13 +79,13 @@ Object.defineProperty(AudioPlayer, '_instance', { value:
 
 			stopAllSounds: function() {
 				for(var i = 0; i < _sounds.length; ++i) {
-					_sounds[i].stop();
+					this.fadeOutSound(i, true);
 				}
 			},
 
 			restorePlaying: function() {
 				for(var i = 0; i < _paused.length; ++i) {
-					_sounds[_paused[i]].play();
+					this.fadeInSound(_paused[i], false);
 				}
 				_paused = [];
 			}
