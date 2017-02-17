@@ -22,6 +22,8 @@ Object.defineProperty(AudioPlayer, '_instance', { value:
 					_sound.setLoop(true);
 				}
 
+				_sound.settings = settings;
+
 				_sounds.push(_sound);
 
 				this.fadeInSound(_sounds.length - 1, true);
@@ -37,11 +39,11 @@ Object.defineProperty(AudioPlayer, '_instance', { value:
 
 				var intervalId = setInterval(function() {
 
-					volume = Math.min(volume + 0.005, 0.1);
+					volume = Math.min(volume + 0.005, _sounds[index].settings.volume);
 
 					_sounds[index].setVolume(volume);
 
-					if(volume === 0.1) {
+					if(volume === _sounds[index].settings.volume) {
 						clearInterval(intervalId);
 					}
 

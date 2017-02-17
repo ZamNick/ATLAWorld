@@ -8,10 +8,14 @@
 	"urls": [ 
 		"/materials/HakodaTribe/HakodaTribe_1.jpg",
 		"/materials/HakodaTribe/HakodaTribe_2.jpg", 
-		"/materials/HakodaTribe/HakodaTribe_3.jpg"
+		"/materials/HakodaTribe/HakodaTribe_3.jpg",
+		"/materials/HakodaTribe/HakodaTribe_4.jpg",
+		"/materials/HakodaTribe/HakodaTribe_5.jpg",
+		"/materials/HakodaTribe/HakodaTribe_6.jpg"
 	],
 	"audio": [
-		"/materials/HakodaTribe/HakodaTribe.mp3"
+		"/materials/HakodaTribe/HakodaTribe.mp3",
+		"/materials/HakodaTribe/Kanna.mp3"
 	],
 	"backgroundMusic": {
 		"path": "/materials/HakodaTribe/HakodaTribe.mp3",
@@ -30,6 +34,30 @@
 		{
 			"parallax": true,
 			"offset": 1.2,
+			"direction": 1
+		},
+		{
+
+		},
+		{
+			"label": {
+				"top": 30,
+				"leftOffset": 380,
+				"text": "Kanna",
+				"audio": {
+					"path": "/materials/HakodaTribe/Kanna.mp3",
+					"loop": false,
+					"volume": 1
+				},
+				"description": {
+					"title": "Kanna",
+					"text": " Nonbender and the oldest resident of the Southern Water Tribe. Although Kanna initially distrusted Aang, once he was revealed to be the Avatar, she regained hope, something, she remarked, that she had not felt for a long time."
+				}
+			}
+		},
+		{
+			"parallax": true,
+			"offset": 3.4,
 			"direction": 1
 		}
 	]

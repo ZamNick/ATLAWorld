@@ -228,6 +228,9 @@ Object.defineProperty(Location, '_instance', { value:
 								.css('left', locationImages.width() * i + settings[i].label.leftOffset)
 								.css('top', settings[i].label.top)
 								.on('mousedown', function(e) {
+									if(settings[i].label.audio) {
+										AudioPlayer._instance.playSound(settings[i].label.audio);
+									}
 									Label._instance.updateLabel(settings[i].label.description);
 									e.stopPropagation();
 								});
