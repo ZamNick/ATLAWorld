@@ -391,6 +391,14 @@ h1 {
 	padding-right: 30px;
 }
 
+.location-video-slide {
+	pointer-events: all !important;
+}
+
+.location-video-slide video {
+	height: 100%;
+}
+
 @media (max-width: 800px) {
 	.preview {
 		width: 100%;

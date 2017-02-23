@@ -47,6 +47,10 @@ Object.defineProperty(Location, '_instance', { value:
 					locationLabel.css('left', _w * i + settings[i].label.leftOffset)
 				}
 			}
+
+			var slideVideo = $('.location-video-slide video');
+			slideVideo.css('margin-left', -(slideVideo.width() - locationImages.width()) / 2);
+			slideVideo.css('margin-right', -(slideVideo.width() - locationImages.width()) / 2);
 		};
 
 		(function() {
@@ -154,11 +158,72 @@ Object.defineProperty(Location, '_instance', { value:
 
 				var template = $('#handlebars-location').html();
 				var templateScript = Handlebars.compile(template);
+				var video = null;
+
+				if(data.video) {
+					video = document.createElement('video');
+					// video.src = data.video;
+
+					var r = new XMLHttpRequest();
+					
+					r.onload = function() {
+
+						video.src = URL.createObjectURL(r.response);
+						
+						var slideVideo = $('.location-video-slide video');
+						slideVideo[0].src = URL.createObjectURL(r.response);
+						
+						slideVideo.css('margin-left', -(slideVideo.width() - locationImages.width()) / 2);
+						slideVideo.css('margin-right', -(slideVideo.width() - locationImages.width()) / 2);
+						slideVideo[0].currentTime = 0;
+
+						var _xx = 0;
+						var d = false;
+
+						slideVideo.on('mousedown', function(e) {
+							d = true;
+							_xx = e.pageX;
+						});
+
+						slideVideo.on('mouseup', function(e) {
+							d = false;
+							slideVideo[0].pause();
+						});
+
+						slideVideo.on('mouseleave', function(e) {
+							d = false;
+							slideVideo[0].pause();
+						});
+
+						slideVideo.on('mousemove', function(e) {
+
+							if(d) {
+							
+								var delta = -(e.pageX - _xx);
+
+								_xx = e.pageX;
+
+								if(delta > 0) {
+									slideVideo[0].play();
+								} else {
+									slideVideo[0].pause();
+								}
+							}
+						});
+					}
+
+					r.open('GET', data.video);
+					
+					r.responseType = 'blob';
+					
+					r.send();
+				}
 
 				var html = templateScript({
 					name: data.name,
 					nationality: data.nationality,
 					images: images,
+					video: video.outerHTML,
 					exploreMore: data.exploreMore
 				});
 

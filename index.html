@@ -63,6 +63,9 @@
 		{{#each images}}
 			<div>{{{ this }}}</div>
 		{{/each}}
+		{{#if video}}
+			<div class='location-video-slide'>{{{ video }}}</div>
+		{{/if}}
 		{{#if exploreMore}}
 		<span class='location-explore-more'>
 			<i class='fa fa-map-signs fa-2x'></i>
