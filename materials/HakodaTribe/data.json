@@ -8,12 +8,11 @@
 	"urls": [ 
 		"/materials/HakodaTribe/HakodaTribe_1.jpg",
 		"/materials/HakodaTribe/HakodaTribe_2.jpg", 
-		"/materials/HakodaTribe/HakodaTribe_3.jpg",
+		"/materials/HakodaTribe/Aang.mp4",
 		"/materials/HakodaTribe/HakodaTribe_4.jpg",
 		"/materials/HakodaTribe/HakodaTribe_5.jpg",
 		"/materials/HakodaTribe/HakodaTribe_6.jpg"
 	],
-	"video": "/materials/HakodaTribe/Aang.mp4",
 	"audio": [
 		"/materials/HakodaTribe/HakodaTribe.mp3",
 		"/materials/HakodaTribe/Kanna.mp3"
@@ -32,14 +31,8 @@
 			"offset": 0.375,
 			"direction": 1
 		},
-		{
-			"parallax": true,
-			"offset": 1.2,
-			"direction": 1
-		},
-		{
-
-		},
+		{ },
+		{ },
 		{
 			"label": {
 				"top": 30,

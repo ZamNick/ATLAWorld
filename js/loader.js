@@ -7,6 +7,7 @@ Object.defineProperty(Loader, '_instance', { value:
 
 		var _images = {};
 		var _audio = {};
+		var _video = {};
 
 		var _audioLoader = new THREE.AudioLoader();
 		var _loader = new THREE.ImageLoader();
@@ -52,6 +53,10 @@ Object.defineProperty(Loader, '_instance', { value:
 
 			getAudio: function(name) {
 				return _audio[name];
+			},
+
+			getVideo: function(name) {
+				return _video[name];
 			},
 
 			loadImage: function(path) {
@@ -105,6 +110,7 @@ Object.defineProperty(Loader, '_instance', { value:
 			loadJSON: function(path) {
 				return new Promise(function(resolve, reject) {
 					_xhr.open('GET', path, true);
+					_xhr.responseType = 'text';
 					_xhr.send();
 					_xhr.onreadystatechange = function() {
 						if(_xhr.readyState == 4 && _xhr.status == 200) {
@@ -115,14 +121,48 @@ Object.defineProperty(Loader, '_instance', { value:
 			},
 
 			loadLocation: function(location, callback) {
-				var _spinner = $(CONSTANTS.LOADER.SPINNER.LOCATION)[0];
+				
+				console.log('loadLocation');
+
 				var self = this;
-				self.loadImages(location.urls, _spinner, 0, location.urls.length + location.audio.length)
-					.then(function() {
-						return self.loadAudio(location.audio, _spinner, location.urls.length, location.urls.length + location.audio.length);	
-					}).then(function() {
-						callback();
-					});
+
+				var _spinner = $(CONSTANTS.LOADER.SPINNER.LOCATION)[0];
+
+				var _loaded = 0;
+				var _needLoad = location.urls.length + location.audio.length;
+				
+				var chain = self.loadImage(location.urls[0]);
+				_updateSpinner(_loaded, _needLoad, _spinner);
+				
+				for(var i = 1; i < location.urls.length; ++i) {
+					(function(i) {
+						chain = chain.then(function() {
+							_loaded++;
+							_updateSpinner(_loaded, _needLoad, _spinner);
+							var extension = location.urls[i].split('/').pop().split('.').pop();
+							if(extension === 'jpg') {
+								return self.loadImage(location.urls[i]);
+							} else {
+								return self.loadVideo(location.urls[i]);
+							}
+						});
+					})(i); 
+				}
+
+				for(var i = 0; i < location.audio.length; ++i) {
+					(function(i) {
+						chain = chain.then(function() {
+							_loaded++;
+							_updateSpinner(_loaded, _needLoad, _spinner);
+							return self.loadSound(location.audio[i]);
+						});
+					})(i);
+				}
+
+				return chain.then(function() {
+					_updateSpinner(++_loaded, _needLoad, _spinner);
+					callback();
+				});
 			},
 
 			init: function(images, callback) {	
@@ -143,8 +183,35 @@ Object.defineProperty(Loader, '_instance', { value:
 						console.log('[' + Math.round(xhr.loaded / xhr.total * 100) + '%] ' + path );
 					},
 					function(xhr) {
-						console.err('Something going wrong. Error occured while loading audio: ' + path);
+						console.err('Something going wrong. Error occured while loading sound: ' + path);
 					});
+				});
+			},
+
+			loadVideo: function(path) {
+
+				var videoName = path.split('/').pop().split('.')[0];
+
+				return new Promise(function(resolve, reject) {
+					_xhr.open('GET', path, true);
+					_xhr.responseType = 'blob';
+					_xhr.send();
+					_xhr.onreadystatechange = function() {
+						if(_xhr.readyState == 4 && _xhr.status == 200) {
+
+							var div = document.createElement('div');
+							div.className = 'location-video-slide';
+
+							var video = document.createElement('video');
+							video.src = URL.createObjectURL(_xhr.response);
+
+							div.append(video);
+
+							_video[videoName] = div;
+
+							resolve();
+						}
+					}
 				});
 			},
 

@@ -63,7 +63,7 @@ var CONSTANTS = {
 			CLASS: '.location-label',
 			TEXT: '.location-label-text'
 		},
-		IMAGES: '.location > div img',
+		IMAGES: '.location > div',
 		MAP_ICON: '.location-map-icon',
 		IDENTIFICATOR: '.location-identificator',
 		EXPLORE_MORE: '.location-explore-more',
