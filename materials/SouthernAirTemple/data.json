@@ -12,5 +12,21 @@
 		"/materials/SouthernAirTemple/SouthernAirTemple_4.jpg",
 		"/materials/SouthernAirTemple/SouthernAirTemple_5.jpg",
 		"/materials/SouthernAirTemple/SouthernAirTemple_6.jpg"
+	],
+	"audio": [
+		"/materials/SouthernAirTemple/SouthernAirTemple.mp3"
+	],
+	"backgroundMusic": {
+		"path": "/materials/SouthernAirTemple/SouthernAirTemple.mp3",
+		"loop": true,
+		"volume": 0.7
+	},
+	"settings": [
+		{},
+		{},
+		{},
+		{},
+		{},
+		{}
 	]
 }
