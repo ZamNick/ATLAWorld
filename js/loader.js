@@ -121,8 +121,6 @@ Object.defineProperty(Loader, '_instance', { value:
 			},
 
 			loadLocation: function(location, callback) {
-				
-				console.log('loadLocation');
 
 				var self = this;
 

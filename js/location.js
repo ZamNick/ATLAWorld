@@ -150,6 +150,7 @@ Object.defineProperty(Location, '_instance', { value:
 			var slideVideo = $('.location-video-slide video');
 			
 			slideVideo[0].currentTime = 0;
+			slideVideo[0].volume = 0;
 
 			var _xx = 0;
 			var d = false;
