@@ -283,6 +283,7 @@ function updatePreview(data) {
 		
 		var mainCanvas = $("body > canvas")[0];
 		$(mainCanvas).fadeOut(CONSTANTS.COMMON.FADE_OUT_DURATION);
+		$('.menu').fadeOut(CONSTANTS.COMMON.FADE_OUT_DURATION);
 
 		setTimeout(function() {
 

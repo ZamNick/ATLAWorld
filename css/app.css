@@ -372,9 +372,24 @@ h1 {
 }
 
 .menu {
-	position: absolute;
+	position: fixed;
 	z-index: 1;
-	width: 100%;
+	height: 100%;
+	right: 0;
+	border-top-left-radius: 145px;
+	border-bottom-left-radius: 145px;
+	transition: background 0.3s ease-out;
+	-webkit-transition: background 0.3s ease-out;
+	-moz-transition: background 0.3s ease-out;
+	-o-transition: background 0.3s ease-out;
+}
+
+.menu:hover {
+	background: black;
+}
+
+.menu:hover .menu__button {
+	color: white !important;
 }
 
 .menu__button {
@@ -384,11 +399,19 @@ h1 {
 	background: transparent;
 	color: rgba(47, 47, 47, 0.5);
 	float: right;
-	padding: 12px;
+	padding: 20px 40px;
+	transition: color 0.3s ease-out;
+	-webkit-transition: color 0.3s ease-out;
+	-moz-transition: color 0.3s ease-out;
+	-o-transition: color 0.3s ease-out;
 }
 
-.menu__button_padding-right {
-	padding-right: 30px;
+.menu__button i {
+	font-size: 5em;
+}
+
+.menu__button_padding_top {
+	padding-top: 110px;
 }
 
 .location-video-slide {

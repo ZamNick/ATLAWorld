@@ -49,8 +49,12 @@ Object.defineProperty(Location, '_instance', { value:
 			}
 
 			var slideVideo = $('.location-video-slide video');
-			slideVideo.css('margin-left', -(slideVideo.width() - locationSlides.width()) / 2);
-			slideVideo.css('margin-right', -(slideVideo.width() - locationSlides.width()) / 2);
+
+			/*
+			* 4px - offset for preventing black area around video camera.
+			*/
+			slideVideo.css('margin-left', -(slideVideo.width() - locationSlides.width() + 4) / 2);
+			slideVideo.css('margin-right', -(slideVideo.width() - locationSlides.width() + 4) / 2);
 		};
 
 		(function() {
@@ -243,6 +247,7 @@ Object.defineProperty(Location, '_instance', { value:
 					AudioPlayer._instance.stopAllSounds();
 					setTimeout(function() {
 						$('body > canvas').fadeIn(CONSTANTS.COMMON.FADE_IN_DURATION);
+						$('.menu').fadeIn(CONSTANTS.COMMON.FADE_IN_DURATION);
 					}, CONSTANTS.COMMON.FADE_OUT_DURATION);
 				});
 
