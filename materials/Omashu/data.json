@@ -14,5 +14,23 @@
 		"/materials/Omashu/Omashu_6.jpg",
 		"/materials/Omashu/Omashu_7.jpg",
 		"/materials/Omashu/Omashu_8.jpg"
+	],
+	"audio": [
+		"/materials/Omashu/Omashu.mp3"
+	],
+	"backgroundMusic": {
+		"path": "/materials/Omashu/Omashu.mp3",
+		"loop": true,
+		"volume": 0.1
+	},
+	"settings": [
+		{},
+		{},
+		{},
+		{},
+		{},
+		{},
+		{},
+		{}
 	]
 }
