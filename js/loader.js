@@ -8,6 +8,7 @@ Object.defineProperty(Loader, '_instance', { value:
 		var _images = {};
 		var _audio = {};
 		var _video = {};
+		var _files = {};
 
 		var _audioLoader = new THREE.AudioLoader();
 		var _loader = new THREE.ImageLoader();
@@ -57,6 +58,10 @@ Object.defineProperty(Loader, '_instance', { value:
 
 			getVideo: function(name) {
 				return _video[name];
+			},
+
+			getTextFile: function(name) {
+				return _files[name];
 			},
 
 			loadImage: function(path) {
@@ -230,6 +235,61 @@ Object.defineProperty(Loader, '_instance', { value:
 
 				return chain.then(function() {
 					_updateSpinner(++loaded, needLoad, _spinner);
+				});
+			},
+
+			loadTextFile: function(path) {
+				
+				var filename = path.split('/').pop().split('.')[0];
+
+				return new Promise(function(resolve, reject) {
+
+					_xhr.open('GET', path, true);
+					_xhr.responseType = 'text';
+					_xhr.send();
+
+					_xhr.onreadystatechange = function() {
+						if(_xhr.readyState == 4 && _xhr.status == 200) {
+
+							_files[filename] = _xhr.response;
+
+							resolve();
+
+						}
+					}
+				});
+			},
+
+			loadModule: function(name, callback) {
+				
+				var self = this;
+				var _spinner = $('.load-module-spinner')[0];
+
+				name = name.toUpperCase();
+				
+				var _loaded = 0;
+				var _needLoad = CONSTANTS.MODULES[name].length;
+				
+				var chain = this.loadTextFile(CONSTANTS.MODULES[name][0]);
+				_updateSpinner(_loaded, _needLoad, _spinner);
+				
+				for(var i = 1; i < CONSTANTS.MODULES[name].length; ++i) {
+					(function(i) {
+						chain = chain.then(function() {
+							_updateSpinner(++_loaded, _needLoad, _spinner);
+							var extension = CONSTANTS.MODULES[name][i].split('/').pop().split('.').pop();
+							if(extension === 'js') {
+								return self.loadTextFile(CONSTANTS.MODULES[name][i]);
+							} else {
+								return self.loadImage(CONSTANTS.MODULES[name][i]);
+							}
+						});
+					})(i);
+				}
+
+				return chain.then(function() {
+					_updateSpinner(++_loaded, _needLoad, _spinner);
+					callback();
 				});
 			}
 		};

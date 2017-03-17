@@ -134,7 +134,7 @@ h1 {
 	color: crimson;
 }
 
-.start-spinner, .load-location-spinner {
+.start-spinner, .load-location-spinner, .load-module-spinner {
 	width: 200px;
 	height: 100px;
 	display: block;
@@ -191,6 +191,10 @@ h1 {
 
 .load-location-text {
 	padding: 50px 15% 0px;
+}
+
+.load-module {
+	display: none;
 }
 
 .location {

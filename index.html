@@ -78,6 +78,11 @@
 			<span>{{ text }}</span>
 		</div>
 	</script>
+
+	<script id='handlebars-load-module' type='text/x-handlebars-template'>
+		<h1 class='load-module-name'>{{ name }}</h1>
+		<canvas class='load-module-spinner'></canvas>
+	</script>
 </head>
 <body>
 	<div class='start'>
@@ -91,13 +96,14 @@
 	<div class='location'></div>
 	<div class='location-more'></div>
 	<div class='location-label-info'></div>
+	<div class='load-module'></div>
 	<div class='preview'></div>
 
 	<div class='menu'>
 		<!--<button class='menu__button menu__button_padding-right' title='Menu'>
 			<i class='fa fa-3x fa-bars'></i>
 		</button>-->
-		<button class='menu__button menu__button_padding_top' title='Go to Space'>
+		<button class='menu__button menu__button_padding_top menu__button-go-to-space' title='Go to Space'>
 			<i class='fa fa-arrow-up'></i>
 		</button>
 	</div>

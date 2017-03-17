@@ -365,6 +365,21 @@ var CONSTANTS = {
 		]
 	},
 
+	MODULES: {
+		SPACE: [
+			'/modules/space/glow.png',
+			'/modules/space/lensflare0.png',
+			'/modules/space/lensflare2.png',
+			'/modules/space/lensflare3.png',
+			'/modules/space/map.png',
+			'/modules/space/moonmap.jpg',
+			'/modules/space/original.png',
+			'/modules/space/space.jpg',
+			'/modules/space/TrackballControls.js',
+			'/modules/space/app.js'
+		]
+	},
+
 	MAP: {
 		SETTINGS: {
 			NAME: 'map',
