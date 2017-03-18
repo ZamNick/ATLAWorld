@@ -17,10 +17,10 @@
 		"/materials/FireNationPrisonRig/FireNationPrisonRig_9.jpg"
 	],
 	"audio": [
-		"/materials/FireNationPrisonRig/FireNationPrisonRig.mp3"
+		"/materials/FireNationPrisonRig/FireNationPrisonRig_2.mp3"
 	],
 	"backgroundMusic": {
-		"path": "/materials/FireNationPrisonRig/FireNationPrisonRig.mp3",
+		"path": "/materials/FireNationPrisonRig/FireNationPrisonRig_2.mp3",
 		"loop": true,
 		"volume": 0.1
 	},
