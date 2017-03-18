@@ -15,5 +15,26 @@
 		"/materials/FireNationPrisonRig/FireNationPrisonRig_7.jpg",
 		"/materials/FireNationPrisonRig/FireNationPrisonRig_8.jpg",
 		"/materials/FireNationPrisonRig/FireNationPrisonRig_9.jpg"
+	],
+	"audio": [
+		"/materials/FireNationPrisonRig/FireNationPrisonRig.mp3"
+	],
+	"backgroundMusic": {
+		"path": "/materials/FireNationPrisonRig/FireNationPrisonRig.mp3",
+		"loop": true,
+		"volume": 0.1
+	},
+	"settings": [
+		{
+			"parallax": true
+		},
+		{ },
+		{ },
+		{ },
+		{ },
+		{ },
+		{ },
+		{ },
+		{ }
 	]
 }

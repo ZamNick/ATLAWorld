@@ -9,6 +9,7 @@
 		"/materials/MiningVillage/MiningVillage_1.jpg",
 		"/materials/MiningVillage/MiningVillage_2.jpg",
 		"/materials/MiningVillage/MiningVillage_3.jpg",
+		"/materials/MiningVillage/MiningVillage_4.jpg",
 		"/materials/MiningVillage/MiningVillage.mp4",
 		"/materials/MiningVillage/MiningVillage_5.jpg",
 		"/materials/MiningVillage/MiningVillage_6.jpg"
@@ -40,6 +41,11 @@
 		{ 
 			"parallax": true,
 			"offset": 3.4,
+			"direction": 1
+		},
+		{ 
+			"parallax": true,
+			"offset": 4.2,
 			"direction": 1
 		}
 	]
