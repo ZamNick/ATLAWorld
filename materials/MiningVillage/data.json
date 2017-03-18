@@ -36,7 +36,20 @@
 			"offset": 1.2,
 			"direction": 1
 		},
-		{ },
+		{
+			"parallax": true,
+			"offset": 1.9,
+			"direction": 1,
+			"label": {
+				"top": 500,
+				"leftOffset": 100,
+				"text": "Haru",
+				"description": {
+					"title": "Haru",
+					"text": "Strong young boy, earthbender, whose Earth Kingdom village was occupied by Fire Nation troops. His father Tyro was took away into the Fire Nation Prison Rig near the west coast of Earth Kingdom. One of the best friend of team Avatar."
+				}
+			}
+		},
 		{ },
 		{ 
 			"parallax": true,
