@@ -14,5 +14,23 @@
 		"/materials/TreetopHideout/TreetopHideout_6.jpg",
 		"/materials/TreetopHideout/TreetopHideout_7.jpg",
 		"/materials/TreetopHideout/TreetopHideout_8.jpg"
+	],
+	"audio": [
+		"/materials/TreetopHideout/TreetopHideout.mp3"
+	],
+	"backgroundMusic": {
+		"path": "/materials/TreetopHideout/TreetopHideout.mp3",
+		"loop": true,
+		"volume": 0.1
+	},
+	"settings": [
+		{ },
+		{ },
+		{ },
+		{ },
+		{ },
+		{ },
+		{ },
+		{ }
 	]
 }

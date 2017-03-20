@@ -14,5 +14,23 @@
 		"/materials/CrescentIsland/CrescentIsland_6.jpg",
 		"/materials/CrescentIsland/CrescentIsland_7.jpg",
 		"/materials/CrescentIsland/CrescentIsland_8.jpg"
+	],
+	"audio": [
+		"/materials/CrescentIsland/CrescentIsland.mp3"
+	],
+	"backgroundMusic": {
+		"path": "/materials/CrescentIsland/CrescentIsland.mp3",
+		"loop": true,
+		"volume": 0.1
+	},
+	"settings": [
+		{},
+		{},
+		{},
+		{},
+		{},
+		{},
+		{},
+		{}
 	]
 }
