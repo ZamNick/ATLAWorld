@@ -6,8 +6,6 @@
 	"government": "<a target='_blank' href='http://avatar.wikia.com/wiki/Hei_Bai'>Hei Bai spirit</a>",
 	"lookLocation": false,
 	"urls": [
-		"/materials/ScorchedForest/ScorchedForest_1.jpg",
-		"/materials/ScorchedForest/ScorchedForest_2.jpg",
-		"/materials/ScorchedForest/ScorchedForest_3.jpg"
+		"/materials/ScorchedForest/ScorchedForest_1.jpg"
 	]
 }
