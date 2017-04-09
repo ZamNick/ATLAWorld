@@ -17,5 +17,26 @@
 		"/materials/TheGreatDivide/TheGreatDivide_9.jpg",
 		"/materials/TheGreatDivide/TheGreatDivide_10.jpg",
 		"/materials/TheGreatDivide/TheGreatDivide_11.jpg"
+	],
+	"audio": [
+		"/materials/TheGreatDivide/TheGreatDivide.mp3"
+	],
+	"backgroundMusic": {
+		"path": "/materials/TheGreatDivide/TheGreatDivide.mp3",
+		"loop": true,
+		"volume": 0.1
+	},
+	"settings": [
+		{},
+		{},
+		{},
+		{},
+		{},
+		{},
+		{},
+		{},
+		{},
+		{},
+		{}
 	]
 }

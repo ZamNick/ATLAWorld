@@ -3,7 +3,7 @@
 	"nationality": "earth",
 	"location": "Western Earth Kingdom / Southern United Republic of Nations",
 	"position": "Uninhabited",
-	"lookLocation": true,
+	"lookLocation": false,
 	"urls": [
 		"/materials/WaterfallLagoon/WaterfallLagoon_1.jpg",
 		"/materials/WaterfallLagoon/WaterfallLagoon_2.jpg",

@@ -12,5 +12,22 @@
 		"/materials/TradingVillage/TradingVillage_5.jpg",
 		"/materials/TradingVillage/TradingVillage_6.jpg",
 		"/materials/TradingVillage/TradingVillage_7.jpg"
+	],
+	"audio": [
+		"/materials/TradingVillage/TradingVillage.mp3"
+	],
+	"backgroundMusic": {
+		"path": "/materials/TradingVillage/TradingVillage.mp3",
+		"loop": true,
+		"volume": 0.1
+	},
+	"settings": [
+		{},
+		{},
+		{},
+		{},
+		{},
+		{},
+		{}
 	]
 }
