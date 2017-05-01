@@ -12,5 +12,21 @@
 		"/materials/HerbalistInstitute/HerbalistInstitute_4.jpg",
 		"/materials/HerbalistInstitute/HerbalistInstitute_5.jpg",
 		"/materials/HerbalistInstitute/HerbalistInstitute_6.jpg"
+	],
+	"audio": [
+		"/materials/HerbalistInstitute/HerbalistInstitute.mp3"
+	],
+	"backgroundMusic": {
+		"path": "/materials/HerbalistInstitute/HerbalistInstitute.mp3",
+		"loop": true,
+		"volume": 0.1
+	},
+	"settings": [
+		{},
+		{},
+		{},
+		{},
+		{},
+		{}
 	]
 }
