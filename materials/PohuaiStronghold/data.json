@@ -16,5 +16,25 @@
 		"/materials/PohuaiStronghold/PohuaiStronghold_8.jpg",
 		"/materials/PohuaiStronghold/PohuaiStronghold_9.jpg",
 		"/materials/PohuaiStronghold/PohuaiStronghold_10.jpg"
+	],
+	"audio": [
+		"/materials/PohuaiStronghold/PohuaiStronghold.mp3"
+	],
+	"backgroundMusic": {
+		"path": "/materials/PohuaiStronghold/PohuaiStronghold.mp3",
+		"loop": true,
+		"volume": 0.1
+	},
+	"settings": [
+		{},
+		{},
+		{},
+		{},
+		{},
+		{},
+		{},
+		{},
+		{},
+		{}
 	]
 }
